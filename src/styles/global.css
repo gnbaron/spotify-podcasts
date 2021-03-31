@@ -1,0 +1,87 @@
+@import './variables';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(#212121, #121212);
+  color: var(--color-white);
+  font-family: "Helvetica Neue", sans-serif,  Helvetica, Arial;
+  line-height: 1.5;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-light-grey);
+  border: 4px solid transparent;
+  border-radius: 16px;
+  background-clip: padding-box;
+  min-height: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-dark-grey);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
