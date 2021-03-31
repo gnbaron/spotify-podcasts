@@ -15,7 +15,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     response_type: 'code',
     client_id: CLIENT_ID,
     scope: scope,
-    redirect_uri: 'http://localhost:3000/api/auth/callback',
+    redirect_uri: 'http://localhost:3000/api/auth/callback', // TODO: update redirect URLs
     state: state,
   })
 

@@ -7,7 +7,7 @@ import { STATE_KEY } from './login'
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const code = req.query.code || null
   const state = req.query.state || null
   const storedState = req.cookies ? req.cookies[STATE_KEY] : null
@@ -19,27 +19,26 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
     const auth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 
-    fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      body: `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/api/auth/callback`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${auth}`,
-      },
-    })
-      .then((res) => res.json())
-      .then(({ access_token, refresh_token }) =>
-        res.redirect(
-          `/login?${querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token,
-          })}`
-        )
+    try {
+      const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        body: `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/api/auth/callback`, // TODO: update redirect URLs
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Basic ${auth}`,
+        },
+      })
+      const data = await response.json()
+      res.redirect(
+        `/?${querystring.stringify({
+          access_token: data.access_token,
+          refresh_token: data.refresh_token,
+        })}`
       )
-      .catch(() =>
-        res.redirect(
-          `/login?${querystring.stringify({ error: 'invalid_token' })}`
-        )
+    } catch (error) {
+      res.redirect(
+        `/login?${querystring.stringify({ error: 'invalid_token' })}`
       )
+    }
   }
 }
