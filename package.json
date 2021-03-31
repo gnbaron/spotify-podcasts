@@ -17,8 +17,10 @@
     ]
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "cookie": "^0.4.1",
     "next": "10.0.8",
+    "nextjs-progressbar": "^0.0.8",
     "node-fetch": "^2.6.1",
     "query-string": "^7.0.0",
     "react": "17.0.1",
@@ -28,6 +30,7 @@
     "@babel/preset-typescript": "^7.13.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@types/classnames": "^2.2.11",
     "@types/cookie": "^0.4.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.34",

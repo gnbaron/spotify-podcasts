@@ -1,3 +1,3 @@
-export default function Hello({ title = 'next' }) {
+export default function HomePage({ title = 'next' }) {
   return <h1>hello {title}</h1>
 }
