@@ -7,13 +7,13 @@ import { STATE_KEY } from './login'
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default (req: NextApiRequest, res: NextApiResponse) => {
   const code = req.query.code || null
   const state = req.query.state || null
   const storedState = req.cookies ? req.cookies[STATE_KEY] : null
 
   if (state === null || state !== storedState) {
-    res.redirect(`/?${querystring.stringify({ error: 'state_mismatch' })}`)
+    res.redirect(`/login?${querystring.stringify({ error: 'state_mismatch' })}`)
   } else {
     clearCookie(res, STATE_KEY)
 
@@ -30,14 +30,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .then((res) => res.json())
       .then(({ access_token, refresh_token }) =>
         res.redirect(
-          `/?${querystring.stringify({
-            access_token,
-            refresh_token,
+          `/login?${querystring.stringify({
+            access_token: access_token,
+            refresh_token: refresh_token,
           })}`
         )
       )
       .catch(() =>
-        res.redirect(`/?${querystring.stringify({ error: 'invalid_token' })}`)
+        res.redirect(
+          `/login?${querystring.stringify({ error: 'invalid_token' })}`
+        )
       )
   }
 }
