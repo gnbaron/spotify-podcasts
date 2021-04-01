@@ -3,5 +3,6 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts(x)'],
-  setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
+  moduleNameMapper: { '\\.css$': 'identity-obj-proxy' },
+  setupFilesAfterEnv: ['<rootDir>/jest/setup.ts'],
 }
