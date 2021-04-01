@@ -1,4 +1,4 @@
-.github-corner:hover .octo-arm {
+.wrapper:hover .octoArm {
   animation: octocat-wave 560ms ease-in-out;
 }
 
@@ -18,11 +18,11 @@
 }
 
 @media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
+  .wrapper:hover .octoArm {
     animation: none;
   }
 
-  .github-corner .octo-arm {
+  .wrapper .octoArm {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
