@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: var(--color-dark-green);
+  border-radius: 1.875rem;
+  color: var(--color-white);
+  padding: 0.625rem 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper[aria-disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.button {
+  cursor: pointer;
+}
