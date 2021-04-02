@@ -8,7 +8,7 @@ describe('<GithubLink />', () => {
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute(
       'href',
-      'https://github.com/gnbaron/spotify-lite'
+      'https://github.com/gnbaron/spotify-podcasts'
     )
   })
 })

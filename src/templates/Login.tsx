@@ -11,7 +11,7 @@ export function LoginTemplate({ failed }: Props) {
     <main className={styles.container}>
       <header className={styles.header}>
         <h1>
-          Spotify <span className={styles.highlight}>Lite</span>
+          Spotify <span className={styles.highlight}>Podcasts</span>
         </h1>
         <Button className={styles.button} href="/api/auth/login">
           {failed ? 'Try again' : 'Log in to Spotify'}
@@ -22,7 +22,7 @@ export function LoginTemplate({ failed }: Props) {
         <span className={styles.disclaimer}>
           This is a non official app built just for fun.
         </span>
-        <a href="https://github.com/gnbaron/spotify-lite">source code</a>
+        <a href="https://github.com/gnbaron/spotify-podcasts">source code</a>
       </footer>
     </main>
   )

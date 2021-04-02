@@ -10,7 +10,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   const state = generateRandomString(16)
   setCookie(res, STATE_KEY, state)
 
-  const scope = 'user-read-email'
+  const scope =
+    'user-read-private user-read-email user-library-read user-library-modify'
   const query = querystring.stringify({
     response_type: 'code',
     client_id: CLIENT_ID,

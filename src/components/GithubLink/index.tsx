@@ -5,7 +5,7 @@ export function GithubLink() {
     <a
       aria-label="View source on GitHub"
       className={styles.wrapper}
-      href="https://github.com/gnbaron/spotify-lite"
+      href="https://github.com/gnbaron/spotify-podcasts"
     >
       <svg
         width="80"
