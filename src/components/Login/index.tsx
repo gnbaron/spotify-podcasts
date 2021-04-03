@@ -6,7 +6,7 @@ type Props = {
   failed?: boolean
 }
 
-export function LoginTemplate({ failed }: Props) {
+export function Login({ failed }: Props) {
   return (
     <main className={styles.container}>
       <header className={styles.header}>

@@ -1,12 +1,12 @@
 import { NextPageContext } from 'next'
-import { LoginTemplate } from 'templates/Login'
+import { Login } from 'components/Login'
 
 type Props = {
   failed?: boolean
 }
 
 export default function LoginPage({ failed }: Props) {
-  return <LoginTemplate failed={failed} />
+  return <Login failed={failed} />
 }
 
 export function getServerSideProps({ query }: NextPageContext) {
