@@ -1,46 +1,42 @@
+import { useEffect } from 'react'
 import { NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import TokenStorage from 'lib/token-storage'
+import { QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { AuthenticationProvider } from 'context/auth'
+import { queryClient } from 'lib/query-client'
+import { App } from 'components/App'
+import { Tokens } from 'types/common'
 
 type Props = {
-  tokens: null | {
-    access_token: string
-    refresh_token: string
-  }
+  tokens: Tokens | null
 }
 
-export default function HomePage({ tokens }: Props) {
-  const [stored, setStored] = useState(false)
+export default function IndexPage({ tokens }: Props) {
   const router = useRouter()
 
+  // clear query string
   useEffect(() => {
-    if (tokens) {
-      TokenStorage.save(tokens)
-      setStored(true)
+    const { asPath, pathname, query, replace } = router
+    if (Object.keys(query).length) {
+      replace(asPath, pathname, { shallow: true })
     }
-  }, [tokens])
+  }, [router])
 
-  useEffect(() => {
-    if (!tokens && TokenStorage.read() === null) {
-      router.push('/login')
-    }
-  }, [tokens, router])
-
-  // remove tokens from query string
-  useEffect(() => {
-    if (stored && Object.keys(router.query).length) {
-      router.replace(router.asPath, router.pathname, { shallow: true })
-    }
-  }, [stored, router])
-
-  return null
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthenticationProvider tokens={tokens}>
+        <App />
+      </AuthenticationProvider>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  )
 }
 
 export function getServerSideProps({ query }: NextPageContext) {
-  const { access_token, refresh_token } = query
+  const { accessToken, refreshToken } = query
   const tokens =
-    access_token && refresh_token ? { access_token, refresh_token } : null
+    accessToken && refreshToken ? { accessToken, refreshToken } : null
   return {
     props: { tokens },
   }

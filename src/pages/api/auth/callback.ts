@@ -31,8 +31,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const data = await response.json()
       res.redirect(
         `/?${querystring.stringify({
-          access_token: data.access_token,
-          refresh_token: data.refresh_token,
+          accessToken: data.access_token,
+          refreshToken: data.refresh_token,
         })}`
       )
     } catch (error) {

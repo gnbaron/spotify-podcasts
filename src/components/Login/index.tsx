@@ -1,6 +1,6 @@
 import { Button } from 'components/Button'
 
-import styles from './Login.module.css'
+import styles from './index.module.css'
 
 type Props = {
   failed?: boolean

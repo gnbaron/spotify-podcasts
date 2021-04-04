@@ -1,41 +1,27 @@
-export const EXPIRATION_TIME = 3600 * 1000 // 1h
+import { Tokens } from 'types/common'
 
-type Tokens = {
-  access_token: string
-  expired: boolean
-  refresh_token: string
-}
-
-const save = ({
-  access_token,
-  refresh_token,
-}: {
-  access_token: string
-  refresh_token?: string
-}) => {
-  localStorage.setItem('token_timestamp', Date.now().toString())
-  localStorage.setItem('access_token', access_token)
-  refresh_token && localStorage.setItem('refresh_token', refresh_token)
+const save = ({ accessToken, refreshToken }: Tokens) => {
+  accessToken && localStorage.setItem('accessToken', accessToken)
+  refreshToken && localStorage.setItem('refreshToken', refreshToken)
 }
 
 const read = (): Tokens | null => {
-  const access_token = localStorage.getItem('access_token')
-  const refresh_token = localStorage.getItem('refresh_token')
-
-  if (!access_token || !refresh_token) return null
-
-  const timestamp = parseInt(localStorage.getItem('token_timestamp') || '0')
-  const expired = Date.now() - timestamp > EXPIRATION_TIME
-
-  return { access_token, expired, refresh_token }
+  const accessToken = localStorage.getItem('accessToken')
+  const refreshToken = localStorage.getItem('refreshToken')
+  if (!accessToken || !refreshToken) return null
+  return { accessToken, refreshToken }
 }
 
 const remove = () => {
-  localStorage.removeItem('access_token')
-  localStorage.removeItem('refresh_token')
-  localStorage.removeItem('token_timestamp')
+  localStorage.removeItem('accessToken')
+  localStorage.removeItem('refreshToken')
 }
 
-const TokenStorage = { save, read, remove }
+const EMPTY: Tokens = {
+  accessToken: '',
+  refreshToken: '',
+}
+
+const TokenStorage = { EMPTY, save, read, remove }
 
 export default TokenStorage
