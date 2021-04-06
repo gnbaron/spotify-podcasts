@@ -1,14 +1,10 @@
-import { createContext } from 'react'
+import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
 import TokenStorage from 'lib/token-storage'
 import { Tokens } from 'types/common'
 
 const TEN_MINUTES = 10 * 60 * 1000
-
-export const AuthenticationContext = createContext({
-  tokens: TokenStorage.EMPTY,
-})
 
 type Props = {
   children: React.ReactNode
@@ -34,17 +30,11 @@ export const AuthenticationProvider = (props: Props) => {
     onError: () => router.push('/login'),
   })
 
-  console.log(result)
-
   if (result.status !== 'success') {
-    return <div>loading</div> // TODO: add some sort of loading state
+    return null
   }
 
-  return (
-    <AuthenticationContext.Provider value={{ tokens: result.data }}>
-      {props.children}
-    </AuthenticationContext.Provider>
-  )
+  return <Fragment>{props.children}</Fragment>
 }
 
 async function refreshToken(): Promise<Tokens> {

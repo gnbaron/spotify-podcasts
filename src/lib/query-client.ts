@@ -1,58 +1,33 @@
-import { useContext, useState } from 'react'
-import {
-  QueryClient,
-  QueryFunction,
-  QueryKey,
-  useQuery,
-  UseQueryOptions,
-} from 'react-query'
-import { AuthenticationContext } from 'context/auth'
+import { QueryClient } from 'react-query'
+import TokenStorage from './token-storage'
 
 export const queryClient = new QueryClient()
 
-export const createRequest = (url: RequestInfo, options?: RequestInit) => {
-  const { tokens } = useContext(AuthenticationContext) // eslint-disable-line react-hooks/rules-of-hooks
-
+/**
+ * Make a request for Spotify WEB API.
+ * @param url resource url
+ * @param options fetch options
+ * @returns promise for the response
+ * @throws Error when access token is invalid
+ */
+export const fetchSpotifyAPI = async (
+  url: RequestInfo,
+  options?: RequestInit
+) => {
+  const tokens = TokenStorage.read()
+  if (!tokens) {
+    throw new Error('Invalid access token')
+  }
   const headers = {
     Authorization: `Bearer ${tokens.accessToken}`,
     'Content-Type': 'application/json',
   }
-
-  return async function () {
-    const response = await fetch(url, { headers, ...options })
-    if (response.status === 401) {
-      await queryClient.refetchQueries('tokens')
-    }
-    if (!response.ok) {
-      throw new Error('Unexpected error')
-    }
-    return response.json()
+  const response = await fetch(url, { headers, ...options })
+  if (response.status === 401) {
+    await queryClient.refetchQueries('tokens')
   }
-}
-
-/**
- * Simple wrapper for useQuery that provides pagination utility functions.
- * @returns QueryResult and a fetchNextPage function.
- */
-export const usePaginatedQuery = <T>(
-  key: QueryKey,
-  queryFn: (
-    nextPageURL: string | null
-  ) => QueryFunction<SpotifyApi.PagingObject<T>>,
-  queryOptions?: UseQueryOptions<SpotifyApi.PagingObject<T>, Error>
-) => {
-  const [pageURL, setPageURL] = useState<string | null>(null)
-
-  const result = useQuery<SpotifyApi.PagingObject<T>, Error>(
-    [key, pageURL],
-    queryFn(pageURL),
-    { ...queryOptions, keepPreviousData: true }
-  )
-
-  return {
-    ...result,
-    fetchNextPage: result.data?.next
-      ? () => setPageURL(result.data?.next)
-      : undefined,
+  if (!response.ok) {
+    throw new Error('Unexpected error')
   }
+  return response.json()
 }
