@@ -1,13 +1,15 @@
 .wrapper {
   background-color: var(--color-dark-green);
   border-radius: 1.875rem;
+  border-width: 0;
   color: var(--color-white);
-  padding: 0.625rem 1.25rem;
+  padding: 0.5em 2em;
   font-weight: 700;
-  letter-spacing: 0.125rem;
-  transition: background-color 0.3s;
+  letter-spacing: 0.125em;
   text-transform: uppercase;
   text-align: center;
+  transition: background-color 0.3s;
+  white-space: normal;
 }
 
 .wrapper:hover,

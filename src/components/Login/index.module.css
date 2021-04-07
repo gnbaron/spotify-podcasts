@@ -14,6 +14,11 @@
   flex: 2;
 }
 
+.header h1 {
+  font-size: var(--font-size-x-heading);
+  font-weight: bold;
+}
+
 .highlight {
   color: var(--color-light-green);
 }
@@ -24,7 +29,6 @@
 
 .button {
   margin-top: 2.5rem;
-  padding: 0.825rem 3.125rem;
 }
 
 .footer {

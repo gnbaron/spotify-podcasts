@@ -29,7 +29,7 @@ export const Button = (props: Props) => {
 
   return (
     <button
-      aria-disabled={disabled}
+      aria-disabled={disabled || undefined}
       disabled={disabled}
       className={classnames(styles.wrapper, styles.button, className)}
       onClick={onClick}
