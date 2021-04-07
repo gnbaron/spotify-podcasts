@@ -20,7 +20,7 @@ export const usePaginatedQuery = <T>(
   queryFn: (nextPageURL: string | undefined) => Promise<Paginated<T>>,
   queryOptions?: UseInfiniteQueryOptions<Paginated<T>, Error>
 ) => {
-  return useInfiniteQuery<Paginated<T>, Error>(
+  const result = useInfiniteQuery<Paginated<T>, Error>(
     key,
     ({ pageParam }) => queryFn(pageParam),
     {
@@ -29,13 +29,18 @@ export const usePaginatedQuery = <T>(
       ...queryOptions,
     }
   )
+  const data = result.data?.pages.reduce<T[]>(
+    (items, page) => [...items, ...page.items],
+    []
+  )
+  return { ...result, data }
 }
 
 export function useSavedShows() {
   return usePaginatedQuery<SpotifyApi.SavedShowObject>(
     'savedShows',
     (nextPageURL) =>
-      fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/shows?limit=5`),
+      fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/shows?limit=5`), // TODO: remove limit
     { staleTime: FIVE_MINUTES }
   )
 }
