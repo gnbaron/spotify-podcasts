@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import Link from 'next/link'
 import classnames from 'classnames'
 
@@ -12,40 +13,48 @@ type Props = {
   quiet?: boolean
 }
 
-export const Button = (props: Props) => {
-  const { children, className, disabled, href, onClick, quiet } = props
+const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
+  (props, ref) => {
+    const { children, className, disabled, href, onClick, quiet } = props
 
-  if (href) {
+    if (href) {
+      return (
+        <Link href={href}>
+          <a
+            aria-disabled={disabled}
+            className={classnames(
+              styles.wrapper,
+              styles.link,
+              quiet && styles.quiet,
+              className
+            )}
+            ref={ref}
+          >
+            {children}
+          </a>
+        </Link>
+      )
+    }
+
     return (
-      <Link href={href}>
-        <a
-          aria-disabled={disabled}
-          className={classnames(
-            styles.wrapper,
-            styles.link,
-            quiet && styles.quiet,
-            className
-          )}
-        >
-          {children}
-        </a>
-      </Link>
+      <button
+        aria-disabled={disabled || undefined}
+        disabled={disabled}
+        className={classnames(
+          styles.wrapper,
+          styles.button,
+          quiet && styles.quiet,
+          className
+        )}
+        onClick={onClick}
+        ref={ref}
+      >
+        {children}
+      </button>
     )
   }
+)
 
-  return (
-    <button
-      aria-disabled={disabled || undefined}
-      disabled={disabled}
-      className={classnames(
-        styles.wrapper,
-        styles.button,
-        quiet && styles.quiet,
-        className
-      )}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  )
-}
+Button.displayName = 'Button'
+
+export { Button }
