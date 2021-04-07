@@ -6,7 +6,7 @@ type Props = {
   failed?: boolean
 }
 
-export function Login({ failed }: Props) {
+export const Login = ({ failed }: Props) => {
   return (
     <main className={styles.container}>
       <header className={styles.header}>

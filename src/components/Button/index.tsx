@@ -11,7 +11,7 @@ type Props = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export function Button(props: Props) {
+export const Button = (props: Props) => {
   const { children, className, disabled, href, onClick } = props
 
   if (href) {
