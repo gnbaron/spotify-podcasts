@@ -9,17 +9,23 @@ type Props = {
   disabled?: boolean
   href?: string
   onClick?: React.MouseEventHandler<HTMLButtonElement>
+  quiet?: boolean
 }
 
 export const Button = (props: Props) => {
-  const { children, className, disabled, href, onClick } = props
+  const { children, className, disabled, href, onClick, quiet } = props
 
   if (href) {
     return (
       <Link href={href}>
         <a
           aria-disabled={disabled}
-          className={classnames(styles.wrapper, styles.link, className)}
+          className={classnames(
+            styles.wrapper,
+            styles.link,
+            quiet && styles.quiet,
+            className
+          )}
         >
           {children}
         </a>
@@ -31,7 +37,12 @@ export const Button = (props: Props) => {
     <button
       aria-disabled={disabled || undefined}
       disabled={disabled}
-      className={classnames(styles.wrapper, styles.button, className)}
+      className={classnames(
+        styles.wrapper,
+        styles.button,
+        quiet && styles.quiet,
+        className
+      )}
       onClick={onClick}
     >
       {children}

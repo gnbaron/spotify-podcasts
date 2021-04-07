@@ -8,7 +8,7 @@
   letter-spacing: 0.125em;
   text-transform: uppercase;
   text-align: center;
-  transition: background-color 0.3s;
+  transition: background-color border-color 0.3s;
   white-space: normal;
 }
 
@@ -29,4 +29,16 @@
 
 .button {
   cursor: pointer;
+}
+
+.quiet {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.0625em solid var(--color-light-grey);
+  color: var(--color-white);
+}
+
+.quiet:hover,
+.quiet:focus {
+  border-color: var(--color-white);
+  background-color: rgba(0, 0, 0, 0);
 }
