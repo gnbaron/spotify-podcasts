@@ -1,7 +1,26 @@
 import { useSavedShows } from 'lib/spotify-queries'
+import { InfiniteList } from '../InfiniteList'
+
+import styles from './index.module.css'
 
 export const ShowList = () => {
-  const result = useSavedShows()
-  console.log(result)
-  return null
+  const query = useSavedShows()
+
+  if (query.status !== 'success') return null // TODO: handle loading state
+
+  return (
+    <div>
+      <InfiniteList
+        hasMore={query.hasNextPage}
+        isLoading={query.isFetchingNextPage}
+        onLoadMore={query.fetchNextPage}
+      >
+        {query.data?.map((item) => (
+          <div className={styles.show} key={item.show.id}>
+            {item.show.name}
+          </div>
+        ))}
+      </InfiniteList>
+    </div>
+  )
 }
