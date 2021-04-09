@@ -21,8 +21,8 @@ function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <NextHead>
-        <link rel="shortcut icon" href="/img/favicon.png" />
-        <link rel="apple-touch-icon" href="/img/favicon.png" />
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+        <link rel="apple-touch-icon" href="/img/favicon.ico" />
       </NextHead>
       <NextNProgress
         color="#1ed760"
