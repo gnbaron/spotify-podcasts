@@ -6,46 +6,58 @@
   padding: 0 1.5rem;
 }
 
-.header {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.container header,
+.container main {
   flex: 2;
 }
 
-.header h1 {
-  font-size: var(--font-size-x-heading);
-  font-weight: bold;
+.container footer {
+  flex: 1;
 }
 
-.highlight {
-  color: var(--color-light-green);
+.container header {
+  align-items: flex-end;
+  display: flex;
+}
+
+.container main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
 }
 
 .error {
-  margin-top: 2.5rem;
+  align-items: center;
+  display: flex;
+  margin-bottom: 2rem;
 }
 
-.button {
-  margin-top: 2.5rem;
+.error span:first-child {
+  font-size: var(--font-size-xxl);
 }
 
-.footer {
-  flex: 1;
+.error span:last-child {
+  font-size: var(--font-size-m);
+  letter-spacing: .75px;
+  margin-left: .5rem;
+}
+
+.container footer {
   font-family: Monaco, monospace;
   font-size: var(--fs-m);
-  letter-spacing: 0.75px;
+  letter-spacing: .75px;
   text-align: center;
 }
 
-.footer a {
+.container footer a {
   border-bottom: 1px solid;
   color: var(--color-white);
-  margin-left: 0.6rem;
+  margin-left: .6rem;
   text-decoration: none;
 }
 
-.footer a:hover {
+.container footer a:hover {
   color: var(--color-light-green);
 }

@@ -1,4 +1,5 @@
 import { Button } from 'components/Button'
+import { Logo } from 'components/Logo'
 
 import styles from './index.module.css'
 
@@ -8,22 +9,25 @@ type Props = {
 
 export const Login = ({ failed }: Props) => {
   return (
-    <main className={styles.container}>
-      <header className={styles.header}>
-        <h1>
-          Spotify <span className={styles.highlight}>Podcasts</span>
-        </h1>
+    <div className={styles.container}>
+      <header>
+        <Logo size="l" />
+      </header>
+      <main>
+        {failed && (
+          <div className={styles.error}>
+            <span>🧙‍♂️</span>
+            <span>You shall not pass</span>
+          </div>
+        )}
         <Button className={styles.button} href="/api/auth/login">
           {failed ? 'Try again' : 'Log in to Spotify'}
         </Button>
-        {failed && <span className={styles.error}>Login failed</span>}
-      </header>
-      <footer className={styles.footer}>
-        <span className={styles.disclaimer}>
-          This is a non official app built just for fun.
-        </span>
+      </main>
+      <footer>
+        <span>This is a non official app built just for fun.</span>
         <a href="https://github.com/gnbaron/spotify-podcasts">source code</a>
       </footer>
-    </main>
+    </div>
   )
 }

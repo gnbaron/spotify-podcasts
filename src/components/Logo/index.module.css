@@ -1,0 +1,25 @@
+.wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: .8rem;
+  justify-content: center;
+  margin: .75rem 0 2rem;
+}
+
+.wrapper h1 {
+  margin: 0;
+  font-weight: bolder;
+}
+
+.s h1 {
+  font-size: var(--font-size-l);
+}
+
+.m h1 {
+  font-size: var(--font-size-xl);
+}
+
+.l h1 {
+  font-size: var(--font-size-xxl);
+}

@@ -19,7 +19,7 @@ describe('<Login />', () => {
     const link = screen.getByRole('link', { name: /try again/i })
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', '/api/auth/login')
-    expect(screen.getByText(/login failed/i)).toBeInTheDocument()
+    expect(screen.getByText(/you shall not pass/i)).toBeInTheDocument()
   })
 
   it('renders the footer', () => {

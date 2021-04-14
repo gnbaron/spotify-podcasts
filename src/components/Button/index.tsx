@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import Link from 'next/link'
-import classnames from 'classnames'
+import classNames from 'classnames'
 
 import styles from './index.module.css'
 
@@ -22,7 +22,7 @@ const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
         <Link href={href}>
           <a
             aria-disabled={disabled}
-            className={classnames(
+            className={classNames(
               styles.wrapper,
               styles.link,
               quiet && styles.quiet,
@@ -40,7 +40,7 @@ const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
       <button
         aria-disabled={disabled || undefined}
         disabled={disabled}
-        className={classnames(
+        className={classNames(
           styles.wrapper,
           styles.button,
           quiet && styles.quiet,
