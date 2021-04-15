@@ -40,21 +40,21 @@
 
 .error span:last-child {
   font-size: var(--font-size-m);
-  letter-spacing: .75px;
-  margin-left: .5rem;
+  letter-spacing: 0.75px;
+  margin-left: 0.5rem;
 }
 
 .container footer {
   font-family: Monaco, monospace;
   font-size: var(--fs-m);
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
   text-align: center;
 }
 
 .container footer a {
   border-bottom: 1px solid;
   color: var(--color-white);
-  margin-left: .6rem;
+  margin-left: 0.6rem;
   text-decoration: none;
 }
 

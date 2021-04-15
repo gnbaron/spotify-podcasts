@@ -1,4 +1,5 @@
-.main {
+.container {
+  display: flex;
   height: var(--vh);
   max-height: var(--vh);
   overflow-y: auto;

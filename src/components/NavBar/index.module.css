@@ -1,0 +1,11 @@
+.navbar {
+  background-color: var(--color-black);
+  height: var(--vh);
+  padding: 1.25rem;
+  width: 15rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}

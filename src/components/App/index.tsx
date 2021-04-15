@@ -1,11 +1,17 @@
+import { NavBar } from 'components/NavBar'
 import { ShowList } from 'components/ShowList'
 
 import styles from './index.module.css'
 
 export const App = () => {
   return (
-    <main className={styles.main}>
-      <ShowList />
-    </main>
+    <div className={styles.container}>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <ShowList />
+      </main>
+    </div>
   )
 }
