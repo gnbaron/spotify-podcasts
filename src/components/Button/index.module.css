@@ -1,6 +1,6 @@
 .wrapper {
   background-color: var(--color-dark-green);
-  border-radius: 1.875rem;
+  border-radius: 30px;
   border-width: 0;
   color: var(--color-white);
   padding: 0.5em 2em;

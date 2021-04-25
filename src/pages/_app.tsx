@@ -1,8 +1,6 @@
-import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import NextHead from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
-import { addViewportHeightListener } from 'utils/vh-listener'
 import { GithubLink } from 'components/GithubLink'
 
 import 'styles/global.css'
@@ -16,8 +14,6 @@ function SafeHydrate({ children }: { children: React.ReactNode }) {
 }
 
 function App({ Component, pageProps, router }: AppProps) {
-  useEffect(() => addViewportHeightListener(), [])
-
   return (
     <>
       <NextHead>

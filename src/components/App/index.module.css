@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  height: var(--vh);
-  max-height: var(--vh);
-  overflow-y: auto;
+  min-height: 100vh;
+  max-height: 100vh;
 }
