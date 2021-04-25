@@ -1,26 +1,25 @@
-.container {
+.login {
   align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   padding: 0 1.5rem;
 }
 
-.container header,
-.container main {
+.login header,
+.login main {
   flex: 2;
 }
 
-.container footer {
+.login footer {
   flex: 1;
 }
 
-.container header {
+.login header {
   align-items: flex-end;
   display: flex;
 }
 
-.container main {
+.login main {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -44,20 +43,20 @@
   margin-left: 0.5rem;
 }
 
-.container footer {
+.login footer {
   font-family: Monaco, monospace;
   font-size: var(--fs-m);
   letter-spacing: 0.75px;
   text-align: center;
 }
 
-.container footer a {
+.login footer a {
   border-bottom: 1px solid;
   color: var(--color-white);
   margin-left: 0.6rem;
   text-decoration: none;
 }
 
-.container footer a:hover {
+.login footer a:hover {
   color: var(--color-light-green);
 }

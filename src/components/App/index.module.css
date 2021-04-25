@@ -1,5 +1,11 @@
-.container {
+.app {
   display: flex;
-  min-height: 100vh;
-  max-height: 100vh;
+}
+
+.app header {
+  flex: 0 16rem;
+}
+
+.app main {
+  flex: 1;
 }

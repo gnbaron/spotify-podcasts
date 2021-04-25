@@ -1,3 +1,4 @@
+import { Container } from 'components/Container'
 import { NavBar } from 'components/NavBar'
 import { ShowList } from 'components/ShowList'
 
@@ -5,13 +6,13 @@ import styles from './index.module.css'
 
 export const App = () => {
   return (
-    <div className={styles.container}>
+    <Container className={styles.app}>
       <header>
         <NavBar />
       </header>
       <main>
         <ShowList />
       </main>
-    </div>
+    </Container>
   )
 }

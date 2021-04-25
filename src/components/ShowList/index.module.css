@@ -1,3 +1,8 @@
+.container {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
 .show {
-  padding: 1rem;
+  padding: 2rem;
 }
