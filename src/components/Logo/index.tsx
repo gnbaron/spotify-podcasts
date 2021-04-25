@@ -10,12 +10,13 @@ const SIZE = {
 }
 
 type Props = {
+  className?: string
   size: keyof typeof SIZE
 }
 
-export const Logo = ({ size }: Props) => {
+export const Logo = ({ className, size }: Props) => {
   return (
-    <div className={classNames(styles.wrapper, styles[size])}>
+    <div className={classNames(styles.wrapper, styles[size], className)}>
       <Image
         src="/img/icon.png"
         alt="spotify icon"

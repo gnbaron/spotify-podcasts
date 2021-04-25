@@ -9,7 +9,7 @@ export const ShowList = () => {
   if (query.status !== 'success') return null // TODO: handle loading state
 
   return (
-    <div>
+    <div className={styles.showList}>
       <InfiniteList
         hasMore={query.hasNextPage}
         isLoading={query.isFetchingNextPage}

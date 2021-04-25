@@ -1,11 +1,26 @@
 .navbar {
   background-color: var(--color-black);
-  height: var(--vh);
+  height: 100%;
   padding: 1.25rem;
-  width: 15rem;
+}
+
+.logo {
+  margin: 0.75rem 0 3.5rem;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
+}
+
+.menu li {
+  border-radius: 5px;
+  background-color: red;
+  flex: 1;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.menu li + li {
+  margin-top: 0.5rem;
 }

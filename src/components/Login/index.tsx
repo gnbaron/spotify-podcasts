@@ -12,7 +12,7 @@ export const Login = ({ failed }: Props) => {
   return (
     <Container className={styles.login}>
       <header>
-        <Logo size="l" />
+        <Logo className={styles.logo} size="l" />
       </header>
       <main>
         {failed && (

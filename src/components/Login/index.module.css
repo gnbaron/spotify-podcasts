@@ -27,10 +27,14 @@
   margin-top: 1.5rem;
 }
 
+.logo {
+  margin-bottom: 2rem;
+}
+
 .error {
   align-items: center;
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .error span:first-child {
@@ -39,6 +43,7 @@
 
 .error span:last-child {
   font-size: var(--font-size-m);
+  font-style: italic;
   letter-spacing: 0.75px;
   margin-left: 0.5rem;
 }

@@ -5,7 +5,7 @@ import styles from './index.module.css'
 export const NavBar = () => {
   return (
     <nav className={styles.navbar}>
-      <Logo size="m" />
+      <Logo className={styles.logo} size="m" />
       <ul className={styles.menu}>
         <li>Shows</li>
         <li>New Episodes</li>
