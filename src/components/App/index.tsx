@@ -22,6 +22,9 @@ export const App = () => (
           <Route exact path="/shows">
             <ShowList />
           </Route>
+          <Route path="*">
+            <div>not found</div>
+          </Route>
         </Switch>
       </main>
     </Container>
