@@ -14,13 +14,24 @@
 }
 
 .menu li {
-  border-radius: 5px;
-  background-color: red;
   flex: 1;
-  padding: 0.25rem;
-  text-align: center;
 }
 
 .menu li + li {
   margin-top: 0.5rem;
+}
+
+.menu li a {
+  border-radius: 5px;
+  color: var(--color-white);
+  font-weight: 800;
+  display: block;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu:not(:hover) li a.active,
+.menu li a:hover {
+  background-color: var(--color-dark-grey);
 }

@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { NextPageContext } from 'next'
-import { useRouter } from 'next/router'
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { AuthenticationProvider } from 'context/auth'
@@ -13,16 +11,6 @@ type Props = {
 }
 
 export default function IndexPage({ tokens }: Props) {
-  const router = useRouter()
-
-  // clear query string
-  useEffect(() => {
-    const { asPath, pathname, query, replace } = router
-    if (Object.keys(query).length) {
-      replace(asPath, pathname, { shallow: true })
-    }
-  }, [router])
-
   return (
     <QueryClientProvider client={queryClient}>
       <AuthenticationProvider tokens={tokens}>
