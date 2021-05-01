@@ -6,7 +6,6 @@ describe('<Button />', () => {
   it('renders as a link', () => {
     render(<Button href="https://some.url.io">content</Button>)
     const link = screen.getByRole('link', { name: /content/i })
-    expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', 'https://some.url.io')
   })
 
@@ -14,7 +13,6 @@ describe('<Button />', () => {
     const onClick = jest.fn()
     render(<Button onClick={onClick}>content</Button>)
     const button = screen.getByRole('button', { name: /content/i })
-    expect(button).toBeInTheDocument()
     userEvent.click(button)
     expect(onClick).toHaveBeenCalled()
   })
