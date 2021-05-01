@@ -40,7 +40,7 @@ export function useSavedShows() {
   return usePaginatedQuery<SpotifyApi.SavedShowObject>(
     'savedShows',
     (nextPageURL) =>
-      fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/shows?limit=5`), // TODO: remove limit
+      fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/shows?limit=10`), // TODO: remove limit
     { staleTime: FIVE_MINUTES }
   )
 }
