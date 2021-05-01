@@ -3,8 +3,6 @@
   gap: 3rem;
   grid-template-columns: repeat(auto-fit, 11rem);
   justify-content: center;
-  max-height: 100%;
-  overflow-y: auto;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 3rem;
   place-items: start center;
 }

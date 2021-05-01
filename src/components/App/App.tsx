@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BasePage } from 'components/BasePage'
 import { Container } from 'components/Container'
 import { NavBar } from 'components/NavBar'
 import { ShowList } from 'components/ShowList'
@@ -17,7 +18,9 @@ export const App = () => (
             <Redirect to="/shows" />
           </Route>
           <Route exact path="/shows">
-            <ShowList />
+            <BasePage title="Following">
+              <ShowList />
+            </BasePage>
           </Route>
           <Route path="/episodes">
             <div>new episodes</div>
