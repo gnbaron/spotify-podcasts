@@ -1,6 +1,6 @@
 import { useIntersectionObserver } from 'hooks/use-intersection-observer'
 import { ReactNode, useRef } from 'react'
-import { Button } from '../Button'
+import { Button } from 'components/Button'
 
 import styles from './index.module.css'
 

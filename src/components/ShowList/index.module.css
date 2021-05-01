@@ -1,8 +1,10 @@
 .showList {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, 11rem);
+  justify-content: center;
   max-height: 100%;
   overflow-y: auto;
-}
-
-.show {
-  padding: 2rem;
+  padding: 1.5rem;
+  place-items: start center;
 }
