@@ -23,7 +23,7 @@ export const App = () => (
             </BasePage>
           </Route>
           <Route path="/episodes">
-            <div>new episodes</div>
+            <BasePage title="Latest"></BasePage>
           </Route>
           <Route path="*">
             <div>not found</div>
