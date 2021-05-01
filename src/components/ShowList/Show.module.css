@@ -1,0 +1,35 @@
+.show:hover {
+  cursor: pointer;
+}
+
+.show figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.show figure img {
+  height: 11rem;
+  transition: transform 0.3s ease-in-out;
+  width: 11rem;
+}
+
+.show:hover figure img {
+  transform: scale(1.03);
+}
+
+.show figure figcaption {
+  font-size: var(--font-size-s);
+  font-weight: bolder;
+}
+
+.description {
+  color: var(--color-light-grey);
+  font-size: var(--font-size-xs);
+  line-height: 1.15rem;
+  margin-top: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

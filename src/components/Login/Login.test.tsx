@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Login } from './index'
+import { Login } from './Login'
 
 describe('<Login />', () => {
   it('renders the heading', () => {

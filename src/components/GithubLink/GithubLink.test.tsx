@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { GithubLink } from './index'
+import { GithubLink } from './GithubLink'
 
 describe('<GithubLink />', () => {
   it('renders the link', () => {

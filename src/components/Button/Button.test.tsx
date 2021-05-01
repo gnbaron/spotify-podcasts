@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Button } from './index'
+import { Button } from './Button'
 
 describe('<Button />', () => {
   it('renders as a link', () => {
