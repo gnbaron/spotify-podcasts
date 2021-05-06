@@ -4,6 +4,9 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts(x)'],
   moduleDirectories: ['node_modules', 'src'],
-  moduleNameMapper: { '\\.css$': 'identity-obj-proxy' },
-  setupFilesAfterEnv: ['<rootDir>/jest/setup.ts'],
+  moduleNameMapper: {
+    '\\.css$': 'identity-obj-proxy',
+    'test/(.*)': '<rootDir>/test/$1',
+  },
+  setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],
 }

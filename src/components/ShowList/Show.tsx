@@ -9,10 +9,12 @@ export const Show = ({ show }: Props) => {
   return (
     <div className={styles.show}>
       <figure>
-        <img src={cover.url} alt={`${show.name} cover image`} />
+        <img src={cover.url} role="presentation" />
         <figcaption>{show.name}</figcaption>
       </figure>
-      <p className={styles.description}>{show.description}</p>
+      <p className={styles.description} data-testid="description">
+        {show.description}
+      </p>
     </div>
   )
 }

@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "paths": {
+      "test/*": ["../test/*"],
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -22,7 +25,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
     "node_modules",
