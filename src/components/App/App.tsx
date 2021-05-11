@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { BasePage } from 'components/BasePage'
-import { Container } from 'components/Container'
 import { NavBar } from 'components/NavBar'
 import { ShowList, ShowDetails } from 'components/Show'
 
@@ -8,7 +7,7 @@ import styles from './App.module.css'
 
 export const App = () => (
   <BrowserRouter>
-    <Container className={styles.app}>
+    <div className={styles.container}>
       <header>
         <NavBar />
       </header>
@@ -37,6 +36,6 @@ export const App = () => (
           </Route>
         </Switch>
       </main>
-    </Container>
+    </div>
   </BrowserRouter>
 )

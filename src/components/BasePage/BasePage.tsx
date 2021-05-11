@@ -1,5 +1,3 @@
-import { Container } from 'components/Container'
-
 import styles from './BasePage.module.css'
 
 type Props = {
@@ -9,7 +7,7 @@ type Props = {
 
 export const BasePage = ({ children, heading }: Props) => {
   return (
-    <Container className={styles.wrapper}>
+    <div className={styles.container}>
       {heading && (
         <>
           <h2>{heading}</h2>
@@ -17,6 +15,6 @@ export const BasePage = ({ children, heading }: Props) => {
         </>
       )}
       <div className={styles.content}>{children}</div>
-    </Container>
+    </div>
   )
 }

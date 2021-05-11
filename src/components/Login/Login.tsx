@@ -1,5 +1,4 @@
 import { Button } from 'components/Button'
-import { Container } from 'components/Container'
 import { Logo } from 'components/Logo'
 
 import styles from './Login.module.css'
@@ -9,7 +8,7 @@ type Props = {
 }
 
 export const Login = ({ failed }: Props) => (
-  <Container className={styles.login}>
+  <div className={styles.login}>
     <header>
       <Logo className={styles.logo} size="l" />
     </header>
@@ -28,5 +27,5 @@ export const Login = ({ failed }: Props) => (
       <span>This is a non official app built just for fun.</span>
       <a href="https://github.com/gnbaron/spotify-podcasts">source code</a>
     </footer>
-  </Container>
+  </div>
 )
