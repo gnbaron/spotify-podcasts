@@ -3,7 +3,7 @@
   padding: 2rem 0;
 }
 
-.container h2 {
+.heading {
   font-size: var(--font-size-l);
   font-weight: bolder;
   margin: 0.75rem 2rem 1.75rem;

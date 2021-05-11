@@ -10,7 +10,7 @@ export const BasePage = ({ children, heading }: Props) => {
     <div className={styles.container}>
       {heading && (
         <>
-          <h2>{heading}</h2>
+          <h2 className={styles.heading}>{heading}</h2>
           <hr />
         </>
       )}

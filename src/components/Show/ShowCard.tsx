@@ -9,14 +9,18 @@ type Props = {
 export const ShowCard = ({ show }: Props) => {
   const cover = show.images[1] || show.images[0]
   return (
-    <div className={styles.show}>
+    <article className={styles.show}>
       <Link to={`/shows/${show.id}`}>
-        <img src={cover.url} role="presentation" />
-        <div className={styles.name}>{show.name}</div>
+        <header>
+          <aside>
+            <img src={cover.url} role="presentation" />
+          </aside>
+          <div className={styles.name}>{show.name}</div>
+        </header>
         <p className={styles.description} data-testid="description">
           {show.description}
         </p>
       </Link>
-    </div>
+    </article>
   )
 }
