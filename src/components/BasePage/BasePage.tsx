@@ -4,14 +4,18 @@ import styles from './BasePage.module.css'
 
 type Props = {
   children?: React.ReactNode
-  title: string
+  heading?: string
 }
 
-export const BasePage = ({ children, title }: Props) => {
+export const BasePage = ({ children, heading }: Props) => {
   return (
     <Container className={styles.wrapper}>
-      <h2>{title}</h2>
-      <hr />
+      {heading && (
+        <>
+          <h2>{heading}</h2>
+          <hr />
+        </>
+      )}
       <div className={styles.content}>{children}</div>
     </Container>
   )

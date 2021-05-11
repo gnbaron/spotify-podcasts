@@ -2,25 +2,29 @@
   cursor: pointer;
 }
 
-.show figure {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.show a {
+  text-decoration: none;
 }
 
-.show figure img {
+.show img {
   height: 11rem;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s;
   width: 11rem;
 }
 
-.show:hover figure img {
+.show:hover img {
   transform: scale(1.03);
 }
 
-.show figure figcaption {
+.show:hover .name {
+  text-decoration: underline;
+}
+
+.name {
+  color: var(--color-white);
   font-size: var(--font-size-s);
   font-weight: bolder;
+  margin-top: 0.75rem;
 }
 
 .description {

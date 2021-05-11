@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+}
+
+.wrapper header {
+  display: flex;
+}
+
+.wrapper header aside {
+  flex-shrink: 0;
+}
+
+.cover {
+  height: 15rem;
+  width: 15rem;
+}
+
+.heading {
+  padding: 0 2rem;
+}
+
+.heading h2 {
+  font-size: var(--font-size-xx-heading);
+  margin: 0;
+}
+
+.heading small {
+  color: var(--color-light-grey);
+  display: inline-block;
+  margin-bottom: 1.75rem;
+}
+
+.heading p {
+  color: var(--color-light-grey);
+  font-size: var(--font-size-s);
+  max-width: 60ch;
+}

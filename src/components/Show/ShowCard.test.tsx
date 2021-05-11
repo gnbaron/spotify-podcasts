@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import * as factory from 'test/factory'
-import { Show } from './Show'
+import { ShowCard } from './ShowCard'
 
-describe('<Show />', () => {
+describe('<ShowCard />', () => {
   it('renders the show cover, title and description', () => {
     const show = factory.show.build()
-    render(<Show show={show} />)
+    render(<ShowCard show={show} />)
     screen.getByRole(/figure/)
     screen.getByText(show.name)
     const description = screen.getByTestId('description')

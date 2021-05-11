@@ -1,6 +1,6 @@
 import { useSavedShows } from 'lib/spotify-queries'
 import { InfiniteList } from 'components/InfiniteList'
-import { Show } from './Show'
+import { ShowCard } from './ShowCard'
 
 import styles from './ShowList.module.css'
 
@@ -17,7 +17,7 @@ export const ShowList = () => {
         onLoadMore={query.fetchNextPage}
       >
         {query.data?.map((item) => (
-          <Show key={item.show.id} show={item.show} />
+          <ShowCard key={item.show.id} show={item.show} />
         ))}
       </InfiniteList>
     </div>

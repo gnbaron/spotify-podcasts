@@ -13,8 +13,8 @@ export const NavBar = () => (
         </NavLink>
       </li>
       <li>
-        <NavLink to="/episodes" activeClassName={styles.active}>
-          <span>Episodes</span>
+        <NavLink to="/latest" activeClassName={styles.active}>
+          <span>Latest</span>
         </NavLink>
       </li>
     </ul>
