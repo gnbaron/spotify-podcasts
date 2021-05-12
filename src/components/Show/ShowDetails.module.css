@@ -24,16 +24,10 @@
 .heading > small {
   color: var(--color-light-grey);
   display: inline-block;
+  margin-bottom: 0.75rem;
 }
 
-.follow {
-  font-size: var(--font-size-xs);
-  margin-top: auto;
-  width: 11rem;
-}
-
-.description {
+.heading > p {
   color: var(--color-light-grey);
   font-size: var(--font-size-s);
-  margin: 2rem 0;
 }
