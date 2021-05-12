@@ -6,19 +6,19 @@
   justify-content: center;
 }
 
-.wrapper h1 {
+.wrapper > h1 {
   margin: 0;
   font-weight: bolder;
 }
 
-.s h1 {
+.s > h1 {
   font-size: var(--font-size-l);
 }
 
-.m h1 {
+.m > h1 {
   font-size: var(--font-size-xl);
 }
 
-.l h1 {
+.l > h1 {
   font-size: var(--font-size-xxl);
 }

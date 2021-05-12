@@ -13,15 +13,15 @@
   flex-direction: column;
 }
 
-.menu li {
+.menu > li {
   flex: 1;
 }
 
-.menu li + li {
+.menu > li + li {
   margin-top: 0.5rem;
 }
 
-.menu li a {
+.menu > li a {
   border-radius: 5px;
   color: var(--color-white);
   font-weight: 800;
@@ -31,7 +31,7 @@
   text-decoration: none;
 }
 
-.menu:not(:hover) li a.active,
-.menu li a:hover {
+.menu:not(:hover) > li a.active,
+.menu > li a:hover {
   background-color: var(--color-dark-grey);
 }

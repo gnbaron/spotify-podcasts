@@ -7,21 +7,21 @@
   padding: 0 1.5rem;
 }
 
-.login header,
-.login main {
+.login > header,
+.login > main {
   flex: 2;
 }
 
-.login footer {
+.login > footer {
   flex: 1;
 }
 
-.login header {
+.login > header {
   align-items: flex-end;
   display: flex;
 }
 
-.login main {
+.login > main {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -39,31 +39,31 @@
   margin-bottom: 1rem;
 }
 
-.error span:first-child {
+.error > span:first-child {
   font-size: var(--font-size-xxl);
 }
 
-.error span:last-child {
+.error > span:last-child {
   font-size: var(--font-size-m);
   font-style: italic;
   letter-spacing: 0.75px;
   margin-left: 0.5rem;
 }
 
-.login footer {
+.login > footer {
   font-family: Monaco, monospace;
   font-size: var(--fs-m);
   letter-spacing: 0.75px;
   text-align: center;
 }
 
-.login footer a {
+.login > footer a {
   border-bottom: 1px solid;
   color: var(--color-white);
   margin-left: 0.6rem;
   text-decoration: none;
 }
 
-.login footer a:hover {
+.login > footer a:hover {
   color: var(--color-light-green);
 }
