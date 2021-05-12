@@ -22,7 +22,11 @@ export const ShowDetails = () => {
           <p>{show.description}</p>
         </div>
       </header>
-      <section>{/* <h3>Episodes</h3> */}</section>
+      <section className={styles.episodes}>
+        <h3>All episodes</h3>
+        <span>({show.total_episodes})</span>
+        <hr />
+      </section>
     </article>
   )
 }
