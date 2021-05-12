@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ShowCover } from './ShowCover'
 
 import styles from './ShowCard.module.css'
 
@@ -7,14 +8,11 @@ type Props = {
 }
 
 export const ShowCard = ({ show }: Props) => {
-  const cover = show.images[1] || show.images[0]
   return (
-    <article className={styles.show}>
+    <article className={styles.card}>
       <Link to={`/shows/${show.id}`}>
         <header>
-          <aside>
-            <img src={cover.url} role="presentation" />
-          </aside>
+          <ShowCover className={styles.cover} images={show.images} />
           <div className={styles.name}>{show.name}</div>
         </header>
         <p className={styles.description} data-testid="description">

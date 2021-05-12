@@ -12,11 +12,6 @@
   flex-shrink: 0;
 }
 
-.cover {
-  height: 15rem;
-  width: 15rem;
-}
-
 .heading {
   padding: 0 2rem;
 }

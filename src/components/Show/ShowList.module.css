@@ -1,7 +1,8 @@
-.showList {
+.list {
   display: grid;
   gap: 3rem;
-  grid-template-columns: repeat(auto-fit, 11rem);
+  grid-template-columns: repeat(auto-fit, 13rem);
+  grid-template-rows: repeat(auto-fit, 19.375rem);
   justify-content: center;
   padding: 2rem 1.5rem 3rem;
   place-items: start center;

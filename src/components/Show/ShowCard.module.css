@@ -1,23 +1,31 @@
-.show:hover {
+.card {
+  border-radius: 10px;
+  background-color: var(--color-darker-grey);
+  height: 100%;
+  padding: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card:hover {
+  background-color: var(--color-dark-grey);
   cursor: pointer;
 }
 
-.show a {
+.card a {
   text-decoration: none;
 }
 
-.show img {
+.cover {
   height: 11rem;
-  transition: transform 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s;
   width: 11rem;
 }
 
-.show:hover img {
+.card:hover .cover {
+  box-shadow:
+    0px 10px 13px -7px var(--color-black),
+    0px 10px 15px 0px rgba(37,37,37,0.25);
   transform: scale(1.03);
-}
-
-.show:hover .name {
-  text-decoration: underline;
 }
 
 .name {
@@ -31,7 +39,7 @@
   color: var(--color-light-grey);
   font-size: var(--font-size-xs);
   line-height: 1.15rem;
-  margin-top: 0.75rem;
+  margin: 0.75rem 0 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
