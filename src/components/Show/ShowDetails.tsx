@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useShow } from 'lib/spotify-queries'
 import { ShowCover } from './ShowCover'
+import { Button } from 'components/Button'
 
 import styles from './ShowDetails.module.css'
 
@@ -18,13 +19,18 @@ export const ShowDetails = () => {
         <ShowCover images={show.images} />
         <div className={styles.heading}>
           <h2>{show.name}</h2>
-          <small>by {show.publisher}</small>
-          <p>{show.description}</p>
+          <small>{show.publisher}</small>
+          <Button
+            className={styles.follow}
+            onClick={() => console.log('click')}
+            quiet
+          >
+            Following
+          </Button>
         </div>
       </header>
-      <section>
-        <h3>Episodes</h3>
-      </section>
+      <p className={styles.description}>{show.description}</p>
+      <section>{/* <h3>Episodes</h3> */}</section>
     </article>
   )
 }

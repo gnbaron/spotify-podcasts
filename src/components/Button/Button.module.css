@@ -8,7 +8,7 @@
   letter-spacing: 0.125em;
   text-transform: uppercase;
   text-align: center;
-  transition: background-color border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s;
   white-space: normal;
 }
 

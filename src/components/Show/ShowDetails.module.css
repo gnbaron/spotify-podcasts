@@ -4,32 +4,36 @@
   padding: 1rem 3rem;
 }
 
-.wrapper header {
+.wrapper > header {
   display: flex;
 }
 
-.wrapper header aside {
-  flex-shrink: 0;
-}
-
 .heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   padding: 0 2rem;
 }
 
-.heading h2 {
-  font-size: var(--font-size-xx-heading);
+.heading > h2 {
+  font-size: var(--font-size-x-heading);
   font-weight: bolder;
   margin: 0;
 }
 
-.heading small {
+.heading > small {
   color: var(--color-light-grey);
   display: inline-block;
-  margin-bottom: 1.75rem;
 }
 
-.heading p {
+.follow {
+  font-size: var(--font-size-xs);
+  margin-top: auto;
+  width: 11rem;
+}
+
+.description {
   color: var(--color-light-grey);
   font-size: var(--font-size-s);
-  max-width: 60ch;
+  margin: 2rem 0;
 }

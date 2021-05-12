@@ -4,10 +4,10 @@
   max-height: 100vh;
 }
 
-.container header {
+.container > header {
   flex: 0 16rem;
 }
 
-.container main {
+.container > main {
   flex: 1;
 }
