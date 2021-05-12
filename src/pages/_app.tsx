@@ -4,6 +4,7 @@ import NextNProgress from 'nextjs-progressbar'
 import { GithubLink } from 'components/GithubLink'
 
 import 'styles/global.css'
+import 'styles/scrollbar.css'
 
 function SafeHydrate({ children }: { children: React.ReactNode }) {
   return (

@@ -1,4 +1,4 @@
-.wrapper:hover .octoArm {
+.wrapper:hover > .octoArm {
   animation: octocat-wave 560ms ease-in-out;
 }
 
@@ -18,11 +18,11 @@
 }
 
 @media (max-width: 500px) {
-  .wrapper:hover .octoArm {
+  .wrapper:hover > .octoArm {
     animation: none;
   }
 
-  .wrapper .octoArm {
+  .wrapper > .octoArm {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
