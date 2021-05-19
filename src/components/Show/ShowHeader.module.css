@@ -1,10 +1,4 @@
-.details {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 3rem;
-}
-
-.details > header {
+.header {
   display: flex;
 }
 
@@ -30,11 +24,4 @@
 .heading > p {
   color: var(--color-light-grey);
   font-size: var(--font-size-s);
-}
-
-.details > hr {
-  border: 0;
-  border-top: 0.5px solid var(--color-dark-grey);
-  border-radius: 10px;
-  margin: 1.5rem 0;
 }
