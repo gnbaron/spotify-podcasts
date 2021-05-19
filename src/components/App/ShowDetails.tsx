@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useShow } from 'lib/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { ShowHeader } from 'components/Show'
-import { EpisodeTimeline } from 'components/EpisodeTimeline'
+import { EpisodeList } from 'components/Episode'
 
 import styles from './ShowDetails.module.css'
 
@@ -19,7 +19,7 @@ export const ShowDetails = () => {
       <article className={styles.details}>
         <ShowHeader show={show} />
         <hr />
-        <EpisodeTimeline episodes={show.episodes.items} />
+        <EpisodeList episodes={show.episodes.items} />
       </article>
     </BasePage>
   )

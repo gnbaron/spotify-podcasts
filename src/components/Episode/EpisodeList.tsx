@@ -1,10 +1,10 @@
-import styles from './EpisodeTimeline.module.css'
+import styles from './EpisodeList.module.css'
 
 type Props = {
   episodes: SpotifyApi.EpisodeObjectSimplified[]
 }
 
-export const EpisodeTimeline = ({ episodes }: Props) => {
+export const EpisodeList = ({ episodes }: Props) => {
   return (
     <ul>
       {episodes.map((episode) => (
