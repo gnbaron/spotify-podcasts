@@ -3,6 +3,7 @@ import { useShow } from 'lib/spotify-queries'
 import { ShowCover } from './ShowCover'
 
 import styles from './ShowDetails.module.css'
+import { EpisodeList } from 'components/Episode'
 
 export const ShowDetails = () => {
   const params = useParams<{ id: string }>()
@@ -13,19 +14,18 @@ export const ShowDetails = () => {
   const show = query.data
 
   return (
-    <article className={styles.wrapper}>
+    <article className={styles.details}>
       <header>
         <ShowCover images={show.images} />
         <div className={styles.heading}>
           <h2>{show.name}</h2>
-          <small>{show.publisher}</small>
+          <span>by {show.publisher}</span>
           <p>{show.description}</p>
         </div>
       </header>
-      <section className={styles.episodes}>
-        <h3>All episodes</h3>
-        <span>({show.total_episodes})</span>
-        <hr />
+      <hr />
+      <section>
+        <EpisodeList episodes={show.episodes.items} />
       </section>
     </article>
   )

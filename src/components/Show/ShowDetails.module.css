@@ -1,10 +1,10 @@
-.wrapper {
+.details {
   display: flex;
   flex-direction: column;
   padding: 1rem 3rem;
 }
 
-.wrapper > header {
+.details > header {
   display: flex;
 }
 
@@ -12,7 +12,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
   padding: 0 2rem;
 }
 
@@ -22,9 +21,10 @@
   margin: 0;
 }
 
-.heading > small {
+.heading > span {
   color: var(--color-light-grey);
-  margin-bottom: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .heading > p {
@@ -32,23 +32,9 @@
   font-size: var(--font-size-s);
 }
 
-.episodes > h3 {
-  display: inline-block;
-  font-size: var(--font-size-m);
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-}
-
-.episodes > span {
-  color: var(--color-light-grey);
-  font-size: var(--font-size-m);
-  font-weight: bold;
-  margin-left: 0.5rem;
-}
-
-.episodes > hr {
+.details > hr {
   border: 0;
   border-top: 0.5px solid var(--color-dark-grey);
   border-radius: 10px;
-  margin: 0;
+  margin: 1.5rem 0;
 }
