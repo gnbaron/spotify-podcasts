@@ -1,17 +1,18 @@
 import classNames from 'classnames'
 
-import styles from './ShowCover.module.css'
+import styles from './CoverImage.module.css'
 
 type Props = {
   className?: string
   images: SpotifyApi.ImageObject[]
+  size: 's' | 'm' | 'l'
 }
 
-export const ShowCover = ({ className, images }: Props) => {
+export const CoverImage = ({ className, images, size }: Props) => {
   const cover = images[1] || images[0]
   return (
     <img
-      className={classNames(className, styles.cover)}
+      className={classNames(className, styles.cover, styles[size])}
       src={cover.url}
       role="presentation"
     />

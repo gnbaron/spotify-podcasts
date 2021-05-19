@@ -1,7 +1,7 @@
 import { useSavedShows } from 'lib/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { InfiniteList } from 'components/InfiniteList'
-import { ShowCard } from '../Show'
+import { ShowCard } from 'components/ShowCard'
 
 import styles from './SavedShows.module.css'
 

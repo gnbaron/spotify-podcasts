@@ -8,17 +8,25 @@
 
 .card:hover {
   background-color: var(--color-dark-grey);
-  cursor: pointer;
 }
 
 .card > a {
+  color: var(--color-white);
+}
+
+.card > a:link,
+.card > a:visited {
   text-decoration: none;
 }
 
+.card > a:active,
+.card > a:focus,
+.card > a:hover {
+  text-decoration: underline;
+}
+
 .cover {
-  height: 11rem;
   transition: box-shadow 0.3s, transform 0.3s;
-  width: 11rem;
 }
 
 .card:hover .cover {
@@ -32,16 +40,16 @@
   color: var(--color-white);
   font-size: var(--font-size-s);
   font-weight: bolder;
-  margin-top: 0.75rem;
+  margin: 1.25rem 0 0;
 }
 
 .description {
   color: var(--color-light-grey);
+  display: -webkit-box;
   font-size: var(--font-size-xs);
   line-height: 1.15rem;
   margin: 0.75rem 0 0;
-  display: -webkit-box;
+  overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }

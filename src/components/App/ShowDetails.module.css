@@ -10,3 +10,32 @@
   border-radius: 10px;
   margin: 1.5rem 0;
 }
+
+.details > header {
+  display: flex;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.heading > h2 {
+  font-size: var(--font-size-x-heading);
+  font-weight: bolder;
+  margin: 0;
+}
+
+.heading > span {
+  color: var(--color-light-grey);
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.heading > p {
+  color: var(--color-light-grey);
+  font-size: var(--font-size-s);
+}
+
