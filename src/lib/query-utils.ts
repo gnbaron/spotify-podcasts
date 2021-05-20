@@ -28,5 +28,9 @@ export const usePaginatedQuery = <T>(
     (items, page) => [...items, ...page.items],
     []
   )
-  return { ...result, data }
+  return {
+    ...result,
+    data,
+    totalElements: result.data ? result.data.pages[0].total : 0,
+  }
 }

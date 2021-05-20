@@ -1,7 +1,6 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { NavBar } from 'components/NavBar'
-import { SavedShows } from './SavedShows'
-import { ShowDetails } from './ShowDetails'
+import { SavedShows, ShowDetails } from 'components/Page'
 
 import styles from './App.module.css'
 

@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { useShow } from 'lib/spotify-queries'
-import { BasePage } from 'components/BasePage'
 import { CoverImage } from 'components/CoverImage'
 import { EpisodeList } from 'components/EpisodeList'
+import { BasePage } from './BasePage'
 
 import styles from './ShowDetails.module.css'
 

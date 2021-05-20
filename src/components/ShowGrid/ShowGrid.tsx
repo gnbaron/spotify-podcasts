@@ -1,24 +1,19 @@
-import { InfiniteList } from 'components/InfiniteList'
-import React from 'react'
+import { InfiniteScroll } from 'components/InfiniteScroll'
+import { PaginationState } from 'types/common'
+import { ShowCard } from './ShowCard'
 
 import styles from './ShowGrid.module.css'
 
 type Props = {
-  shows: SpotifyApi.ShowObjectSimplified[]
-}
+  shows: SpotifyApi.SavedShowObject[]
+} & PaginationState
 
-export const ShowGrid = (props: Props) => {
-  return (
-    <div className={styles.grid}>
-      <InfiniteList
-        hasMore={query.hasNextPage}
-        isLoading={query.isFetchingNextPage}
-        onLoadMore={query.fetchNextPage}
-      >
-        {query.data?.map((item) => (
-          <ShowCard key={item.show.id} show={item.show} />
-        ))}
-      </InfiniteList>
-    </div>
-  )
-}
+export const ShowGrid = ({ shows, ...props }: Props) => (
+  <InfiniteScroll {...props} className={styles.grid}>
+    {shows.map(({ show }) => (
+      <article key={show.id} aria-setsize={props.total}>
+        <ShowCard show={show} />
+      </article>
+    ))}
+  </InfiniteScroll>
+)

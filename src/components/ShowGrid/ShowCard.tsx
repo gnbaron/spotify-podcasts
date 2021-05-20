@@ -9,7 +9,7 @@ type Props = {
 
 export const ShowCard = ({ show }: Props) => {
   return (
-    <article className={styles.card}>
+    <div className={styles.card}>
       <Link to={`/shows/${show.id}`}>
         <header>
           <CoverImage className={styles.cover} images={show.images} size="m" />
@@ -19,6 +19,6 @@ export const ShowCard = ({ show }: Props) => {
       <p className={styles.description} data-testid="description">
         {show.description}
       </p>
-    </article>
+    </div>
   )
 }

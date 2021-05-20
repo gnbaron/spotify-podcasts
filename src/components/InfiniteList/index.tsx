@@ -1,1 +1,0 @@
-export { InfiniteList } from './InfiniteList'
