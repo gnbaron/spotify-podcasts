@@ -10,8 +10,8 @@ type Props = {
 
 export const ShowGrid = ({ shows, ...props }: Props) => (
   <InfiniteScroll {...props} className={styles.grid}>
-    {shows.map(({ show }) => (
-      <article key={show.id} aria-setsize={props.total}>
+    {shows.map(({ show }, index) => (
+      <article key={show.id} aria-posinset={++index} aria-setsize={props.total}>
         <ShowCard show={show} />
       </article>
     ))}
