@@ -21,7 +21,7 @@ export const ShowDetails = () => {
           <CoverImage images={show.images} size="l" />
           <div className={styles.heading}>
             <h2>{show.name}</h2>
-            <span>by {show.publisher}</span>
+            <span>{show.publisher}</span>
             <p>{show.description}</p>
           </div>
         </header>
