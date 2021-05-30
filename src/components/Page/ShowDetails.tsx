@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { useShow } from 'lib/spotify-queries'
-import { CoverImage } from 'components/CoverImage'
 import { EpisodeList } from 'components/EpisodeList'
-import { BasePage } from './BasePage'
 
-import styles from './ShowDetails.module.css'
+import { DetailsPage } from './DetailsPage'
 
 export const ShowDetails = () => {
   const params = useParams<{ id: string }>()
@@ -15,19 +13,13 @@ export const ShowDetails = () => {
   const show = query.data
 
   return (
-    <BasePage>
-      <article className={styles.details}>
-        <header>
-          <CoverImage images={show.images} size="l" />
-          <div className={styles.heading}>
-            <h2>{show.name}</h2>
-            <span>{show.publisher}</span>
-            <p>{show.description}</p>
-          </div>
-        </header>
-        <hr />
-        <EpisodeList episodes={show.episodes.items} />
-      </article>
-    </BasePage>
+    <DetailsPage
+      cover={show.images}
+      description={show.description}
+      subtitle={show.publisher}
+      title={show.name}
+    >
+      <EpisodeList episodes={show.episodes.items} />
+    </DetailsPage>
   )
 }

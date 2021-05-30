@@ -4,13 +4,6 @@
   padding: 1rem 3rem;
 }
 
-.details > hr {
-  border: 0;
-  border-top: 0.5px solid var(--color-dark-grey);
-  border-radius: 10px;
-  margin: 1.5rem 0;
-}
-
 .details > header {
   display: flex;
 }
@@ -39,3 +32,12 @@
   font-size: var(--font-size-s);
 }
 
+.content {
+  margin-top: 1.5rem;
+}
+
+.content > hr {
+  border: 0;
+  border-top: 0.5px solid var(--color-dark-grey);
+  border-radius: 10px;
+}
