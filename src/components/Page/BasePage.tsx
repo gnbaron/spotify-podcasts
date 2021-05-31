@@ -7,14 +7,16 @@ type Props = {
 
 export const BasePage = ({ children, heading }: Props) => {
   return (
-    <div className={styles.container}>
-      {heading && (
-        <>
-          <h2 className={styles.heading}>{heading}</h2>
-          <hr />
-        </>
-      )}
-      <div className={styles.content}>{children}</div>
+    <div className={styles.page}>
+      <header className={styles.header}>
+        {heading && (
+          <>
+            <h2>{heading}</h2>
+            <hr />
+          </>
+        )}
+      </header>
+      {children}
     </div>
   )
 }

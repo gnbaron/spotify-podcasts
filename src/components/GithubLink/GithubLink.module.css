@@ -1,3 +1,7 @@
+.wrapper > svg {
+  z-index: 2;
+}
+
 .wrapper:hover > .octoArm {
   animation: octocat-wave 560ms ease-in-out;
 }

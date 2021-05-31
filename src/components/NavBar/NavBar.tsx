@@ -13,8 +13,8 @@ export const NavBar = () => (
         </NavLink>
       </li>
       <li>
-        <NavLink to="/latest" activeClassName={styles.active}>
-          <span>Latest</span>
+        <NavLink to="/library" activeClassName={styles.active}>
+          <span>Saved</span>
         </NavLink>
       </li>
     </ul>

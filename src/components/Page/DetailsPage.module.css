@@ -16,20 +16,21 @@
 }
 
 .heading > h2 {
-  font-size: var(--font-size-x-heading);
+  font-size: var(--font-size-xxl);
   font-weight: bolder;
   margin: 0;
 }
 
 .heading > span {
   color: var(--color-light-grey);
+  font-size: var(--font-size-l);
   font-weight: bold;
-  margin-bottom: 2rem;
 }
 
 .heading > p {
   color: var(--color-light-grey);
   font-size: var(--font-size-s);
+  margin-top: 2rem;
 }
 
 .content {

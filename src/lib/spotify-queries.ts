@@ -22,3 +22,11 @@ export function useShow(id: string) {
     { staleTime: FIVE_MINUTES }
   )
 }
+
+export function useEpisode(id: string) {
+  return useQuery<SpotifyApi.EpisodeObjectFull>(
+    ['episode', id],
+    () => fetchSpotifyAPI(`${BASE_URL}/episodes/${id}`),
+    { staleTime: FIVE_MINUTES }
+  )
+}

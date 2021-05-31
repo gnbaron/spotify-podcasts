@@ -1,22 +1,25 @@
-.container {
+.page {
   height: 100%;
-  padding: 2rem 0;
+  overflow: auto;
 }
 
-.heading {
+.header {
+  background-color: #212121;
+  position: sticky;
+  padding: 2rem 2rem 0;
+  top: 0;
+  z-index: 1;
+}
+
+.header > h2 {
   font-size: var(--font-size-l);
   font-weight: bolder;
-  margin: 0.75rem 2rem 1.75rem;
+  margin: 0;
 }
 
-.container > hr {
+.header > hr {
   border: 0;
   border-top: 0.5px solid var(--color-dark-grey);
   border-radius: 10px;
-  margin: 0 2rem;
-}
-
-.content {
-  height: 100%;
-  overflow: auto;
+  margin-top: 1rem;
 }
