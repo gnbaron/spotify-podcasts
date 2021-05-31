@@ -1,15 +1,16 @@
 import { ReactNode, useState } from 'react'
-import { PaginationState } from 'types/common'
 import { useIntersectionObserver } from 'hooks/use-intersection-observer'
 
 type Props = {
   children: ReactNode
   className?: string
-} & PaginationState
+  hasMore?: boolean
+  isLoading?: boolean
+  onLoadMore: () => void
+}
 
 export const InfiniteScroll = (props: Props) => {
   const { children, className, hasMore, isLoading, onLoadMore } = props
-
   const [loadMoreRef, setLoadMoreRef] = useState<HTMLSpanElement | null>(null)
 
   useIntersectionObserver(loadMoreRef, { onIntersect: onLoadMore })

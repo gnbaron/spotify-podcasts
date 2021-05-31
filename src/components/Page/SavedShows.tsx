@@ -1,21 +1,35 @@
 import { useSavedShows } from 'lib/spotify-queries'
-import { ShowGrid } from 'components/ShowGrid'
+import { InfiniteScroll } from 'components/InfiniteScroll'
+import { ShowCard } from 'components/ShowCard'
 import { BasePage } from './BasePage'
+
+import styles from './SavedShows.module.css'
 
 export const SavedShows = () => {
   const query = useSavedShows()
 
   if (query.status !== 'success') return null // TODO: handle loading state
 
+  const shows = query.data || []
+
   return (
     <BasePage heading="Following">
-      <ShowGrid
+      <InfiniteScroll
+        className={styles.grid}
         hasMore={query.hasNextPage}
         isLoading={query.isFetchingNextPage}
         onLoadMore={query.fetchNextPage}
-        shows={query.data || []}
-        total={query.totalElements}
-      />
+      >
+        {shows.map(({ show }, index) => (
+          <article
+            key={show.id}
+            aria-posinset={++index}
+            aria-setsize={query.totalElements}
+          >
+            <ShowCard show={show} />
+          </article>
+        ))}
+      </InfiniteScroll>
     </BasePage>
   )
 }
