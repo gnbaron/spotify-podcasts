@@ -7,10 +7,10 @@ import { DetailsPage } from './DetailsPage'
 import styles from './ShowDetails.module.css'
 
 export const ShowDetails = () => {
-  const params = useParams<{ id: string }>()
+  const params = useParams<{ showId: string }>()
 
-  const show = useShow(params.id)
-  const episodes = useShowEpisodes(params.id)
+  const show = useShow(params.showId)
+  const episodes = useShowEpisodes(params.showId)
 
   if (show.data && episodes.data) {
     return (

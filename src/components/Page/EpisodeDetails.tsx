@@ -6,8 +6,8 @@ import { DetailsPage } from './DetailsPage'
 import styles from './EpisodeDetails.module.css'
 
 export const EpisodeDetails = () => {
-  const params = useParams<{ id: string }>()
-  const episode = useEpisode(params.id)
+  const params = useParams<{ episodeId: string }>()
+  const episode = useEpisode(params.episodeId)
 
   if (episode.data) {
     return (

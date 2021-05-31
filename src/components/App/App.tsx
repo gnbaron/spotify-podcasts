@@ -18,10 +18,10 @@ export const App = () => (
           <Route exact path="/shows">
             <SavedShows />
           </Route>
-          <Route exact path="/shows/:id">
+          <Route exact path="/shows/:showId">
             <ShowDetails />
           </Route>
-          <Route exact path="/episodes/:id">
+          <Route exact path="/episodes/:episodeId">
             <EpisodeDetails />
           </Route>
           <Route path="*">
