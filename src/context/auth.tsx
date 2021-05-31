@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
 import TokenStorage from 'lib/token-storage'
@@ -34,7 +33,7 @@ export const AuthenticationProvider = (props: Props) => {
     return null
   }
 
-  return <Fragment>{props.children}</Fragment>
+  return <>{props.children}</>
 }
 
 async function refreshToken(): Promise<Tokens> {
