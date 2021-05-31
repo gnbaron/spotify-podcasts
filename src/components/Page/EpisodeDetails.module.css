@@ -1,3 +1,16 @@
+.date {
+  color: var(--color-light-grey);
+  display: flex;
+  font-size: var(--font-size-s);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.heading {
+  font-size: var(--font-size-m);
+  font-weight: bold;
+}
+
 .description {
   color: var(--color-light-grey);
   font-size: var(--font-size-s);

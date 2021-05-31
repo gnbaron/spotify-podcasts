@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import { format } from 'date-fns'
 import { useEpisode } from 'lib/spotify-queries'
 import { DetailsPage } from './DetailsPage'
 
@@ -19,9 +20,13 @@ export const EpisodeDetails = () => {
       title={episode.name}
       subtitle={episode.show.name}
     >
+      <div className={styles.date}>
+        <span>{format(new Date(episode.release_date), 'MMM dd')}</span>·
+        <span>{`${Math.round(episode.duration_ms / 1000 / 60)} min`}</span>
+      </div>
+      <h3 className={styles.heading}>Episode Description</h3>
       <div
         className={styles.description}
-        // FIXME: make a PR for the @types repository
         dangerouslySetInnerHTML={{ __html: episode.html_description }}
       />
     </DetailsPage>
