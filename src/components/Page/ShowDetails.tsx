@@ -40,9 +40,15 @@ export const ShowDetails = () => {
     )
   }
 
-  if (show.error) console.error('query error', show.error)
+  if (show.error) {
+    console.error(show.error)
+    return <span>error</span>
+  }
 
-  if (episodes.error) console.error('query error', episodes.error)
+  if (episodes.error) {
+    console.error(episodes.error)
+    return <span>error</span>
+  }
 
-  return 'loading...' // TODO: implement loading state
+  return <span>loading...</span> // TODO: implement loading state
 }

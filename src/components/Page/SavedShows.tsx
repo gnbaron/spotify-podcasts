@@ -31,7 +31,10 @@ export const SavedShows = () => {
     )
   }
 
-  if (shows.error) console.error('query error', shows.error)
+  if (shows.error) {
+    console.error(shows.error)
+    return <span>error</span>
+  }
 
-  return 'loading...' // TODO: implement loading state
+  return <span>loading...</span> // TODO: implement loading state
 }
