@@ -1,10 +1,14 @@
 import { QueryClient } from 'react-query'
 import TokenStorage from './token-storage'
 
-export const queryClient = new QueryClient()
+const FIVE_MINUTES = 5 * 60 * 1000
+
+export const queryClient = new QueryClient({
+  defaultOptions: { queries: { staleTime: FIVE_MINUTES } },
+})
 
 /**
- * Make a request for Spotify WEB API.
+ * Make a request for Spotify Web API.
  * @param url resource url
  * @param options fetch options
  * @returns response promise

@@ -13,15 +13,12 @@ export const Episode = ({ episode }: Props) => (
     <Link to={`/episodes/${episode.id}`} aria-hidden tabIndex={-1}>
       <CoverImage className={styles.cover} images={episode.images} size="s" />
     </Link>
-
     <div className={styles.content}>
       <Link to={`/episodes/${episode.id}`}>
         <h3 className={styles.heading}>{episode.name}</h3>
       </Link>
-
       <p className={styles.description}>{episode.description}</p>
-
-      <div className={styles.date}>
+      <div className={styles.time}>
         <span>{format(new Date(episode.release_date), 'MMM dd')}</span>·
         <span>{`${Math.round(episode.duration_ms / 1000 / 60)} min`}</span>
       </div>

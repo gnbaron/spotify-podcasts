@@ -30,7 +30,7 @@ export const usePaginatedQuery = <T>(
   )
   return {
     ...result,
-    data,
+    data: data || [],
     totalElements: result.data ? result.data.pages[0].total : 0,
   }
 }

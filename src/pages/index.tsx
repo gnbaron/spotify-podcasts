@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next'
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { AuthenticationProvider } from 'context/auth'
+import { AuthenticationProvider } from 'context/authentication'
 import { queryClient } from 'lib/query-client'
 import { App } from 'components/App'
 import { Tokens } from 'types/common'

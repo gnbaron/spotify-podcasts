@@ -5,21 +5,14 @@ import { Tokens } from 'types/common'
 
 const TEN_MINUTES = 10 * 60 * 1000
 
-type Props = {
-  children: React.ReactNode
-  tokens: Tokens | null
+const queryKeys = {
+  tokens: ['tokens'],
 }
 
-export const AuthenticationProvider = (props: Props) => {
-  const router = useRouter()
-
-  if (props.tokens) {
-    TokenStorage.save(props.tokens)
-  }
-
+export function useFreshTokens() {
   const tokens = TokenStorage.read()
-
-  const result = useQuery('tokens', refreshToken, {
+  const router = useRouter()
+  return useQuery(queryKeys.tokens, fetchFreshTokens, {
     initialData: tokens,
     staleTime: TEN_MINUTES,
     cacheTime: Infinity,
@@ -28,21 +21,13 @@ export const AuthenticationProvider = (props: Props) => {
     onSuccess: TokenStorage.save,
     onError: () => router.push('/login'),
   })
-
-  if (result.status !== 'success') {
-    return null
-  }
-
-  return <>{props.children}</>
 }
 
-async function refreshToken(): Promise<Tokens> {
+async function fetchFreshTokens(): Promise<Tokens> {
   const stored = TokenStorage.read()
-
   if (!stored?.refreshToken) {
     throw new Error('refresh token is invalid')
   }
-
   const response = await fetch('/api/auth/refresh', {
     method: 'POST',
     headers: {
@@ -50,10 +35,8 @@ async function refreshToken(): Promise<Tokens> {
     },
     body: JSON.stringify({ refreshToken: stored.refreshToken }),
   })
-
   if (!response.ok) {
     throw new Error("can't refresh the access token")
   }
-
   return await response.json()
 }

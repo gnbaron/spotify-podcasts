@@ -7,28 +7,32 @@ import styles from './EpisodeDetails.module.css'
 
 export const EpisodeDetails = () => {
   const params = useParams<{ id: string }>()
-  const query = useEpisode(params.id)
+  const episode = useEpisode(params.id)
 
-  if (query.status !== 'success') return null // TODO: handle loading state
+  if (episode.data) {
+    return (
+      <DetailsPage
+        cover={episode.data.images}
+        coverSize="m"
+        title={episode.data.name}
+        subtitle={episode.data.show.name}
+      >
+        <div className={styles.time}>
+          <span>{format(new Date(episode.data.release_date), 'MMM dd')}</span>·
+          <span>{`${Math.round(
+            episode.data.duration_ms / 1000 / 60
+          )} min`}</span>
+        </div>
+        <h3 className={styles.heading}>Episode Description</h3>
+        <div
+          className={styles.description}
+          dangerouslySetInnerHTML={{ __html: episode.data.html_description }}
+        />
+      </DetailsPage>
+    )
+  }
 
-  const episode = query.data
+  if (episode.error) console.error('query error', episode.error)
 
-  return (
-    <DetailsPage
-      cover={episode.images}
-      coverSize="m"
-      title={episode.name}
-      subtitle={episode.show.name}
-    >
-      <div className={styles.date}>
-        <span>{format(new Date(episode.release_date), 'MMM dd')}</span>·
-        <span>{`${Math.round(episode.duration_ms / 1000 / 60)} min`}</span>
-      </div>
-      <h3 className={styles.heading}>Episode Description</h3>
-      <div
-        className={styles.description}
-        dangerouslySetInnerHTML={{ __html: episode.html_description }}
-      />
-    </DetailsPage>
-  )
+  return 'loading...' // TODO: implement loading state
 }

@@ -8,38 +8,41 @@ import styles from './ShowDetails.module.css'
 
 export const ShowDetails = () => {
   const params = useParams<{ id: string }>()
-  const showQuery = useShow(params.id)
-  const episodesQuery = useShowEpisodes(params.id)
 
-  if (showQuery.status !== 'success' || episodesQuery.status !== 'success')
-    return null // TODO: handle loading state
+  const show = useShow(params.id)
+  const episodes = useShowEpisodes(params.id)
 
-  const show = showQuery.data
-  const episodes = episodesQuery.data || []
-
-  return (
-    <DetailsPage
-      cover={show.images}
-      description={show.description}
-      subtitle={show.publisher}
-      title={show.name}
-    >
-      <InfiniteScroll
-        className={styles.episodeList}
-        hasMore={episodesQuery.hasNextPage}
-        isLoading={episodesQuery.isFetchingNextPage}
-        onLoadMore={episodesQuery.fetchNextPage}
+  if (show.data && episodes.data) {
+    return (
+      <DetailsPage
+        cover={show.data.images}
+        description={show.data.description}
+        subtitle={show.data.publisher}
+        title={show.data.name}
       >
-        {episodes.map((episode, index) => (
-          <article
-            key={episode.id}
-            aria-posinset={++index}
-            aria-setsize={episodesQuery.totalElements}
-          >
-            <Episode episode={episode} />
-          </article>
-        ))}
-      </InfiniteScroll>
-    </DetailsPage>
-  )
+        <InfiniteScroll
+          className={styles.episodeList}
+          hasMore={episodes.hasNextPage}
+          isLoading={episodes.isFetchingNextPage}
+          onLoadMore={episodes.fetchNextPage}
+        >
+          {episodes.data.map((episode, index) => (
+            <article
+              key={episode.id}
+              aria-posinset={++index}
+              aria-setsize={episodes.totalElements}
+            >
+              <Episode episode={episode} />
+            </article>
+          ))}
+        </InfiniteScroll>
+      </DetailsPage>
+    )
+  }
+
+  if (show.error) console.error('query error', show.error)
+
+  if (episodes.error) console.error('query error', episodes.error)
+
+  return 'loading...' // TODO: implement loading state
 }
