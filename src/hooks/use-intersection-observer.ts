@@ -1,11 +1,11 @@
-import { useEffect, useState, RefObject } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Args extends IntersectionObserverInit {
   onIntersect?: () => void
 }
 
 export function useIntersectionObserver(
-  target: RefObject<Element>,
+  node: Element | null,
   { threshold = 0, root = null, rootMargin = '0%', onIntersect }: Args = {}
 ): IntersectionObserverEntry | undefined {
   const [entry, setEntry] = useState<IntersectionObserverEntry>()
@@ -19,7 +19,6 @@ export function useIntersectionObserver(
   }
 
   useEffect(() => {
-    const node = target?.current
     const hasSupport = !!window.IntersectionObserver
 
     if (!hasSupport || !node) return
@@ -32,7 +31,7 @@ export function useIntersectionObserver(
     return () => observer.disconnect()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target, threshold, root, rootMargin])
+  }, [node, threshold, root, rootMargin])
 
   return entry
 }
