@@ -1,12 +1,12 @@
 import { ReactNode } from 'react'
-import { CoverImage } from 'components/CoverImage'
+import { Cover } from 'components/Cover'
 import { BasePage } from './BasePage'
 
 import styles from './DetailsPage.module.css'
 
 type Props = {
   children?: ReactNode
-  cover: SpotifyApi.ImageObject[]
+  cover: SpotifyApi.ImageObject
   coverSize?: 's' | 'm' | 'l'
   description?: string
   subtitle: string
@@ -27,7 +27,7 @@ export const DetailsPage = (props: Props) => {
     <BasePage>
       <article className={styles.details}>
         <header>
-          <CoverImage images={cover} size={coverSize} />
+          <Cover image={cover} size={coverSize} />
           <div className={styles.heading}>
             <h2>{title}</h2>
             <span>{subtitle}</span>

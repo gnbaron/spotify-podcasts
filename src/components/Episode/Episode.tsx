@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
-import { CoverImage } from 'components/CoverImage'
+import { Cover } from 'components/Cover'
 
 import styles from './Episode.module.css'
 
@@ -11,7 +11,7 @@ type Props = {
 export const Episode = ({ episode }: Props) => (
   <article className={styles.episode}>
     <Link to={`/episodes/${episode.id}`} aria-hidden tabIndex={-1}>
-      <CoverImage className={styles.cover} images={episode.images} size="s" />
+      <Cover className={styles.cover} image={episode.images[1]} size="s" />
     </Link>
     <div className={styles.content}>
       <Link to={`/episodes/${episode.id}`}>

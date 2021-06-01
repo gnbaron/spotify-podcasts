@@ -12,7 +12,7 @@ export const EpisodeDetails = () => {
   if (episode.data) {
     return (
       <DetailsPage
-        cover={episode.data.images}
+        cover={episode.data.images[1]}
         coverSize="m"
         title={episode.data.name}
         subtitle={episode.data.show.name}

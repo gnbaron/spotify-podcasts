@@ -15,7 +15,7 @@ export const ShowDetails = () => {
   if (show.data && episodes.data) {
     return (
       <DetailsPage
-        cover={show.data.images}
+        cover={show.data.images[1]}
         description={show.data.description}
         subtitle={show.data.publisher}
         title={show.data.name}
