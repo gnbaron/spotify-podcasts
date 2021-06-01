@@ -15,8 +15,6 @@ export const ShowCard = ({ show }: Props) => (
         <h3 className={styles.name}>{show.name}</h3>
       </header>
     </Link>
-    <p className={styles.description} data-testid="description">
-      {show.description}
-    </p>
+    <small className={styles.publisher}>{show.publisher}</small>
   </div>
 )

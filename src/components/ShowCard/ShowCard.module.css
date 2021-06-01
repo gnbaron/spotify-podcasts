@@ -43,13 +43,10 @@
   margin: 1.25rem 0 0;
 }
 
-.description {
+.publisher {
   color: var(--color-light-grey);
-  display: -webkit-box;
+  display: block;
   font-size: var(--font-size-xs);
   line-height: 1.15rem;
-  margin: 0.75rem 0 0;
-  overflow: hidden;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  margin: 0.5rem 0 0;
 }
