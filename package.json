@@ -19,7 +19,7 @@
     "cookie": "^0.4.1",
     "date-fns": "^2.21.3",
     "history": "^5.0.0",
-    "next": "10.0.8",
+    "next": "10.2.3",
     "nextjs-progressbar": "^0.0.8",
     "node-fetch": "^2.6.1",
     "query-string": "^7.0.0",
