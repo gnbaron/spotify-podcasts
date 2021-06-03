@@ -1,6 +1,5 @@
 import { useQuery } from 'react-query'
-import { fetchSpotifyAPI } from './query-client'
-import { usePaginatedQuery } from './query-utils'
+import { fetchSpotifyAPI, usePaginatedQuery } from './query-utils'
 
 const BASE_URL = 'https://api.spotify.com/v1'
 
