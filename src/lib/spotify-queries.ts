@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery, UseQueryOptions } from 'react-query'
 import { usePaginatedQuery } from './query-utils'
 import { queryClient } from './query-client'
 import { queryKeys as authQueryKeys } from './auth-queries'
@@ -9,13 +9,14 @@ const BASE_URL = 'https://api.spotify.com/v1'
 const queryKeys = {
   episode: (episodeId: string) => ['episode', episodeId],
   episodes: (showId: string) => ['episodes', showId],
-  savedShows: ['savedShows'],
+  profile: () => ['profile'],
+  savedShows: () => ['savedShows'],
   show: (showId: string) => ['show', showId],
 }
 
 export function useSavedShows() {
   return usePaginatedQuery<SpotifyApi.SavedShowObject>(
-    queryKeys.savedShows,
+    queryKeys.savedShows(),
     (nextPageURL) => fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/shows`)
   )
 }
@@ -44,6 +45,16 @@ export function useEpisode(episodeId: string) {
   )
 }
 
+export function useProfile(
+  options: UseQueryOptions<SpotifyApi.UserObjectPrivate> = {}
+) {
+  return useQuery<SpotifyApi.UserObjectPrivate>(
+    queryKeys.profile(),
+    () => fetchSpotifyAPI(`${BASE_URL}/me`),
+    options
+  )
+}
+
 /**
  * Make a request for Spotify Web API.
  * @param url resource url
@@ -62,7 +73,7 @@ async function fetchSpotifyAPI<T>(
 
   // in case of unauthorized try refreshing the tokens
   if (response.status === 401) {
-    await queryClient.refetchQueries(authQueryKeys.tokens)
+    await queryClient.refetchQueries(authQueryKeys.tokens())
     return fetchSpotifyAPI(url, options)
   }
 

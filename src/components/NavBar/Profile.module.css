@@ -1,0 +1,22 @@
+.profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.profile > img {
+  border-radius: 50%;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.logout {
+  font-size: var(--font-size-xs);
+  margin-top: 2rem;
+}

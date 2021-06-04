@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { Logo } from 'components/Logo'
+import { Profile } from './Profile'
 
 import styles from './NavBar.module.css'
 
@@ -18,5 +19,8 @@ export const NavBar = () => (
         </NavLink>
       </li>
     </ul>
+    <div className={styles.profile}>
+      <Profile />
+    </div>
   </nav>
 )

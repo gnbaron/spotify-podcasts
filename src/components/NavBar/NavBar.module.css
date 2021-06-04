@@ -1,5 +1,7 @@
 .navbar {
   background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 1.25rem;
 }
@@ -34,4 +36,9 @@
 .menu:not(:hover) > li a.active,
 .menu > li a:hover {
   background-color: var(--color-dark-grey);
+}
+
+.profile {
+  margin-top: auto;
+  padding-bottom: 3rem;
 }

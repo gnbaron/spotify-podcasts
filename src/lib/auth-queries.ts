@@ -6,13 +6,13 @@ import { Tokens } from 'types/common'
 const TEN_MINUTES = 10 * 60 * 1000
 
 export const queryKeys = {
-  tokens: ['tokens'],
+  tokens: () => ['tokens'],
 }
 
 export function useFreshTokens() {
   const tokens = TokenStorage.read()
   const router = useRouter()
-  return useQuery(queryKeys.tokens, fetchFreshTokens, {
+  return useQuery(queryKeys.tokens(), fetchFreshTokens, {
     initialData: tokens,
     staleTime: TEN_MINUTES,
     cacheTime: Infinity,
