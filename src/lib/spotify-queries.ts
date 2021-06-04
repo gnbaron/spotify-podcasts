@@ -1,5 +1,8 @@
 import { useQuery } from 'react-query'
-import { fetchSpotifyAPI, usePaginatedQuery } from './query-utils'
+import { usePaginatedQuery } from './query-utils'
+import { queryClient } from './query-client'
+import { queryKeys as authQueryKeys } from './auth-queries'
+import TokenStorage from './token-storage'
 
 const BASE_URL = 'https://api.spotify.com/v1'
 
@@ -39,4 +42,45 @@ export function useEpisode(episodeId: string) {
     () => fetchSpotifyAPI(`${BASE_URL}/episodes/${episodeId}`),
     {}
   )
+}
+
+/**
+ * Make a request for Spotify Web API.
+ * @param url resource url
+ * @param options fetch options
+ * @returns response promise
+ * @throws Error when access token is invalid
+ */
+async function fetchSpotifyAPI<T>(
+  url: RequestInfo,
+  options?: RequestInit
+): Promise<T> {
+  const headers = getHeaders()
+  const response = await fetch(url, { headers, ...options })
+
+  if (response.ok) return response.json()
+
+  // in case of unauthorized try refreshing the tokens
+  if (response.status === 401) {
+    await queryClient.refetchQueries(authQueryKeys.tokens)
+    return fetchSpotifyAPI(url, options)
+  }
+
+  // handle other errors
+  const { error } = await response.json()
+  if (error) {
+    throw new Error(`${error.status} - ${error.message}`)
+  }
+  throw new Error('Unexpected error')
+}
+
+function getHeaders() {
+  const tokens = TokenStorage.read()
+  if (!tokens) {
+    throw new Error('Invalid access token')
+  }
+  return {
+    Authorization: `Bearer ${tokens.accessToken}`,
+    'Content-Type': 'application/json',
+  }
 }

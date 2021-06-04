@@ -5,7 +5,7 @@ import { Tokens } from 'types/common'
 
 const TEN_MINUTES = 10 * 60 * 1000
 
-const queryKeys = {
+export const queryKeys = {
   tokens: ['tokens'],
 }
 
