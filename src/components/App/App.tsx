@@ -26,7 +26,7 @@ export const App = () => (
               <Route exact path="/shows/:showId">
                 <ShowDetails />
               </Route>
-              <Route exact path="/episodes/:episodeId">
+              <Route exact path="/shows/:showId/episodes/:episodeId">
                 <EpisodeDetails />
               </Route>
               <Route path="*">

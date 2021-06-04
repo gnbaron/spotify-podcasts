@@ -6,7 +6,7 @@ import { DetailsPage } from './DetailsPage'
 import styles from './EpisodeDetails.module.css'
 
 export const EpisodeDetails = () => {
-  const params = useParams<{ episodeId: string }>()
+  const params = useParams<{ showId: string; episodeId: string }>()
   const episode = useEpisode(params.episodeId)
 
   if (!episode.data) return null

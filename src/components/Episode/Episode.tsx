@@ -6,15 +6,20 @@ import styles from './Episode.module.css'
 
 type Props = {
   episode: SpotifyApi.EpisodeObjectSimplified
+  showId: string
 }
 
-export const Episode = ({ episode }: Props) => (
+export const Episode = ({ episode, showId }: Props) => (
   <article className={styles.episode}>
-    <Link to={`/episodes/${episode.id}`} aria-hidden tabIndex={-1}>
+    <Link
+      to={`/shows/${showId}/episodes/${episode.id}`}
+      aria-hidden
+      tabIndex={-1}
+    >
       <Cover className={styles.cover} image={episode.images[1]} size="s" />
     </Link>
     <div className={styles.content}>
-      <Link to={`/episodes/${episode.id}`}>
+      <Link to={`/shows/${showId}/episodes/${episode.id}`}>
         <h3 className={styles.heading}>{episode.name}</h3>
       </Link>
       <p className={styles.description}>{episode.description}</p>
