@@ -17,7 +17,7 @@ export const ErrorBoundary = ({ children }: Props) => {
           fallbackRender={({ resetErrorBoundary }) => (
             <div className={styles.error}>
               <h2 className={styles.heading}>
-                Oh snap! Something went wrong <span>😱</span>
+                Oh snap! Something went wrong <span>😟</span>
               </h2>
               <Button
                 className={styles.button}

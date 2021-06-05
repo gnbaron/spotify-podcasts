@@ -1,9 +1,12 @@
-import { Button } from 'components/Button'
+import { useRouter } from 'next/router'
 import { useProfile } from 'lib/spotify-queries'
+import { Button } from 'components/Button'
 
 import styles from './Profile.module.css'
+import TokenStorage from 'lib/token-storage'
 
 export const Profile = () => {
+  const router = useRouter()
   const profile = useProfile({ suspense: false })
 
   if (!profile.data) return null
@@ -12,11 +15,16 @@ export const Profile = () => {
     ? profile.data.images[0].url
     : '/img/empty-avatar.png'
 
+  const handleLogout = () => {
+    TokenStorage.remove()
+    router.push('/login')
+  }
+
   return (
     <div className={styles.profile}>
       <img src={avatarUrl} />
       <span className={styles.name}>{profile.data.display_name}</span>
-      <Button className={styles.logout} quiet>
+      <Button className={styles.logout} onClick={handleLogout} quiet>
         Logout
       </Button>
     </div>

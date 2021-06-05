@@ -1,9 +1,9 @@
 import { NextPageContext } from 'next'
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { AuthenticationProvider } from 'context/authentication'
 import { queryClient } from 'lib/query-client'
 import { App } from 'components/App'
+import { Authenticated } from 'components/Authenticated'
 import { Tokens } from 'types/common'
 
 type Props = {
@@ -13,9 +13,9 @@ type Props = {
 export default function IndexPage({ tokens }: Props) {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthenticationProvider tokens={tokens}>
+      <Authenticated tokens={tokens}>
         <App />
-      </AuthenticationProvider>
+      </Authenticated>
       <ReactQueryDevtools />
     </QueryClientProvider>
   )

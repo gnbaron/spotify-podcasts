@@ -30,7 +30,7 @@ function App({ Component, pageProps, router }: AppProps) {
       {router.route.match(/login/) ? (
         <Component {...pageProps} />
       ) : (
-        // the app is rendered on the client side
+        // rendered on the client side
         <SafeHydrate>
           <Component {...pageProps} />
         </SafeHydrate>

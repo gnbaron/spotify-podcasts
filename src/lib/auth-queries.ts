@@ -1,33 +1,34 @@
-import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
 import TokenStorage from 'lib/token-storage'
 import { Tokens } from 'types/common'
 
-const TEN_MINUTES = 10 * 60 * 1000
+const MINUTE = 60 * 1000
 
 export const queryKeys = {
   tokens: () => ['tokens'],
 }
 
-export function useFreshTokens() {
-  const tokens = TokenStorage.read()
-  const router = useRouter()
+export function useFreshTokens(tokens: Tokens | null) {
+  if (tokens) TokenStorage.save(tokens)
+
   return useQuery(queryKeys.tokens(), fetchFreshTokens, {
-    initialData: tokens,
-    staleTime: TEN_MINUTES,
+    initialData: tokens || TokenStorage.read(),
     cacheTime: Infinity,
-    refetchInterval: TEN_MINUTES,
+    staleTime: 10 * MINUTE,
+    refetchInterval: 9 * MINUTE,
     refetchIntervalInBackground: true,
     onSuccess: TokenStorage.save,
-    onError: () => router.push('/login'),
+    suspense: false,
   })
 }
 
 async function fetchFreshTokens(): Promise<Tokens> {
   const stored = TokenStorage.read()
+
   if (!stored?.refreshToken) {
     throw new Error('refresh token is invalid')
   }
+
   const response = await fetch('/api/auth/refresh', {
     method: 'POST',
     headers: {
@@ -35,8 +36,10 @@ async function fetchFreshTokens(): Promise<Tokens> {
     },
     body: JSON.stringify({ refreshToken: stored.refreshToken }),
   })
+
   if (!response.ok) {
     throw new Error("can't refresh the access token")
   }
+
   return await response.json()
 }
