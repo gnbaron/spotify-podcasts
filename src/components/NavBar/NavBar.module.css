@@ -1,39 +1,12 @@
 .navbar {
   background-color: var(--color-black);
+  box-shadow: rgba(0 0 0 / 0.75) 0px 0px 15px;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1.25rem;
+  padding: 1.25rem 0;
 }
 
 .logo {
   margin: 0.75rem 0 3.5rem;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-}
-
-.menu > li {
-  flex: 1;
-}
-
-.menu > li + li {
-  margin-top: 0.5rem;
-}
-
-.menu > li a {
-  border-radius: 5px;
-  color: var(--color-white);
-  font-weight: 800;
-  display: block;
-  padding: 0.5rem;
-  text-align: center;
-  text-decoration: none;
-}
-
-.menu:not(:hover) > li a.active,
-.menu > li a:hover {
-  background-color: var(--color-dark-grey);
 }

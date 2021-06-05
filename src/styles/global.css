@@ -16,6 +16,9 @@
   --color-light-grey: #b3b3b3;
   --color-black: #000;
   --color-white: #fff;
+
+  --color-background-start: #212121;
+  --color-background-end: #121212;
 }
 
 *,
@@ -39,7 +42,7 @@ figcaption {
 }
 
 body {
-  background: linear-gradient(#212121, #121212);
+  background: linear-gradient(var(--color-background-start), var(--color-background-end));
   color: var(--color-white);
   font-family: "Helvetica Neue", sans-serif;
   line-height: 1.75;

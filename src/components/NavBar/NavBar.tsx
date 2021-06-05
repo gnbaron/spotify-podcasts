@@ -1,24 +1,15 @@
-import { NavLink } from 'react-router-dom'
 import { Logo } from 'components/Logo'
+import { Menu } from './Menu'
 import { Profile } from './Profile'
 
 import styles from './NavBar.module.css'
 
-export const NavBar = () => (
-  <nav className={styles.navbar}>
-    <Logo className={styles.logo} size="m" />
-    <ul className={styles.menu}>
-      <li>
-        <NavLink to="/shows" activeClassName={styles.active}>
-          <span>Shows</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/library" activeClassName={styles.active}>
-          <span>Saved</span>
-        </NavLink>
-      </li>
-    </ul>
-    <Profile />
-  </nav>
-)
+export const NavBar = () => {
+  return (
+    <nav className={styles.navbar}>
+      <Logo className={styles.logo} size="m" />
+      <Menu />
+      <Profile />
+    </nav>
+  )
+}
