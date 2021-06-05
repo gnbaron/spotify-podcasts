@@ -2,8 +2,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 2rem 0;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding: 2rem 0 3rem;
 }
 
 .profile > img {
@@ -13,10 +14,11 @@
 }
 
 .name {
+  font-size: var(--font-size-s);
   font-weight: bold;
 }
 
 .logout {
   font-size: var(--font-size-xs);
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }

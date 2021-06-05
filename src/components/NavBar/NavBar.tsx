@@ -19,8 +19,6 @@ export const NavBar = () => (
         </NavLink>
       </li>
     </ul>
-    <div className={styles.profile}>
-      <Profile />
-    </div>
+    <Profile />
   </nav>
 )
