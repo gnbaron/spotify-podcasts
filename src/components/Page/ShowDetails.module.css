@@ -1,4 +1,4 @@
-.episodeList > li + li {
+.episodeList > article + article {
   border-top: 1px solid transparent;
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
