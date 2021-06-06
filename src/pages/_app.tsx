@@ -5,6 +5,7 @@ import { DefaultSeo } from 'next-seo'
 import SEO from '../../next.seo.config'
 
 import 'styles/global.css'
+import 'styles/github.css'
 import 'styles/scrollbar.css'
 
 function SafeHydrate({ children }: { children: React.ReactNode }) {

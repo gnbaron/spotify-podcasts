@@ -1,8 +1,4 @@
-.wrapper > svg {
-  z-index: 2;
-}
-
-.wrapper:hover .octoArm {
+.github-corner:hover .octoArm {
   animation: octocat-wave 560ms ease-in-out;
 }
 
@@ -22,11 +18,11 @@
 }
 
 @media (max-width: 500px) {
-  .wrapper:hover > .octoArm {
+  .github-corner:hover .octoArm {
     animation: none;
   }
 
-  .wrapper > .octoArm {
+  .github-corner .octoArm {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
