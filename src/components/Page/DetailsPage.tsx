@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { NextSeo } from 'next-seo'
 import { Cover } from 'components/Cover'
 import { BasePage } from './BasePage'
 
@@ -25,6 +26,10 @@ export const DetailsPage = (props: Props) => {
 
   return (
     <BasePage>
+      <NextSeo
+        title={`Spotify Podcasts · ${title}`}
+        description={description}
+      />
       <article className={styles.details}>
         <header>
           <Cover image={cover} size={coverSize} />

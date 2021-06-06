@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo'
 import { useSavedShows } from 'lib/spotify-queries'
 import { InfiniteScroll } from 'components/InfiniteScroll'
 import { ShowCard } from 'components/ShowCard'
@@ -12,6 +13,10 @@ export const SavedShows = () => {
 
   return (
     <BasePage heading="Following">
+      <NextSeo
+        title="Spotify Podcasts · Following"
+        description="List of following shows."
+      />
       <InfiniteScroll
         className={styles.grid}
         hasMore={shows.hasNextPage}

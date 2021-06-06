@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/app'
 import NextHead from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next.seo.config'
 
 import 'styles/global.css'
 import 'styles/scrollbar.css'
@@ -20,6 +22,7 @@ function App({ Component, pageProps, router }: AppProps) {
         <link rel="shortcut icon" href="/img/favicon.ico" />
         <link rel="apple-touch-icon" href="/img/favicon.ico" />
       </NextHead>
+      <DefaultSeo {...SEO} />
       <NextNProgress
         color="#1ed760"
         height={3}
