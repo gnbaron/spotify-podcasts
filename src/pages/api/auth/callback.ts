@@ -6,6 +6,7 @@ import { STATE_KEY } from './login'
 
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
+const AUTH_REDIRECT_URI = process.env.AUTH_REDIRECT_URI
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const code = req.query.code || null
@@ -22,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const response = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
-        body: `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/api/auth/callback`, // TODO: update redirect URLs
+        body: `grant_type=authorization_code&code=${code}&redirect_uri=${AUTH_REDIRECT_URI}`,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           Authorization: `Basic ${auth}`,

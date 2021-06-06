@@ -5,6 +5,7 @@ import { setCookie } from 'utils/cookies'
 export const STATE_KEY = 'spotify_auth_state'
 
 const CLIENT_ID = process.env.CLIENT_ID
+const AUTH_REDIRECT_URI = process.env.AUTH_REDIRECT_URI
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const state = generateRandomString(16)
@@ -16,7 +17,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     response_type: 'code',
     client_id: CLIENT_ID,
     scope: scope,
-    redirect_uri: 'http://localhost:3000/api/auth/callback', // TODO: update redirect URLs
+    redirect_uri: AUTH_REDIRECT_URI,
     state: state,
   })
 
