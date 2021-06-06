@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
+import { Analytics } from 'components/Analytics'
 import { GithubLink } from 'components/GithubLink'
 
 class MyDocument extends Document {
@@ -21,6 +22,7 @@ class MyDocument extends Document {
           <GithubLink />
           <Main />
           <NextScript />
+          <Analytics />
         </body>
       </Html>
     )
