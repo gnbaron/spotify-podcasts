@@ -13,7 +13,7 @@ export const Profile = () => {
 
   const avatarUrl = profile.data.images
     ? profile.data.images[0].url
-    : '/img/empty-avatar.png'
+    : '/img/avatar.svg'
 
   const handleLogout = () => {
     TokenStorage.remove()
