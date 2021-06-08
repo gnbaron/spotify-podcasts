@@ -21,15 +21,6 @@
   --color-background-end: #121212;
 }
 
-@font-face {
-	font-family: "CircularSpotify";
-	src: url("/fonts/CircularSpotify-Book.eot");
-	src: url("/fonts/CircularSpotify-Book.svg") format("svg"),
-		 url("/fonts/CircularSpotify-Book.ttf") format("truetype"),
-		 url("/fonts/CircularSpotify-Book.woff") format("woff"),
-		 url("/fonts/CircularSpotify-Book.woff2") format("woff2");
-}
-
 *,
 *::before,
 *::after {

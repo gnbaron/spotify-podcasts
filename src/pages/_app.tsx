@@ -4,8 +4,9 @@ import NextNProgress from 'nextjs-progressbar'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../../next.seo.config'
 
+import 'styles/fonts.css'
 import 'styles/global.css'
-import 'styles/github-corner.css'
+import 'styles/github.css'
 
 function SafeHydrate({ children }: { children: React.ReactNode }) {
   return (
