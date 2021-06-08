@@ -19,7 +19,7 @@ export const Login = ({ failed }: Props) => (
           <span>you shall not pass</span>
         </div>
       )}
-      <Button href="/api/auth/login">
+      <Button className={styles.button} href="/api/auth/login">
         {failed ? 'Try again' : 'Log in using Spotify'}
       </Button>
     </main>

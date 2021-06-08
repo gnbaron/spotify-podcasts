@@ -49,6 +49,8 @@ body {
   overflow-y: hidden;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p {

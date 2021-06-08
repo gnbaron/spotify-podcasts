@@ -18,37 +18,31 @@ const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
 
     if (href) {
       return (
-        <a
-          aria-disabled={disabled}
-          className={classNames(
-            styles.wrapper,
-            styles.link,
-            quiet && styles.quiet,
-            className
-          )}
-          href={href}
-          ref={ref}
-        >
-          {children}
-        </a>
+        <div className={classNames(styles.wrapper, className)}>
+          <a
+            aria-disabled={disabled}
+            className={classNames(styles.button, quiet && styles.quiet)}
+            href={href}
+            ref={ref}
+          >
+            {children}
+          </a>
+        </div>
       )
     }
 
     return (
-      <button
-        aria-disabled={disabled || undefined}
-        disabled={disabled}
-        className={classNames(
-          styles.wrapper,
-          styles.button,
-          quiet && styles.quiet,
-          className
-        )}
-        onClick={onClick}
-        ref={ref}
-      >
-        {children}
-      </button>
+      <div className={classNames(styles.wrapper, className)}>
+        <button
+          aria-disabled={disabled}
+          disabled={disabled}
+          className={classNames(styles.button, quiet && styles.quiet)}
+          onClick={onClick}
+          ref={ref}
+        >
+          {children}
+        </button>
+      </div>
     )
   }
 )

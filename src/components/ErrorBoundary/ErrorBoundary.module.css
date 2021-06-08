@@ -23,6 +23,6 @@
 }
 
 .button {
-  font-size: var(--font-size-s);
-  margin-top: 2rem;
+  font-size: var(--font-size-m);
+  margin-top: 1.5rem;
 }

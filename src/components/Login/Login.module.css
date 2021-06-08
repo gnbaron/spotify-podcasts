@@ -50,6 +50,10 @@
   margin-left: 0.5rem;
 }
 
+.button {
+  font-size: var(--font-size-m);
+}
+
 .login > footer {
   font-family: Monaco, monospace;
   font-size: var(--fs-m);
