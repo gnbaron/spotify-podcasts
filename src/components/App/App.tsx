@@ -3,7 +3,12 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { NavBar } from 'components/NavBar'
 import { Loading } from 'components/Loading'
 import { ErrorBoundary } from 'components/ErrorBoundary'
-import { EpisodeDetails, SavedShows, ShowDetails } from 'components/Page'
+import {
+  SavedShows,
+  SavedEpisodes,
+  ShowDetails,
+  EpisodeDetails,
+} from 'components/Page'
 
 import styles from './App.module.css'
 
@@ -28,6 +33,9 @@ export const App = () => (
               </Route>
               <Route exact path="/shows/:showId/episodes/:episodeId">
                 <EpisodeDetails />
+              </Route>
+              <Route exact path="/library">
+                <SavedEpisodes />
               </Route>
               <Route path="*">
                 <div>not found</div>

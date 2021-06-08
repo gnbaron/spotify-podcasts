@@ -1,0 +1,27 @@
+.emptyState {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.illustration {
+  height: 27.5rem;
+  width: 27.5rem;
+}
+
+.title,
+.subtitle {
+  color: var(--color-light-grey);
+  margin: 1rem 0;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: bolder;
+}
+
+.subtitle {
+  font-size: var(--font-size-l);
+}
