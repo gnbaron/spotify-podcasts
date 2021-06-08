@@ -16,9 +16,8 @@ export const ErrorBoundary = ({ children }: Props) => {
         <ReactErrorBoundary
           fallbackRender={({ resetErrorBoundary }) => (
             <div className={styles.error}>
-              <h2 className={styles.heading}>
-                Oh snap! Something went wrong <span>😟</span>
-              </h2>
+              <h2 className={styles.heading}>Oh snap! Something went wrong.</h2>
+              <img className={styles.illustration} src="/img/injured.svg" />
               <Button
                 className={styles.button}
                 onClick={() => resetErrorBoundary()}
