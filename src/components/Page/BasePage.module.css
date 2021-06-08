@@ -10,7 +10,7 @@
 
 .header > h2 {
   font-size: var(--font-size-l);
-  font-weight: bolder;
+  font-weight: bold;
   margin: 0;
 }
 

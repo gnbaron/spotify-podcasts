@@ -5,7 +5,7 @@
   color: var(--color-white);
   font-weight: bold;
   letter-spacing: 0.125em;
-  padding: 0.5em 2em;
+  padding: 0.6em 2em;
   text-transform: uppercase;
   text-align: center;
   transition: background-color 0.3s, border-color 0.3s;

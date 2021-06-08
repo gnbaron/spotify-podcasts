@@ -20,7 +20,6 @@
   display: flex;
   flex: 1;
   justify-content: center;
-  padding: 0.75rem;
   z-index: 1;
 }
 
@@ -29,7 +28,12 @@
 }
 
 .menu > li a {
+  align-items: center;
   color: var(--color-white);
-  font-weight: bold;
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  padding: 0.65rem;
   text-decoration: none;
+  width: 100%;
 }

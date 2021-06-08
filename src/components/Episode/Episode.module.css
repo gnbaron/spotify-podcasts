@@ -50,7 +50,7 @@
 
 .heading {
   font-size: var(--font-size-m);
-  font-weight: bold;
+  font-weight: 500;
   margin: 0;
 }
 
