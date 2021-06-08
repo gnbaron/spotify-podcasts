@@ -14,7 +14,6 @@ export const EpisodeDetails = () => {
   return (
     <DetailsPage
       cover={episode.data.images[1]}
-      coverSize="m"
       title={episode.data.name}
       subtitle={episode.data.show.name}
     >

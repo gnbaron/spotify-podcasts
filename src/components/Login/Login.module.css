@@ -4,12 +4,16 @@
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
+  overflow: auto;
   padding: 0 1.5rem;
 }
 
-.login > header,
+.login > header {
+  flex: 1;
+}
+
 .login > main {
-  flex: 2;
+  flex: 3;
 }
 
 .login > footer {
@@ -25,18 +29,16 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 1.5rem;
+  justify-content: space-evenly;
 }
 
-.logo {
-  margin-bottom: 2rem;
+.illustration {
+  height: 17.5rem;
 }
 
 .error {
   align-items: center;
   display: flex;
-  margin-bottom: 1rem;
 }
 
 .error > span:first-child {
@@ -58,6 +60,7 @@
   font-family: Monaco, monospace;
   font-size: var(--fs-m);
   letter-spacing: 0.75px;
+  padding: 3rem;
   text-align: center;
 }
 

@@ -10,14 +10,16 @@ type Props = {
 export const Login = ({ failed }: Props) => (
   <div className={styles.login}>
     <header>
-      <Logo className={styles.logo} size="l" />
+      <Logo size="l" />
     </header>
     <main>
-      {failed && (
+      {failed ? (
         <div className={styles.error}>
           <span>🧙‍♂️</span>
-          <span>you shall not pass</span>
+          <span>You shall not pass!</span>
         </div>
+      ) : (
+        <img className={styles.illustration} src="/img/login-door.svg" />
       )}
       <Button className={styles.button} href="/api/auth/login">
         {failed ? 'Try again' : 'Log in using Spotify'}
