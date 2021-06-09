@@ -1,5 +1,7 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react'
-import { matchPath, NavLink, useLocation } from 'react-router-dom'
+import { matchPath, Link, useLocation } from 'react-router-dom'
+import { VscHome, VscLibrary, VscSearch } from 'react-icons/vsc'
+import { IconType } from 'react-icons/lib'
 
 import styles from './Menu.module.css'
 
@@ -62,7 +64,7 @@ export const Menu = () => {
     )
   }
 
-  function renderLink(path: string, displayName: string) {
+  function renderLink(path: string, displayName: string, Icon: IconType) {
     return (
       <li
         onMouseEnter={handleMouseEnterItem}
@@ -71,9 +73,10 @@ export const Menu = () => {
           links.current[path] = el
         }}
       >
-        <NavLink to={path} activeClassName={styles.active}>
-          <span>{displayName}</span>
-        </NavLink>
+        <Link className={styles.item} to={path}>
+          <Icon className={styles.icon} />
+          {displayName}
+        </Link>
       </li>
     )
   }
@@ -82,8 +85,9 @@ export const Menu = () => {
     <div ref={wrapper}>
       {renderHighlight()}
       <ul className={styles.menu}>
-        {renderLink('/shows', 'Shows')}
-        {renderLink('/library', 'Saved')}
+        {renderLink('/shows', 'Home', VscHome)}
+        {renderLink('/library', 'Your Library', VscLibrary)}
+        {renderLink('/search', 'Search', VscSearch)}
       </ul>
     </div>
   )
