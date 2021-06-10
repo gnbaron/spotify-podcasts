@@ -24,7 +24,7 @@ export const Profile = () => {
     <div className={styles.profile}>
       <img src={avatarUrl} />
       <span className={styles.name}>{profile.data.display_name}</span>
-      <Button className={styles.logout} onClick={handleLogout} quiet>
+      <Button className={styles.logout} onClick={handleLogout} quiet size="s">
         Logout
       </Button>
     </div>

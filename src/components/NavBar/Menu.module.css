@@ -20,12 +20,12 @@
   color: var(--color-white);
   display: flex;
   font-weight: 500;
-  padding: 0.5rem 3.25rem;
+  padding: 0.5rem 3rem;
   text-decoration: none;
   width: 100%;
 }
 
 .icon {
   font-size: var(--font-size-l);
-  margin: 0 1.25rem 0.125rem 0;
+  margin: 0 1.1rem 0.125rem 0;
 }

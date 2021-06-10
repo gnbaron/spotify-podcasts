@@ -34,6 +34,7 @@
 
 .illustration {
   height: 17.5rem;
+  margin: 1.5rem 0 3rem;
 }
 
 .error {
@@ -53,7 +54,7 @@
 }
 
 .button {
-  font-size: var(--font-size-m);
+  padding: 0.7em 2.125em;
 }
 
 .login > footer {

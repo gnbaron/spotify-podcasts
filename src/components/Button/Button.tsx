@@ -3,46 +3,48 @@ import classNames from 'classnames'
 
 import styles from './Button.module.css'
 
-type Props = {
+type CommonProps = {
   children: React.ReactNode
   className?: string
   disabled?: boolean
-  href?: string
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
   quiet?: boolean
+  size?: 's' | 'm' | 'l'
 }
+
+type ButtonProps =
+  | { href: string; onClick?: never }
+  | { href?: never; onClick: React.MouseEventHandler<HTMLButtonElement> }
+
+type Props = CommonProps & ButtonProps
 
 const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
   (props, ref) => {
-    const { children, className, disabled, href, onClick, quiet } = props
+    const { children, disabled, href, onClick, quiet, size = 'm' } = props
 
-    if (href) {
-      return (
-        <div className={classNames(styles.wrapper, className)}>
-          <a
-            aria-disabled={disabled}
-            className={classNames(styles.button, quiet && styles.quiet)}
-            href={href}
-            ref={ref}
-          >
-            {children}
-          </a>
-        </div>
-      )
-    }
+    const className = classNames(
+      styles.button,
+      quiet && styles.quiet,
+      props.className
+    )
+
+    const element = href ? (
+      <a aria-disabled={disabled} className={className} href={href} ref={ref}>
+        {children}
+      </a>
+    ) : (
+      <button
+        aria-disabled={disabled}
+        disabled={disabled}
+        className={className}
+        onClick={onClick}
+        ref={ref}
+      >
+        {children}
+      </button>
+    )
 
     return (
-      <div className={classNames(styles.wrapper, className)}>
-        <button
-          aria-disabled={disabled}
-          disabled={disabled}
-          className={classNames(styles.button, quiet && styles.quiet)}
-          onClick={onClick}
-          ref={ref}
-        >
-          {children}
-        </button>
-      </div>
+      <div className={classNames(styles.wrapper, styles[size])}>{element}</div>
     )
   }
 )
