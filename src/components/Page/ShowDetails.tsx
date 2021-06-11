@@ -17,7 +17,9 @@ export const ShowDetails = () => {
   return (
     <DetailsPage
       cover={show.data.images[1]}
-      description={show.data.description}
+      headingContent={
+        <p className={styles.description}>{show.data.description}</p>
+      }
       subtitle={show.data.publisher}
       title={show.data.name}
     >

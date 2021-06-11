@@ -9,7 +9,7 @@ type Props = {
   children?: ReactNode
   cover: SpotifyApi.ImageObject
   coverSize?: 's' | 'm' | 'l'
-  description?: string
+  headingContent?: ReactNode
   subtitle: string
   title: string
 }
@@ -19,28 +19,25 @@ export const DetailsPage = (props: Props) => {
     children,
     cover,
     coverSize = 'l',
-    description,
+    headingContent,
     subtitle,
     title,
   } = props
 
   return (
     <BasePage>
-      <NextSeo
-        title={`Spotify Podcasts · ${title}`}
-        description={description}
-      />
+      <NextSeo title={`Spotify Podcasts · ${title}`} />
       <article className={styles.details}>
         <header>
           <Cover image={cover} size={coverSize} />
           <div className={styles.heading}>
             <h2>{title}</h2>
             <span>{subtitle}</span>
-            {description && <p>{description}</p>}
+            <div className={styles.content}>{headingContent}</div>
           </div>
         </header>
         {children && (
-          <section className={styles.content}>
+          <section className={styles.body}>
             <hr />
             {children}
           </section>

@@ -1,6 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { format } from 'date-fns'
-import { useEpisode } from 'lib/spotify-queries'
+import { FaCheck, FaPlus } from 'react-icons/fa'
+import { useEpisode, useEpisodeIsSaved } from 'lib/spotify-queries'
+import { useRemoveEpisode, useSaveEpisode } from 'lib/spotify-mutations'
+import { IconButton } from 'components/Button'
 import { DetailsPage } from './DetailsPage'
 
 import styles from './EpisodeDetails.module.css'
@@ -8,14 +11,16 @@ import styles from './EpisodeDetails.module.css'
 export const EpisodeDetails = () => {
   const params = useParams<{ showId: string; episodeId: string }>()
   const episode = useEpisode(params.episodeId)
+  const isSaved = useEpisodeIsSaved(params.episodeId)
 
-  if (!episode.data) return null
+  if (!episode.data || !isSaved.data) return null
 
   return (
     <DetailsPage
       cover={episode.data.images[1]}
-      title={episode.data.name}
+      headingContent={<EpisodeControls episode={episode.data} />}
       subtitle={episode.data.show.name}
+      title={episode.data.name}
     >
       <div className={styles.time}>
         <span>{format(new Date(episode.data.release_date), 'MMM dd')}</span>·
@@ -27,5 +32,34 @@ export const EpisodeDetails = () => {
         dangerouslySetInnerHTML={{ __html: episode.data.html_description }}
       />
     </DetailsPage>
+  )
+}
+
+type EpisodeControlsProps = {
+  episode: SpotifyApi.EpisodeObjectFull
+}
+
+const EpisodeControls = ({ episode }: EpisodeControlsProps) => {
+  const isSaved = useEpisodeIsSaved(episode.id)
+  const saveMutation = useSaveEpisode()
+  const removeMutation = useRemoveEpisode()
+
+  if (!isSaved.data) return null
+
+  return (
+    <div className={styles.controls}>
+      <IconButton
+        className={styles.saveButton}
+        onClick={() =>
+          isSaved.data[0]
+            ? removeMutation.mutate(episode.id)
+            : saveMutation.mutate(episode.id)
+        }
+        quiet
+        size="l"
+      >
+        {isSaved.data[0] ? <FaCheck /> : <FaPlus />}
+      </IconButton>
+    </div>
   )
 }

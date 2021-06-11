@@ -8,5 +8,8 @@ export const queryClient = new QueryClient({
       staleTime: 5 * MINUTE,
       suspense: true,
     },
+    mutations: {
+      useErrorBoundary: true,
+    },
   },
 })

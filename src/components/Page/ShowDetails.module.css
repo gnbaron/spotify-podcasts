@@ -3,3 +3,9 @@
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
 }
+
+.description {
+  color: var(--color-light-grey);
+  font-size: var(--font-size-s);
+  margin-top: 1rem;
+}

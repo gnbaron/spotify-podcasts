@@ -27,17 +27,15 @@
   font-weight: bold;
 }
 
-.heading > p {
-  color: var(--color-light-grey);
-  font-size: var(--font-size-s);
-  margin-top: 2rem;
+.content {
+  margin-top: 1rem;
 }
 
-.content {
+.body {
   margin-top: 1.5rem;
 }
 
-.content > hr {
+.body > hr {
   border: 0;
   border-top: 0.5px solid var(--color-dark-grey);
   border-radius: 10px;
