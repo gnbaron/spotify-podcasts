@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { format } from 'date-fns'
 import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'lib/spotify-queries'
-import { useRemoveEpisode, useSaveEpisode } from 'lib/spotify-mutations'
+import { useMutateSavedEpisodes } from 'lib/spotify-mutations'
 import { IconButton } from 'components/Button'
 import { DetailsPage } from './DetailsPage'
 
@@ -36,13 +36,13 @@ export const EpisodeDetails = () => {
 }
 
 type EpisodeControlsProps = {
-  episode: SpotifyApi.EpisodeObjectFull
+  episode: SpotifyApi.EpisodeObject
 }
 
 const EpisodeControls = ({ episode }: EpisodeControlsProps) => {
   const isSaved = useEpisodeIsSaved(episode.id)
-  const saveMutation = useSaveEpisode()
-  const removeMutation = useRemoveEpisode()
+  const saveMutation = useMutateSavedEpisodes()
+  const removeMutation = useMutateSavedEpisodes({ removing: true })
 
   if (!isSaved.data) return null
 

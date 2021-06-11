@@ -4,13 +4,9 @@ import { BASE_URL, fetchSpotifyAPI } from './spotify-api'
 
 export const queryKeys = {
   episode: (episodeId: string) => ['episode', episodeId],
-  episodeIsSaved: (...episodeIds: string[]) => [
-    'episodeIsSaved',
-    ...episodeIds,
-  ],
   episodes: (showId: string) => ['episodes', showId],
   profile: () => ['profile'],
-  savedEpisodes: () => ['savedEpisodes'],
+  savedEpisodes: (...ids: string[]) => ['savedEpisodes', ...ids],
   savedShows: () => ['savedShows'],
   show: (showId: string) => ['show', showId],
 }
@@ -26,7 +22,7 @@ export function useProfile(
 }
 
 export function useShow(showId: string) {
-  return useQuery<SpotifyApi.ShowObjectFull>(
+  return useQuery<SpotifyApi.ShowObject>(
     queryKeys.show(showId),
     () => fetchSpotifyAPI(`${BASE_URL}/shows/${showId}`),
     {}
@@ -42,7 +38,7 @@ export function useShowEpisodes(showId: string) {
 }
 
 export function useEpisode(episodeId: string) {
-  return useQuery<SpotifyApi.EpisodeObjectFull>(
+  return useQuery<SpotifyApi.EpisodeObject>(
     queryKeys.episode(episodeId),
     () => fetchSpotifyAPI(`${BASE_URL}/episodes/${episodeId}`),
     {}
@@ -57,15 +53,15 @@ export function useSavedShows() {
 }
 
 export function useSavedEpisodes() {
-  // TODO: make a PR to add SavedEpisodeObject
-  return usePaginatedQuery<unknown>(queryKeys.savedEpisodes(), (nextPageURL) =>
-    fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/episodes`)
+  return usePaginatedQuery<SpotifyApi.SavedEpisodeObject>(
+    queryKeys.savedEpisodes(),
+    (nextPageURL) => fetchSpotifyAPI(nextPageURL || `${BASE_URL}/me/episodes`)
   )
 }
 
 export function useEpisodeIsSaved(...episodeIds: string[]) {
   return useQuery<boolean[]>(
-    queryKeys.episodeIsSaved(...episodeIds),
+    queryKeys.savedEpisodes(...episodeIds),
     () =>
       fetchSpotifyAPI(
         `${BASE_URL}/me/episodes/contains?ids=${episodeIds.join(',')}`
