@@ -1,6 +1,6 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react'
 import { matchPath, Link, useLocation } from 'react-router-dom'
-import { VscHome, VscLibrary, VscSearch } from 'react-icons/vsc'
+import { FaCompactDisc, FaMicrophoneAlt, FaSearch } from 'react-icons/fa'
 import { IconType } from 'react-icons/lib'
 
 import styles from './Menu.module.css'
@@ -85,9 +85,9 @@ export const Menu = () => {
     <div ref={wrapper}>
       {renderHighlight()}
       <ul className={styles.menu}>
-        {renderLink('/shows', 'Home', VscHome)}
-        {renderLink('/library', 'Your Library', VscLibrary)}
-        {renderLink('/search', 'Search', VscSearch)}
+        {renderLink('/shows', 'Shows', FaMicrophoneAlt)}
+        {renderLink('/library', 'Your Library', FaCompactDisc)}
+        {renderLink('/search', 'Search', FaSearch)}
       </ul>
     </div>
   )

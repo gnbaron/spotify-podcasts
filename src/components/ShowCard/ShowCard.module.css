@@ -19,12 +19,6 @@
   text-decoration: none;
 }
 
-.card > a:active,
-.card > a:focus,
-.card > a:hover {
-  text-decoration: underline;
-}
-
 .cover {
   transition: box-shadow 0.3s, transform 0.3s;
 }
