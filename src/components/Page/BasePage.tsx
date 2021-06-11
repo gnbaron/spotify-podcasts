@@ -13,6 +13,6 @@ export const BasePage = ({ children, heading }: Props) => (
         <hr />
       </header>
     )}
-    {children}
+    <section className={styles.content}>{children}</section>
   </div>
 )

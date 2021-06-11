@@ -4,8 +4,12 @@
   padding: 2rem 0;
 }
 
-.header {
+.header,
+.content {
+  margin: 0 auto;
+  max-width: 87.5rem;
   padding: 0 2rem;
+  width: 100%;
 }
 
 .header > h2 {
