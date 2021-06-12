@@ -15,12 +15,12 @@ export const SavedEpisodes = () => {
   const isEmpty = episodes.data.length === 0
 
   return (
-    <BasePage heading="Library">
+    <BasePage heading="Library" isLoading={episodes.isFetching}>
       <NextSeo
         title="Spotify Podcasts · Library"
         description="List of saved episodes."
       />
-      {isEmpty ? (
+      {isEmpty && !episodes.isFetching ? (
         <EmptyState subtitle="It looks like you didn't save any episode yet." />
       ) : (
         <InfiniteScroll

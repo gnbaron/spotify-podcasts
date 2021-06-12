@@ -12,7 +12,13 @@
   width: 100%;
 }
 
-.header > h2 {
+.heading {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.heading > h2 {
   font-size: var(--font-size-l);
   font-weight: bold;
   margin: 0;

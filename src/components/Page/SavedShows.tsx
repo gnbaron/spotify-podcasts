@@ -15,12 +15,12 @@ export const SavedShows = () => {
   const isEmpty = shows.data.length === 0
 
   return (
-    <BasePage heading="Following">
+    <BasePage heading="Following" isLoading={shows.isFetching}>
       <NextSeo
         title="Spotify Podcasts · Following"
         description="List of following shows."
       />
-      {isEmpty ? (
+      {isEmpty && !shows.isFetching ? (
         <EmptyState subtitle="It looks like you don't follow any show yet." />
       ) : (
         <InfiniteScroll

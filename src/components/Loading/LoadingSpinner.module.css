@@ -1,0 +1,13 @@
+.spinner {
+  animation: spin 1s infinite ease;
+  font-size: var(--font-size-l);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
