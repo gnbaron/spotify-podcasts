@@ -27,7 +27,7 @@ function App({ Component, pageProps, router }: AppProps) {
       <NextNProgress
         color="#1ed760"
         height={3}
-        options={{ showSpinner: false }}
+        options={{ showSpinner: false, trickleSpeed: 150 }}
         startPosition={0.3}
         stopDelayMs={200}
       />
