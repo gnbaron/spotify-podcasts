@@ -1,15 +1,19 @@
-.cover {
-  border-radius: 10px;
-}
-
 .cover.s {
-  height: 9rem;
+  --size: 9rem;
 }
 
 .cover.m {
-  height: 11rem;
+  --size: 11rem;
 }
 
 .cover.l {
-  height: 13rem;
+  --size: 13rem;
+}
+
+.cover {
+  border-radius: 10px;
+  height: var(--size);
+  min-height: var(--size);
+  width: var(--size);
+  min-width: var(--size);
 }
