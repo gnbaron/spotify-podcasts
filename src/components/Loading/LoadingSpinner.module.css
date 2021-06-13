@@ -1,5 +1,5 @@
 .spinner {
-  animation: spin 1s infinite ease;
+  animation: spin 1s infinite linear;
   font-size: var(--font-size-l);
 }
 
