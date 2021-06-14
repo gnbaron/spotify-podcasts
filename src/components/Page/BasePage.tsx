@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { LoadingSpinner } from 'components/Loading'
 
 import styles from './BasePage.module.css'
@@ -19,6 +20,13 @@ export const BasePage = ({ children, heading, isLoading }: Props) => (
         <hr />
       </header>
     )}
-    <section className={styles.content}>{children}</section>
+    <div
+      className={classNames(
+        styles.scrollContainer,
+        !heading && styles.fullHeight
+      )}
+    >
+      <section className={styles.content}>{children}</section>
+    </div>
   </div>
 )

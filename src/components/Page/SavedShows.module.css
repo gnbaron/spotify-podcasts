@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fill, 13rem);
   grid-template-rows: repeat(auto-fill, 17.75rem);
   justify-content: center;
-  padding: 2rem 0 3rem;
+  padding: 2rem 0;
   place-items: start center;
 }
 

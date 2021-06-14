@@ -1,15 +1,33 @@
 .page {
-  height: 100%;
+  --header-height: 4.5rem;
+
+  height: 100vh;
+}
+
+.scrollContainer {
+  height: calc(100% - var(--header-height));
+  max-height: calc(100% - var(--header-height));
   overflow: auto;
-  padding: 2rem 0;
+}
+
+.fullHeight {
+  height: 100%;
+  max-height: 100%;
 }
 
 .header,
 .content {
   margin: 0 auto;
   max-width: 87.5rem;
-  padding: 0 2rem;
   width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  height: var(--header-height);
+  justify-content: flex-end;
+  padding: 0 2rem;
 }
 
 .heading {
@@ -28,5 +46,9 @@
   border: 0;
   border-top: 0.5px solid var(--color-dark-grey);
   border-radius: 10px;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
+}
+
+.content {
+  padding: 0 2rem 2rem;
 }
