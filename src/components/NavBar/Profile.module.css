@@ -10,6 +10,7 @@
 .profile > img {
   border-radius: 50%;
   height: 4.5rem;
+  width: 4.5rem;
 }
 
 .name {
