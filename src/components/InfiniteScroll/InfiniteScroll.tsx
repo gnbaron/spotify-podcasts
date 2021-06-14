@@ -1,11 +1,11 @@
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 import { useIntersectionObserver } from 'hooks/use-intersection-observer'
 import { LoadingSpinner } from 'components/Loading'
 
 import styles from './InfiniteScroll.module.css'
 
 type Props = {
-  children: ReactNode
+  children: React.ReactNode
   className?: string
   hasMore?: boolean
   isLoading?: boolean

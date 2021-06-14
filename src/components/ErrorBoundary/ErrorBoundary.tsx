@@ -1,12 +1,11 @@
 import { QueryErrorResetBoundary } from 'react-query'
-import { ReactNode } from 'react'
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
 import { Button } from 'components/Button'
 
 import styles from './ErrorBoundary.module.css'
 
 type Props = {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export const ErrorBoundary = ({ children }: Props) => {

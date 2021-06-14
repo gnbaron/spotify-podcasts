@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { NextSeo } from 'next-seo'
 import { Cover } from 'components/Cover'
 import { BasePage } from './BasePage'
@@ -6,10 +5,10 @@ import { BasePage } from './BasePage'
 import styles from './BaseDetailsPage.module.css'
 
 type Props = {
-  children?: ReactNode
+  children?: React.ReactNode
   cover: SpotifyApi.ImageObject
   coverSize?: 's' | 'm' | 'l'
-  headingContent?: ReactNode
+  headingContent?: React.ReactNode
   subtitle: string
   title: string
 }
