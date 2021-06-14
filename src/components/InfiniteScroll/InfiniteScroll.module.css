@@ -1,0 +1,11 @@
+.footer {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  min-height: 3rem;
+}
+
+.spinner {
+  font-size: var(--font-size-xxl);
+}

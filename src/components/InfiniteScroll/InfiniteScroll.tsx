@@ -1,5 +1,8 @@
 import { ReactNode, useState } from 'react'
 import { useIntersectionObserver } from 'hooks/use-intersection-observer'
+import { LoadingSpinner } from 'components/Loading'
+
+import styles from './InfiniteScroll.module.css'
 
 type Props = {
   children: ReactNode
@@ -18,7 +21,10 @@ export const InfiniteScroll = (props: Props) => {
   return (
     <section className={className} role="feed" aria-busy={isLoading}>
       {children}
-      {hasMore && !isLoading && <span ref={setLoadMoreRef}>load more</span>}
+      <footer className={styles.footer}>
+        {hasMore && !isLoading && <span ref={setLoadMoreRef} />}
+        {isLoading && <LoadingSpinner className={styles.spinner} />}
+      </footer>
     </section>
   )
 }
