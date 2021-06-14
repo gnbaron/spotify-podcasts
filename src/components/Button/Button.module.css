@@ -1,3 +1,7 @@
+.wrapper {
+  display: inline-flex;
+}
+
 .wrapper.s {
   font-size: var(--font-size-s);
 }

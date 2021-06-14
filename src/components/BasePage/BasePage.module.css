@@ -18,8 +18,7 @@
 .header,
 .content {
   margin: 0 auto;
-  max-width: 87.5rem;
-  width: 100%;
+  width: min(100%, 87.5rem);
 }
 
 .header {

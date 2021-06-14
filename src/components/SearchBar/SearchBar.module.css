@@ -1,0 +1,38 @@
+.bar {
+  align-items: center;
+  background-color: var(--color-dark-grey);
+  border: 1px solid transparent;
+  border-radius: 30px;
+  display: inline-flex;
+  justify-content: center;
+  transition: border-color 0.25s ease;
+  width: min(60vw, 37.5rem);
+}
+
+.bar:focus-within {
+  border-color: #3a3a3a;
+}
+
+.input {
+  background-color: transparent;
+  border: 0;
+  color: var(--color-white);
+  flex: 1;
+  outline: none;
+  padding: 0 1rem 0 2rem;
+}
+
+.button {
+  border-color: transparent;
+  color: var(--color-light-grey);
+}
+
+.button:active {
+  transform: translate(-2px, 0);
+}
+
+.button:hover,
+.button:focus {
+  border-color: transparent;
+  color: var(--color-white);
+}

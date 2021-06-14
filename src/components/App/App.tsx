@@ -6,6 +6,7 @@ import { ErrorBoundary } from 'components/ErrorBoundary'
 import { EpisodeDetailsPage } from 'components/EpisodeDetailsPage'
 import { SavedEpisodesPage } from 'components/SavedEpisodesPage'
 import { SavedShowsPage } from 'components/SavedShowsPage'
+import { SearchPage } from 'components/SearchPage'
 import { ShowDetailsPage } from 'components/ShowDetailsPage'
 
 import styles from './App.module.css'
@@ -34,6 +35,9 @@ export const App = () => (
               </Route>
               <Route exact path="/library">
                 <SavedEpisodesPage />
+              </Route>
+              <Route exact path="/search">
+                <SearchPage />
               </Route>
               <Route path="*">
                 <div>not found</div>
