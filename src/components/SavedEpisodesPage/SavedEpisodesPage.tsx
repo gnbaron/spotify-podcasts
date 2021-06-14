@@ -1,13 +1,13 @@
 import { NextSeo } from 'next-seo'
 import { useSavedEpisodes } from 'lib/spotify-queries'
+import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
 import { Episode } from 'components/Episode'
 import { InfiniteScroll } from 'components/InfiniteScroll'
-import { BasePage } from './BasePage'
 
-import styles from './SavedEpisodes.module.css'
+import styles from './SavedEpisodesPage.module.css'
 
-export const SavedEpisodes = () => {
+export const SavedEpisodesPage = () => {
   const episodes = useSavedEpisodes()
 
   if (!episodes.data) return null

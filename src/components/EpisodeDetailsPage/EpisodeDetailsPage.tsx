@@ -3,12 +3,12 @@ import { format } from 'date-fns'
 import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'lib/spotify-queries'
 import { useMutateSavedEpisodes } from 'lib/spotify-mutations'
+import { BaseDetailsPage } from 'components/BasePage'
 import { IconButton } from 'components/Button'
-import { DetailsPage } from './DetailsPage'
 
-import styles from './EpisodeDetails.module.css'
+import styles from './EpisodeDetailsPage.module.css'
 
-export const EpisodeDetails = () => {
+export const EpisodeDetailsPage = () => {
   const params = useParams<{ showId: string; episodeId: string }>()
   const episode = useEpisode(params.episodeId)
   const isSaved = useEpisodeIsSaved(params.episodeId)
@@ -16,7 +16,7 @@ export const EpisodeDetails = () => {
   if (!episode.data || !isSaved.data) return null
 
   return (
-    <DetailsPage
+    <BaseDetailsPage
       cover={episode.data.images[1]}
       headingContent={<EpisodeControls episode={episode.data} />}
       subtitle={episode.data.show.name}
@@ -31,7 +31,7 @@ export const EpisodeDetails = () => {
         className={styles.description}
         dangerouslySetInnerHTML={{ __html: episode.data.html_description }}
       />
-    </DetailsPage>
+    </BaseDetailsPage>
   )
 }
 

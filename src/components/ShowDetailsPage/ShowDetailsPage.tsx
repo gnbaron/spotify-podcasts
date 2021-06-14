@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom'
 import { useShow, useShowEpisodes } from 'lib/spotify-queries'
+import { BaseDetailsPage } from 'components/BasePage'
 import { Episode } from 'components/Episode'
 import { InfiniteScroll } from 'components/InfiniteScroll'
-import { DetailsPage } from './DetailsPage'
 
-import styles from './ShowDetails.module.css'
+import styles from './ShowDetailsPage.module.css'
 
-export const ShowDetails = () => {
+export const ShowDetailsPage = () => {
   const params = useParams<{ showId: string }>()
 
   const show = useShow(params.showId)
@@ -15,7 +15,7 @@ export const ShowDetails = () => {
   if (!show.data || !episodes.data) return null
 
   return (
-    <DetailsPage
+    <BaseDetailsPage
       cover={show.data.images[1]}
       headingContent={
         <p className={styles.description}>{show.data.description}</p>
@@ -39,6 +39,6 @@ export const ShowDetails = () => {
           </article>
         ))}
       </InfiniteScroll>
-    </DetailsPage>
+    </BaseDetailsPage>
   )
 }
