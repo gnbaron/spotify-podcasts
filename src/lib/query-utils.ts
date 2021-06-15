@@ -8,13 +8,12 @@ type Paginated<T> = SpotifyApi.PagingObject<T>
 
 /**
  * Simple wrapper to execute queries on paginated spotify endpoints.
- * @returns query result
  */
-export const usePaginatedQuery = <T>(
+export function usePaginatedQuery<T>(
   key: QueryKey,
   queryFn: (nextPageURL: string | undefined) => Promise<Paginated<T>>,
   queryOptions?: UseInfiniteQueryOptions<Paginated<T>>
-) => {
+) {
   const result = useInfiniteQuery<Paginated<T>>(
     key,
     ({ pageParam }) => queryFn(pageParam),

@@ -1,9 +1,8 @@
 .footer {
   align-items: center;
   display: flex;
-  height: 100%;
   justify-content: center;
-  min-height: 3rem;
+  padding: 2rem 0;
 }
 
 .spinner {

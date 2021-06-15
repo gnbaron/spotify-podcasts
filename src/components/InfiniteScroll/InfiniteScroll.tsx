@@ -19,8 +19,10 @@ export const InfiniteScroll = (props: Props) => {
   useIntersectionObserver(loadMoreRef, { onIntersect: onLoadMore })
 
   return (
-    <section className={className} role="feed" aria-busy={isLoading}>
-      {children}
+    <section>
+      <div className={className} role="feed" aria-busy={isLoading}>
+        {children}
+      </div>
       <footer className={styles.footer}>
         {hasMore && !isLoading && <span ref={setLoadMoreRef} />}
         {isLoading && <LoadingSpinner className={styles.spinner} />}
