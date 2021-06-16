@@ -35,7 +35,7 @@ export const ShowDetailsPage = () => {
             aria-posinset={++index}
             aria-setsize={episodes.totalElements}
           >
-            <Episode episode={episode} showId={params.showId} />
+            <Episode episode={episode} />
           </article>
         ))}
       </InfiniteScroll>

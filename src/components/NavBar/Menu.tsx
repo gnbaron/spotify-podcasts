@@ -64,13 +64,21 @@ export const Menu = () => {
     )
   }
 
-  function renderLink(path: string, displayName: string, Icon: IconType) {
+  function renderLink(
+    path: string,
+    displayName: string,
+    Icon: IconType,
+    ...matches: string[]
+  ) {
     return (
       <li
         onMouseEnter={handleMouseEnterItem}
         onMouseLeave={handleMouseLeaveItem}
         ref={(el) => {
           links.current[path] = el
+          matches.forEach((match) => {
+            links.current[match] = el
+          })
         }}
       >
         <Link className={styles.item} to={path}>
@@ -85,7 +93,7 @@ export const Menu = () => {
     <div ref={wrapper}>
       {renderHighlight()}
       <ul className={styles.menu}>
-        {renderLink('/shows', 'Shows', FaMicrophoneAlt)}
+        {renderLink('/shows', 'Shows', FaMicrophoneAlt, '/episodes')}
         {renderLink('/library', 'Your Library', FaCompactDisc)}
         {renderLink('/search', 'Search', FaSearch)}
       </ul>

@@ -38,12 +38,7 @@ export const EpisodeResults = ({ query }: Props) => {
             aria-posinset={++index}
             aria-setsize={results.data.pages[0].episodes.total}
           >
-            <Episode
-              episode={episode}
-              showId={
-                '9999999999999' /* FIXME: pass the show id somehow or remove the prop*/
-              }
-            />
+            <Episode episode={episode} />
           </article>
         ))}
       </InfiniteScroll>

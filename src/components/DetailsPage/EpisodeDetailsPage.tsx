@@ -9,7 +9,7 @@ import { DetailsPage } from './DetailsPage'
 import styles from './EpisodeDetailsPage.module.css'
 
 export const EpisodeDetailsPage = () => {
-  const params = useParams<{ showId: string; episodeId: string }>()
+  const params = useParams<{ episodeId: string }>()
   const episode = useEpisode(params.episodeId)
   const isSaved = useEpisodeIsSaved(params.episodeId)
 

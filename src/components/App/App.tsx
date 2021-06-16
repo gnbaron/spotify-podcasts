@@ -29,7 +29,7 @@ export const App = () => (
               <Route exact path="/shows/:showId">
                 <ShowDetailsPage />
               </Route>
-              <Route exact path="/shows/:showId/episodes/:episodeId">
+              <Route exact path="/episodes/:episodeId">
                 <EpisodeDetailsPage />
               </Route>
               <Route exact path="/library">

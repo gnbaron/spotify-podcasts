@@ -9,18 +9,19 @@ import styles from './SearchBar.module.css'
 type Props = {
   className?: string
   onSearch: (value: string) => void
+  query: string
 }
 
-export const SearchBar = ({ className, onSearch }: Props) => {
-  const [value, setValue] = useState<string | null>(null)
-  const [debouncedValue] = useDebounce(value, 500)
+export const SearchBar = ({ className, onSearch, query }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null)
-
-  const isEmpty = !value?.length
+  const [value, setValue] = useState(query)
+  const [debouncedValue] = useDebounce(value, 500)
 
   useEffect(() => {
-    if (debouncedValue) onSearch(debouncedValue)
+    onSearch(debouncedValue)
   }, [debouncedValue, onSearch])
+
+  const isEmpty = !value?.length
 
   const handleButtonClick = () => {
     if (!isEmpty) {
@@ -32,6 +33,7 @@ export const SearchBar = ({ className, onSearch }: Props) => {
   return (
     <div className={classNames(styles.bar, className)}>
       <input
+        autoFocus
         className={styles.input}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Shows and episodes"

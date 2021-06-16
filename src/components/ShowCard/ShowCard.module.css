@@ -3,7 +3,7 @@
   background-color: var(--color-darker-grey);
   height: 100%;
   padding: 1rem;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 300ms ease-in-out;
 }
 
 .card:hover {
@@ -20,7 +20,7 @@
 }
 
 .cover {
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 300ms, transform 300ms;
 }
 
 .card:hover .cover {

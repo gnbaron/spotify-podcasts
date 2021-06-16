@@ -12,7 +12,7 @@
   margin: 0;
   opacity: 1;
   transform: translateY(2.5rem);
-  transition: opacity 0.2s;
+  transition: opacity 175ms;
 }
 
 .header.active .title {
@@ -21,7 +21,7 @@
 
 .searchBar {
   transform: translateY(5.5rem);
-  transition: transform 0.25s;
+  transition: transform 250ms;
 }
 
 .header.active .searchBar {
@@ -32,19 +32,16 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .nav {
   padding: 0 1rem;
   opacity: 0;
-  transform: scale(0);
-  transition: transform 0.15s 0.2s, opacity 0.2s 0.2s;
+  transition: opacity 150ms ease-out;
 }
 
 .nav.active {
   opacity: 1;
-  transform: scale(1);
 }
 
 .menu {
@@ -61,7 +58,7 @@
   cursor: pointer;
   font-weight: 500;
   line-height: 1.2;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 200ms, border-color 200ms;
 }
 
 .menu > li[data-active="true"] {

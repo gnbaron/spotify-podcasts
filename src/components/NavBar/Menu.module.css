@@ -2,7 +2,7 @@
   background-color: var(--color-background-start);
   border-left: 6px solid var(--color-light-green);
   position: absolute;
-  transition: transform 0.2s;
+  transition: transform 200ms;
 }
 
 .menu {
