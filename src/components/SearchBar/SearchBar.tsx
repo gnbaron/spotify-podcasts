@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDebounce } from 'use-debounce'
+import classNames from 'classnames'
 import { FaSearch, FaTimes } from 'react-icons/fa'
 import { IconButton } from 'components/Button'
 
 import styles from './SearchBar.module.css'
 
 type Props = {
+  className?: string
   onSearch: (value: string) => void
 }
 
-export const SearchBar = ({ onSearch }: Props) => {
+export const SearchBar = ({ className, onSearch }: Props) => {
   const [value, setValue] = useState<string | null>(null)
-  const [debouncedValue] = useDebounce(value, 400)
+  const [debouncedValue] = useDebounce(value, 500)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const isEmpty = !value?.length
@@ -28,7 +30,7 @@ export const SearchBar = ({ onSearch }: Props) => {
   }
 
   return (
-    <div className={styles.bar}>
+    <div className={classNames(styles.bar, className)}>
       <input
         className={styles.input}
         onChange={(e) => setValue(e.target.value)}

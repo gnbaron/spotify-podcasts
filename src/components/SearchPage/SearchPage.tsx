@@ -23,7 +23,8 @@ export const SearchPage = () => {
   return (
     <BasePage>
       <header className={classNames(styles.header, active && styles.active)}>
-        <SearchBar onSearch={setQuery} />
+        <h2 className={styles.title}>Search for shows and episodes</h2>
+        <SearchBar className={styles.searchBar} onSearch={setQuery} />
       </header>
       <section className={styles.results}>
         <nav className={classNames(styles.nav, active && styles.active)}>

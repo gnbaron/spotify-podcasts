@@ -13,9 +13,9 @@ type Props = {
 export const EmptyState = ({
   size = 'm',
   subtitle,
-  subtitleAs: SubHeading = 'h3',
+  subtitleAs: SubHeading = 'h4',
   title,
-  titleAs: Heading = 'h2',
+  titleAs: Heading = 'h3',
 }: Props) => {
   return (
     <div className={classNames(styles.emptyState, styles[size])}>

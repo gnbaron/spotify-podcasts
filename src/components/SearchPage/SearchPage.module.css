@@ -1,15 +1,31 @@
 .header {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 2.5rem 0 1.5rem;
-  transform: translateY(50%);
-  transition: transform 0.25s;
+  padding: 2rem 0 0.5rem;
   width: 100%;
 }
 
-.header.active {
-  transform: translateY(0);
+.title {
+  font-weight: 700;
+  margin: 0;
+  opacity: 1;
+  transform: translateY(2.5rem);
+  transition: opacity 0.2s;
+}
+
+.header.active .title {
+  opacity: 0;
+}
+
+.searchBar {
+  transform: translateY(5.5rem);
+  transition: transform 0.25s;
+}
+
+.header.active .searchBar {
+  transform: translateY(-1rem);
 }
 
 .results {

@@ -23,9 +23,7 @@ export const SavedEpisodesPage = () => {
       {isEmpty && !episodes.isFetching ? (
         <EmptyState
           title="Oh snap! Nothing to see here."
-          titleAs="h3"
           subtitle="It looks like you didn't save any episode yet."
-          subtitleAs="h4"
         />
       ) : (
         <InfiniteScroll
