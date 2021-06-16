@@ -3,12 +3,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
+  padding: 2em;
+}
+
+.emptyState.s {
+  font-size: var(--font-size-s);
+}
+
+.emptyState.m {
+  font-size: var(--font-size-m);
+}
+
+.emptyState.l {
+  font-size: var(--font-size-l);
 }
 
 .illustration {
-  height: 23rem;
-  margin: 2rem 0;
+  height: 23em;
+  margin: 2em 0;
 }
 
 .title,
@@ -18,10 +30,10 @@
 }
 
 .title {
-  font-size: var(--font-size-xl);
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .subtitle {
-  font-size: var(--font-size-l);
+  font-size: 1.25em;
 }

@@ -7,7 +7,7 @@ import TokenStorage from 'lib/token-storage'
 
 export const Profile = () => {
   const router = useRouter()
-  const profile = useProfile({ suspense: false })
+  const profile = useProfile()
 
   if (!profile.data) return null
 

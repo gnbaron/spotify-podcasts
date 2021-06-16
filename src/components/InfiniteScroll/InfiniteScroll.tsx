@@ -19,7 +19,7 @@ export const InfiniteScroll = (props: Props) => {
   useIntersectionObserver(loadMoreRef, { onIntersect: onLoadMore })
 
   return (
-    <section>
+    <section className={styles.wrapper}>
       <div className={className} role="feed" aria-busy={isLoading}>
         {children}
       </div>

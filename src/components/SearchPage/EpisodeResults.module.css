@@ -8,3 +8,8 @@
   border-image-source:
     linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
 }
+
+.spinner {
+  font-size: var(--font-size-xxl);
+  margin-top: 5rem;
+}

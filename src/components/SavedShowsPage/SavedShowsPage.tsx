@@ -21,7 +21,12 @@ export const SavedShowsPage = () => {
         description="List of following shows."
       />
       {isEmpty && !shows.isFetching ? (
-        <EmptyState subtitle="It looks like you don't follow any show yet." />
+        <EmptyState
+          title="Oh snap! Nothing to see here."
+          titleAs="h3"
+          subtitle="It looks like you don't follow any show yet."
+          subtitleAs="h4"
+        />
       ) : (
         <InfiniteScroll
           className={styles.grid}

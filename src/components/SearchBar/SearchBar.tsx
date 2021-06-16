@@ -1,23 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDebounce } from 'use-debounce'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaTimes } from 'react-icons/fa'
 import { IconButton } from 'components/Button'
-import { LoadingSpinner } from 'components/Loading'
 
 import styles from './SearchBar.module.css'
 
 type Props = {
-  isSearching?: boolean
   onSearch: (value: string) => void
 }
 
-export const SearchBar = ({ isSearching, onSearch }: Props) => {
+export const SearchBar = ({ onSearch }: Props) => {
   const [value, setValue] = useState<string | null>(null)
   const [debouncedValue] = useDebounce(value, 400)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const isEmpty = !value?.length
 
   useEffect(() => {
     if (debouncedValue) onSearch(debouncedValue)
   }, [debouncedValue, onSearch])
+
+  const handleButtonClick = () => {
+    if (!isEmpty) {
+      setValue('')
+    }
+    inputRef.current && inputRef.current.focus()
+  }
 
   return (
     <div className={styles.bar}>
@@ -26,14 +34,15 @@ export const SearchBar = ({ isSearching, onSearch }: Props) => {
         onChange={(e) => setValue(e.target.value)}
         placeholder="Shows and episodes"
         value={value || ''}
+        ref={inputRef}
       />
       <IconButton
         className={styles.button}
-        onClick={() => value && onSearch(value)}
+        onClick={handleButtonClick}
         quiet
         size="l"
       >
-        {isSearching ? <LoadingSpinner /> : <FaSearch />}
+        {isEmpty ? <FaSearch /> : <FaTimes />}
       </IconButton>
     </div>
   )

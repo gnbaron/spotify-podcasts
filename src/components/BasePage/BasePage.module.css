@@ -7,7 +7,7 @@
 .scrollContainer {
   height: calc(100% - var(--header-height));
   max-height: calc(100% - var(--header-height));
-  overflow: auto;
+  overflow: auto scroll;
 }
 
 .fullHeight {
@@ -49,5 +49,6 @@
 }
 
 .content {
+  height: 100%;
   padding: 0 2rem 2rem;
 }

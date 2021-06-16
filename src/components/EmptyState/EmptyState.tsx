@@ -1,19 +1,29 @@
+import classNames from 'classnames'
+
 import styles from './EmptyState.module.css'
 
 type Props = {
-  title?: string
+  size?: 's' | 'm' | 'l'
   subtitle?: string
+  subtitleAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+  title?: string
+  titleAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 }
 
 export const EmptyState = ({
-  title = 'Oh snap! Nothing to see here.',
+  size = 'm',
   subtitle,
+  subtitleAs: SubHeading = 'h3',
+  title,
+  titleAs: Heading = 'h2',
 }: Props) => {
   return (
-    <div className={styles.emptyState}>
-      <h3 className={styles.title}>{title}</h3>
+    <div className={classNames(styles.emptyState, styles[size])}>
+      {title && <Heading className={styles.title}>{title}</Heading>}
       <img className={styles.illustration} src="/img/empty-box.svg" />
-      {subtitle && <h4 className={styles.subtitle}>{subtitle}</h4>}
+      {subtitle && (
+        <SubHeading className={styles.subtitle}>{subtitle}</SubHeading>
+      )}
     </div>
   )
 }

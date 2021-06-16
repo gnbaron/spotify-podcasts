@@ -1,3 +1,7 @@
+.wrapper {
+  width: 100%;
+}
+
 .footer {
   align-items: center;
   display: flex;
