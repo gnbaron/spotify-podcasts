@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { useShow, useShowEpisodes } from 'lib/spotify-queries'
-import { BaseDetailsPage } from 'components/BasePage'
 import { Episode } from 'components/Episode'
 import { InfiniteScroll } from 'components/InfiniteScroll'
+import { DetailsPage } from './DetailsPage'
 
 import styles from './ShowDetailsPage.module.css'
 
@@ -15,7 +15,7 @@ export const ShowDetailsPage = () => {
   if (!show.data || !episodes.data) return null
 
   return (
-    <BaseDetailsPage
+    <DetailsPage
       cover={show.data.images[1]}
       headingContent={
         <p className={styles.description}>{show.data.description}</p>
@@ -39,6 +39,6 @@ export const ShowDetailsPage = () => {
           </article>
         ))}
       </InfiniteScroll>
-    </BaseDetailsPage>
+    </DetailsPage>
   )
 }

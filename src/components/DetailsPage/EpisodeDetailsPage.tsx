@@ -3,8 +3,8 @@ import { format } from 'date-fns'
 import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'lib/spotify-queries'
 import { useMutateSavedEpisodes } from 'lib/spotify-mutations'
-import { BaseDetailsPage } from 'components/BasePage'
 import { IconButton } from 'components/Button'
+import { DetailsPage } from './DetailsPage'
 
 import styles from './EpisodeDetailsPage.module.css'
 
@@ -16,7 +16,7 @@ export const EpisodeDetailsPage = () => {
   if (!episode.data || !isSaved.data) return null
 
   return (
-    <BaseDetailsPage
+    <DetailsPage
       cover={episode.data.images[1]}
       headingContent={<EpisodeControls episode={episode.data} />}
       subtitle={episode.data.show.name}
@@ -31,7 +31,7 @@ export const EpisodeDetailsPage = () => {
         className={styles.description}
         dangerouslySetInnerHTML={{ __html: episode.data.html_description }}
       />
-    </BaseDetailsPage>
+    </DetailsPage>
   )
 }
 

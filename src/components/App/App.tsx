@@ -1,13 +1,12 @@
 import { Suspense } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { NavBar } from 'components/NavBar'
-import { Loading } from 'components/Loading'
+import { EpisodeDetailsPage, ShowDetailsPage } from 'components/DetailsPage'
 import { ErrorBoundary } from 'components/ErrorBoundary'
-import { EpisodeDetailsPage } from 'components/EpisodeDetailsPage'
+import { Loading } from 'components/Loading'
+import { NavBar } from 'components/NavBar'
 import { SavedEpisodesPage } from 'components/SavedEpisodesPage'
 import { SavedShowsPage } from 'components/SavedShowsPage'
 import { SearchPage } from 'components/SearchPage'
-import { ShowDetailsPage } from 'components/ShowDetailsPage'
 
 import styles from './App.module.css'
 

@@ -1,8 +1,8 @@
 import { NextSeo } from 'next-seo'
+import { BasePage } from 'components/BasePage'
 import { Cover } from 'components/Cover'
-import { BasePage } from './BasePage'
 
-import styles from './BaseDetailsPage.module.css'
+import styles from './DetailsPage.module.css'
 
 type Props = {
   children?: React.ReactNode
@@ -13,7 +13,7 @@ type Props = {
   title: string
 }
 
-export const BaseDetailsPage = (props: Props) => {
+export const DetailsPage = (props: Props) => {
   const {
     children,
     cover,
