@@ -7,6 +7,21 @@
 
 .description {
   color: var(--color-light-grey);
+  display: -webkit-box;
   font-size: var(--font-size-s);
-  margin-top: 1rem;
+  margin-top: 0.25rem;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.followButton {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 125ms;
+}
+
+.followButton.active {
+  opacity: 1;
+  pointer-events: all;
 }

@@ -7,7 +7,7 @@ export const queryKeys = {
   episodes: (showId: string) => ['episodes', showId],
   profile: () => ['profile'],
   savedEpisodes: (...ids: string[]) => ['savedEpisodes', ...ids],
-  savedShows: () => ['savedShows'],
+  savedShows: (...ids: string[]) => ['savedShows', ...ids],
   search: (query: string, type: 'show' | 'episode') => ['search', query, type],
   show: (showId: string) => ['show', showId],
 }
@@ -65,7 +65,16 @@ export function useEpisodeIsSaved(...episodeIds: string[]) {
       fetchSpotifyAPI(
         `${BASE_URL}/me/episodes/contains?ids=${episodeIds.join(',')}`
       ),
-    {}
+    { suspense: false }
+  )
+}
+
+export function useShowIsSaved(...showIds: string[]) {
+  return useQuery<boolean[]>(
+    queryKeys.savedShows(...showIds),
+    () =>
+      fetchSpotifyAPI(`${BASE_URL}/me/shows/contains?ids=${showIds.join(',')}`),
+    { suspense: false }
   )
 }
 

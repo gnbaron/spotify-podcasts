@@ -1,9 +1,9 @@
 import { NextSeo } from 'next-seo'
+import { Link } from 'react-router-dom'
 import { BasePage } from 'components/BasePage'
 import { Cover } from 'components/Cover'
 
 import styles from './DetailsPage.module.css'
-import { Link } from 'react-router-dom'
 
 type Props = {
   children?: React.ReactNode

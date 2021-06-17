@@ -1,10 +1,15 @@
 import { useParams } from 'react-router-dom'
-import { useShow, useShowEpisodes } from 'lib/spotify-queries'
+import { useShow, useShowEpisodes, useShowIsSaved } from 'lib/spotify-queries'
+import { useMutateSavedShows } from 'lib/spotify-mutations'
+import classNames from 'classnames'
+import { Button } from 'components/Button'
 import { Episode } from 'components/Episode'
 import { InfiniteScroll } from 'components/InfiniteScroll'
 import { DetailsPage } from './DetailsPage'
 
 import styles from './ShowDetailsPage.module.css'
+
+type Show = SpotifyApi.ShowObject
 
 export const ShowDetailsPage = () => {
   const params = useParams<{ showId: string }>()
@@ -17,9 +22,7 @@ export const ShowDetailsPage = () => {
   return (
     <DetailsPage
       cover={show.data.images[1]}
-      headingContent={
-        <p className={styles.description}>{show.data.description}</p>
-      }
+      headingContent={<HeadingContent show={show.data} />}
       subtitle={show.data.publisher}
       title={show.data.name}
     >
@@ -40,5 +43,32 @@ export const ShowDetailsPage = () => {
         ))}
       </InfiniteScroll>
     </DetailsPage>
+  )
+}
+
+const HeadingContent = ({ show }: { show: Show }) => {
+  const isSaved = useShowIsSaved(show.id)
+  const saveMutation = useMutateSavedShows()
+  const removeMutation = useMutateSavedShows({ removing: true })
+
+  return (
+    <>
+      <p className={styles.description}>{show.description}</p>
+      <Button
+        className={classNames(
+          styles.followButton,
+          isSaved.data && styles.active
+        )}
+        onClick={() =>
+          isSaved.data && isSaved.data[0]
+            ? removeMutation.mutate(show.id)
+            : saveMutation.mutate(show.id)
+        }
+        quiet
+        size="s"
+      >
+        {isSaved.data && isSaved.data[0] ? 'Unfollow' : 'Follow'}
+      </Button>
+    </>
   )
 }

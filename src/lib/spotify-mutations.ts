@@ -17,3 +17,16 @@ export function useMutateSavedEpisodes({
     }
   )
 }
+
+export function useMutateSavedShows({ removing }: { removing?: boolean } = {}) {
+  return useMutation(
+    (...ids: string[]) =>
+      fetchSpotifyAPI(`${BASE_URL}/me/shows`, {
+        body: JSON.stringify({ ids }),
+        method: removing ? 'DELETE' : 'PUT',
+      }),
+    {
+      onSuccess: () => queryClient.invalidateQueries(queryKeys.savedShows()),
+    }
+  )
+}
