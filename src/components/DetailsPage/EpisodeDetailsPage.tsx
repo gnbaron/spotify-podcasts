@@ -20,6 +20,7 @@ export const EpisodeDetailsPage = () => {
       cover={episode.data.images[1]}
       headingContent={<EpisodeControls episode={episode.data} />}
       subtitle={episode.data.show.name}
+      subtitleHref={`/shows/${episode.data.show.id}`}
       title={episode.data.name}
     >
       <div className={styles.time}>

@@ -21,7 +21,7 @@
 
 .searchBar {
   transform: translateY(5.5rem);
-  transition: transform 250ms;
+  transition: transform 275ms;
 }
 
 .header.active .searchBar {

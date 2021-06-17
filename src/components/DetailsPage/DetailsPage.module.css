@@ -15,16 +15,29 @@
   padding: 0 2rem;
 }
 
-.heading > h2 {
+.title {
   font-size: var(--font-size-xxl);
   font-weight: 900;
   margin: 0;
 }
 
-.heading > span {
+.subtitle {
   color: var(--color-light-grey);
   font-size: var(--font-size-l);
   font-weight: bold;
+  margin: 0.3rem 0 0;
+}
+
+.heading > a {
+  color: var(--color-light-grey);
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.heading > a:active,
+.heading > a:focus,
+.heading > a:hover {
+  text-decoration: underline;
 }
 
 .content {
