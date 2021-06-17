@@ -11,7 +11,11 @@ type Props = {
 export const Episode = ({ episode }: Props) => (
   <article className={styles.episode}>
     <Link to={`/episodes/${episode.id}`} aria-hidden tabIndex={-1}>
-      <Cover className={styles.cover} image={episode.images[1]} size="s" />
+      <Cover
+        className={styles.cover}
+        image={episode.images[1] || episode.images[0]}
+        size="s"
+      />
     </Link>
     <div className={styles.content}>
       <Link to={`/episodes/${episode.id}`}>
