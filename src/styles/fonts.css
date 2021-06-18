@@ -13,110 +13,120 @@
  */
 
  @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: normal;
+  font-weight: 400;
 	src: url("/fonts/CircularSpotifyTxT-Book.eot");
 	src: url("/fonts/CircularSpotifyTxT-Book.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-Book.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-Book.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-Book.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: italic;
+  font-weight: 400;
 	src: url("/fonts/CircularSpotifyTxT-BookItalic.eot");
 	src: url("/fonts/CircularSpotifyTxT-BookItalic.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-BookItalic.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-BookItalic.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-BookItalic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: normal;
+  font-weight: 300;
 	src: url("/fonts/CircularSpotifyTxT-Light.eot");
 	src: url("/fonts/CircularSpotifyTxT-Light.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-Light.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-Light.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: italic;
+  font-weight: 300;
 	src: url("/fonts/CircularSpotifyTxT-LightItalic.eot");
 	src: url("/fonts/CircularSpotifyTxT-LightItalic.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-LightItalic.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-LightItalic.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-LightItalic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: normal;
+  font-weight: 500;
 	src: url("/fonts/CircularSpotifyTxT-Medium.eot");
 	src: url("/fonts/CircularSpotifyTxT-Medium.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-Medium.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-Medium.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: italic;
+  font-weight: 500;
 	src: url("/fonts/CircularSpotifyTxT-MediumItalic.eot");
 	src: url("/fonts/CircularSpotifyTxT-MediumItalic.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-MediumItalic.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-MediumItalic.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-MediumItalic.woff2") format("woff2");
-  font-weight: 500;
-  font-style: italic;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: normal;
+  font-weight: 900;
 	src: url("/fonts/CircularSpotifyTxT-Black.eot");
 	src: url("/fonts/CircularSpotifyTxT-Black.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-Black.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-Black.woff2") format("woff2");
-  font-weight: 900;
-  font-style: normal;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: italic;
+  font-weight: 900;
 	src: url("/fonts/CircularSpotifyTxT-BlackItalic.eot");
 	src: url("/fonts/CircularSpotifyTxT-BlackItalic.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-BlackItalic.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-BlackItalic.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-BlackItalic.woff2") format("woff2");
-  font-weight: 900;
-  font-style: italic;
 }
 
 @font-face {
+  font-display: block;
 	font-family: "CircularSpotify";
+  font-style: normal;
+  font-weight: 700;
 	src: url("/fonts/CircularSpotifyTxT-Bold.eot");
 	src: url("/fonts/CircularSpotifyTxT-Bold.svg") format("svg"),
 		 url("/fonts/CircularSpotifyTxT-Bold.ttf") format("truetype"),
 		 url("/fonts/CircularSpotifyTxT-Bold.woff") format("woff"),
 		 url("/fonts/CircularSpotifyTxT-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
 }
 
 @font-face {
+  font-display: block;
   font-family: "CircularSpotify";
+  font-style: italic;
+  font-weight: 700;
 	src: url("/fonts/CircularSpotifyTxT-BoldItalic.eot");
 	src: url("/fonts/CircularSpotifyTxT-BoldItalic.svg") format("svg"),
     url("/fonts/CircularSpotifyTxT-BoldItalic.ttf") format("truetype"),
     url("/fonts/CircularSpotifyTxT-BoldItalic.woff") format("woff"),
     url("/fonts/CircularSpotifyTxT-BoldItalic.woff2") format("woff2");
-  font-weight: 700;
-  font-style: italic;
 }
