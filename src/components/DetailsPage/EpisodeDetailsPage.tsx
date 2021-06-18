@@ -20,7 +20,6 @@ export const EpisodeDetailsPage = () => {
   return (
     <DetailsPage
       cover={episode.data.images[1]}
-      coverSize="m"
       headingContent={<HeadingContent episode={episode.data} />}
       subtitle={episode.data.show.name}
       subtitleHref={`/shows/${episode.data.show.id}`}
