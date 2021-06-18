@@ -3,43 +3,22 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-height: 100vh;
-  overflow: auto;
-  padding: 0 1.5rem;
+  padding: 5rem 1.5rem 0;
 }
 
-.login > header {
-  flex: 1;
-}
-
+.login > header,
 .login > main {
-  flex: 3;
+  padding: 2rem 0;
 }
 
 .login > footer {
-  flex: 1;
-}
-
-.login > header {
-  align-items: flex-end;
-  display: flex;
-}
-
-.login > main {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.illustration {
-  height: 17.5rem;
-  margin: 1.5rem 0 3rem;
+  margin: auto 0 7rem;
 }
 
 .error {
   align-items: center;
   display: flex;
+  padding: 1.5rem 0;
 }
 
 .error > span:first-child {
@@ -58,10 +37,9 @@
 }
 
 .login > footer {
-  font-family: Monaco, monospace;
-  font-size: var(--fs-m);
-  letter-spacing: 0.75px;
-  padding: 3rem;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.1ch;
   text-align: center;
 }
 
