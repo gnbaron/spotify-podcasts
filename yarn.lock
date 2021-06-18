@@ -899,10 +899,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
 
-"@types/spotify-api@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@types/spotify-api/-/spotify-api-0.0.9.tgz#4e738d06f3bd646b65bf5ceaf23676c964e1d4b3"
-  integrity sha512-vq/NXuJOkhwDidAHxscgdoqp/v7ajujv/W80RTAU8ynz3D5d/zWAhJhJYz/hxQchI6GQJPhx/jvz/z9UTtf3JQ==
+"@types/spotify-api@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@types/spotify-api/-/spotify-api-0.0.10.tgz#fea56cc3370bce961c03a17f2cf28d397ae064c2"
+  integrity sha512-jR/iIZVfCDjk4QEoGpOYcVFUw2LQi9EGKNpLwUf7iIkhss/t4c3FpwT9qRPeNme6mEzCGMYr1LdP3c1nSvBzDw==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.0"
