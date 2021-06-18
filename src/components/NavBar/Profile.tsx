@@ -1,15 +1,18 @@
+import { useState } from 'react'
 import { useRouter } from 'next/router'
+import classNames from 'classnames'
 import { useProfile } from 'lib/spotify-queries'
+import TokenStorage from 'lib/token-storage'
 import { Button } from 'components/Button'
 
 import styles from './Profile.module.css'
-import TokenStorage from 'lib/token-storage'
 
 export const Profile = () => {
   const router = useRouter()
   const profile = useProfile()
+  const [loaded, setLoaded] = useState(false)
 
-  if (!profile.data) return null
+  if (!profile.data) return <div className={classNames(styles.profile)} />
 
   const avatarUrl = profile.data.images
     ? profile.data.images[0].url
@@ -21,8 +24,8 @@ export const Profile = () => {
   }
 
   return (
-    <div className={styles.profile}>
-      <img src={avatarUrl} />
+    <div className={classNames(styles.profile, loaded && styles.loaded)}>
+      <img src={avatarUrl} onLoad={() => setLoaded(true)} />
       <span className={styles.name}>{profile.data.display_name}</span>
       <Button className={styles.logout} onClick={handleLogout} quiet size="s">
         Logout

@@ -4,7 +4,15 @@
   flex-direction: column;
   gap: 0.75rem;
   margin-top: auto;
+  opacity: 0;
   padding: 2rem 0 2.5rem;
+  transform: scale(0.75);
+  transition: opacity 300ms, transform 200ms;
+}
+
+.profile.loaded {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .profile > img {

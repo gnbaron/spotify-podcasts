@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import Image from 'next/image'
+import spotifyIcon from '../../../public/img/icon.png'
 
 import styles from './Logo.module.css'
 
@@ -17,9 +18,11 @@ type Props = {
 export const Logo = ({ className, size }: Props) => (
   <div className={classNames(styles.wrapper, styles[size], className)}>
     <Image
-      src="/img/icon.png"
-      role="presentation"
+      src={spotifyIcon}
       height={SIZE[size]}
+      priority
+      quality={100}
+      role="presentation"
       width={SIZE[size]}
     />
     <h1>Podcasts</h1>
