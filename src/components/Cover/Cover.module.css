@@ -1,3 +1,14 @@
+.wrapper {
+  opacity: 0;
+  transform: scale(0.99);
+  transition: opacity 200ms, transform 150ms;
+}
+
+.wrapper.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .cover.s {
   --size: 9rem;
 }
