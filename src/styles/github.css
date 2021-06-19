@@ -16,13 +16,3 @@
     transform: rotate(10deg);
   }
 }
-
-@media (max-width: 500px) {
-  .github-corner:hover .octoArm {
-    animation: none;
-  }
-
-  .github-corner .octoArm {
-    animation: octocat-wave 560ms ease-in-out;
-  }
-}
