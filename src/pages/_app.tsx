@@ -10,7 +10,7 @@ import 'styles/github.css'
 
 function SafeHydrate({ children }: { children: React.ReactNode }) {
   return (
-    <div suppressHydrationWarning>
+    <div suppressHydrationWarning style={{ height: '100%' }}>
       {typeof document === 'undefined' ? null : children}
     </div>
   )

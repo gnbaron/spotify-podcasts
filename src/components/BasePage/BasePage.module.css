@@ -1,6 +1,6 @@
 .page {
   --header-height: 4.5rem;
-  height: 100vh;
+  height: 100%;
 }
 
 .scrollContainer {
