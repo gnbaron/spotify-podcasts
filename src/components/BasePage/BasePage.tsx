@@ -15,7 +15,7 @@ export const BasePage = ({ children, heading, isLoading }: Props) => (
       <header className={styles.header}>
         <div className={styles.heading}>
           <h2>{heading}</h2>
-          {isLoading && <LoadingSpinner />}
+          {isLoading && <LoadingSpinner className={styles.spinner} />}
         </div>
         <hr />
       </header>

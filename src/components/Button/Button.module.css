@@ -2,6 +2,10 @@
   display: inline-flex;
 }
 
+.wrapper.xs {
+  font-size: var(--font-size-xs);
+}
+
 .wrapper.s {
   font-size: var(--font-size-s);
 }
@@ -12,6 +16,10 @@
 
 .wrapper.l {
   font-size: var(--font-size-l);
+}
+
+.wrapper.xl {
+  font-size: var(--font-size-xl);
 }
 
 .button {

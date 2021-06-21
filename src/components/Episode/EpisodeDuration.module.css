@@ -1,0 +1,13 @@
+.time {
+  color: var(--color-light-grey);
+  display: flex;
+  font-size: var(--font-size-s);
+}
+
+.date {
+  margin-right: 0.5rem;
+}
+
+.duration {
+  margin-left: 0.5rem;
+}

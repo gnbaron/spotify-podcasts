@@ -37,7 +37,7 @@ export const Profile = () => {
           className={styles.logout}
           onClick={handleLogout}
           quiet
-          size="l"
+          size="xl"
         >
           <FaSignOutAlt />
         </IconButton>

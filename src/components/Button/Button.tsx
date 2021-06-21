@@ -8,7 +8,7 @@ type CommonProps = {
   className?: string
   disabled?: boolean
   quiet?: boolean
-  size?: 's' | 'm' | 'l'
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
 type ButtonProps =

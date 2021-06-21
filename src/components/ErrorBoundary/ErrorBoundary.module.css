@@ -8,10 +8,7 @@
 }
 
 .heading {
-  align-items: center;
   color: var(--color-light-grey);
-  display: flex;
-  gap: 1rem;
   font-size: var(--font-size-xl);
   font-weight: bold;
   margin: 0;

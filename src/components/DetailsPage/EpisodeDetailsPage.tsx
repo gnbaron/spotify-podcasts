@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom'
-import { format } from 'date-fns'
 import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'lib/spotify-queries'
 import { useMutateSavedEpisodes } from 'lib/spotify-mutations'
 import { IconButton } from 'components/Button'
+import { EpisodeDuration } from 'components/Episode'
 import { DetailsPage } from './DetailsPage'
 
 import styles from './EpisodeDetailsPage.module.css'
@@ -55,10 +55,7 @@ const HeadingContent = ({ episode }: { episode: Episode }) => {
 const EpisodeDescription = ({ episode }: { episode: Episode }) => {
   return (
     <>
-      <div className={styles.time}>
-        <span>{format(new Date(episode.release_date), 'MMM dd')}</span>·
-        <span>{`${Math.round(episode.duration_ms / 1000 / 60)} min`}</span>
-      </div>
+      <EpisodeDuration className={styles.duration} episode={episode} />
       <h3 className={styles.heading}>Episode Description</h3>
       <div
         className={styles.description}

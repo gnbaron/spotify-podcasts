@@ -2,10 +2,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
   margin-top: auto;
   opacity: 0;
-  padding: 2rem 0 2.5rem;
+  padding: 2rem 0 1rem;
   transform: scale(0.75);
   transition: opacity 300ms, transform 200ms;
 }
@@ -17,22 +16,31 @@
 
 .avatar {
   border-radius: 50%;
-  height: 3rem;
-  width: 3rem;
+  height: 3.25rem;
+  width: 3.25rem;
 }
 
 .name {
   font-size: var(--font-size-s);
   font-weight: 500;
+  margin-top: 0.75rem;
 }
 
 .logout {
-  margin-top: 0.25rem;
+  margin-top: 1.25rem;
 }
 
 @media (min-width: 768px) {
+  .profile {
+    padding-bottom: 2.5rem;
+  }
+
   .avatar {
     height: 4.5rem;
     width: 4.5rem;
+  }
+
+  .logout {
+    margin-top: 0.75rem;
   }
 }

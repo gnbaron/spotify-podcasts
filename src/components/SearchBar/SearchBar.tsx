@@ -33,11 +33,14 @@ export const SearchBar = ({ className, onSearch, query }: Props) => {
   return (
     <div className={classNames(styles.bar, className)}>
       <input
+        autoCapitalize="off"
+        autoCorrect="off"
         className={styles.input}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Shows and episodes"
         value={value || ''}
         ref={inputRef}
+        spellCheck={false}
       />
       <IconButton
         className={styles.button}

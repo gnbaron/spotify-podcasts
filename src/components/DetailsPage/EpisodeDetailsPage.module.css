@@ -1,8 +1,4 @@
-.time {
-  color: var(--color-light-grey);
-  display: flex;
-  font-size: var(--font-size-s);
-  gap: 0.5rem;
+.duration {
   margin-top: 1rem;
 }
 
