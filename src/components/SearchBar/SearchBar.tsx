@@ -33,7 +33,6 @@ export const SearchBar = ({ className, onSearch, query }: Props) => {
   return (
     <div className={classNames(styles.bar, className)}>
       <input
-        autoFocus
         className={styles.input}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Shows and episodes"
