@@ -2,6 +2,7 @@ import { MouseEvent, useEffect, useRef, useState } from 'react'
 import { matchPath, Link, useLocation } from 'react-router-dom'
 import { FaCompactDisc, FaMicrophoneAlt, FaSearch } from 'react-icons/fa'
 import { IconType } from 'react-icons/lib'
+import { OnlyWideScreen } from 'components/ResponsiveContainer'
 
 import styles from './Menu.module.css'
 
@@ -83,7 +84,7 @@ export const Menu = () => {
       >
         <Link className={styles.item} to={path}>
           <Icon className={styles.icon} />
-          {displayName}
+          <OnlyWideScreen>{displayName}</OnlyWideScreen>
         </Link>
       </li>
     )

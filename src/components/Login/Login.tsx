@@ -10,7 +10,7 @@ type Props = {
 export const Login = ({ failed }: Props) => (
   <div className={styles.login}>
     <header>
-      <Logo size="l" />
+      <Logo renderHeading size="l" />
     </header>
     <main>
       {failed && (

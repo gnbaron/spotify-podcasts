@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useIntersectionObserver } from 'hooks/use-intersection-observer'
+import { useIntersectionObserver } from 'utils/use-intersection-observer'
 import { LoadingSpinner } from 'components/Loading'
 
 import styles from './InfiniteScroll.module.css'

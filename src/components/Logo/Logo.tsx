@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import Image from 'next/image'
+import { ScreenReaderOnly } from 'components/ScreenReaderOnly'
 import spotifyIcon from '../../../public/img/icon.png'
 
 import styles from './Logo.module.css'
@@ -12,12 +13,14 @@ const SIZE = {
 
 type Props = {
   className?: string
+  renderHeading?: boolean
   size: keyof typeof SIZE
 }
 
-export const Logo = ({ className, size }: Props) => (
+export const Logo = ({ className, renderHeading, size }: Props) => (
   <div className={classNames(styles.wrapper, styles[size], className)}>
     <Image
+      className={styles.img}
       src={spotifyIcon}
       height={SIZE[size]}
       priority
@@ -25,6 +28,12 @@ export const Logo = ({ className, size }: Props) => (
       role="presentation"
       width={SIZE[size]}
     />
-    <h1>Podcasts</h1>
+    {renderHeading ? (
+      <h1>Podcasts</h1>
+    ) : (
+      <ScreenReaderOnly>
+        <h1>Spotify Podcasts</h1>
+      </ScreenReaderOnly>
+    )}
   </div>
 )

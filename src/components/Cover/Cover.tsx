@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import classNames from 'classnames'
-import { useIntersectionObserver } from 'hooks/use-intersection-observer'
+import { useIntersectionObserver } from 'utils/use-intersection-observer'
 
 import styles from './Cover.module.css'
 

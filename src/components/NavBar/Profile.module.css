@@ -15,10 +15,10 @@
   transform: scale(1);
 }
 
-.profile > img {
+.avatar {
   border-radius: 50%;
-  height: 4.5rem;
-  width: 4.5rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 .name {
@@ -28,4 +28,11 @@
 
 .logout {
   margin-top: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
 }

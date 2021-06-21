@@ -13,10 +13,10 @@ import styles from './App.module.css'
 export const App = () => (
   <BrowserRouter>
     <div className={styles.container}>
-      <header>
+      <header className={styles.header}>
         <NavBar />
       </header>
-      <main>
+      <main className={styles.main}>
         <ErrorBoundary>
           <Suspense fallback={<Loading />}>
             <Switch>
