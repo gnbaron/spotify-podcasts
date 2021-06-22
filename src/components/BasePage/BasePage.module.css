@@ -1,5 +1,5 @@
 .page {
-  --header-height: 4.5rem;
+  --header-height: 3rem;
   height: 100%;
 }
 
@@ -25,12 +25,13 @@
   flex-direction: column;
   height: var(--header-height);
   justify-content: flex-end;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .heading {
   align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 .heading > h2 {
@@ -52,5 +53,23 @@
 
 .content {
   height: 100%;
-  padding: 0 2rem 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .page {
+    --header-height: 4.5rem;
+  }
+
+  .header {
+    padding: 0 2rem;
+  }
+
+  .heading {
+    justify-content: flex-start;
+  }
+
+  .content {
+    padding: 1.5rem 2rem;
+  }
 }

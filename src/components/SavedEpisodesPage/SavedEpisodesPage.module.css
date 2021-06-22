@@ -1,7 +1,3 @@
-.episodeList {
-  padding: 1rem;
-}
-
 .episodeList > article + article {
   border-top: 1px solid transparent;
   border-image-slice: 1;

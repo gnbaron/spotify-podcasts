@@ -6,7 +6,6 @@
   display: inline-flex;
   justify-content: center;
   transition: border-color 250ms;
-  width: min(60vw, 37.5rem);
 }
 
 .bar:focus-within {

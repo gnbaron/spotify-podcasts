@@ -9,7 +9,11 @@ export const NavBar = () => {
   const isWideScreen = useIsWideScreen()
   return (
     <nav className={styles.navbar}>
-      <Logo className={styles.logo} renderHeading={isWideScreen} size="m" />
+      <Logo
+        className={styles.logo}
+        renderHeading={isWideScreen}
+        size={isWideScreen ? 'm' : 's'}
+      />
       <Menu />
       <Profile />
     </nav>

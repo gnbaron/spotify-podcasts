@@ -59,37 +59,6 @@ div#__next {
   height: 100%;
 }
 
-p {
-  margin-bottom: 1rem;
-}
-
-h1, h2, h3, h4 {
-  margin: 2rem 0 1.38rem;
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-h1 {
-  margin-top: 0;
-  font-size: var(--font-size-xxl);
-}
-
-h2 {
-  font-size: var(--font-size-xl);
-}
-
-h3 {
-  font-size: var(--font-size-l);
-}
-
-h4 {
-  font-size: var(--font-size-m);
-}
-
-small {
-  font-size: var(--font-size-s);
-}
-
 ul[class],
 ol[class] {
   padding: 0;
@@ -106,6 +75,50 @@ select {
 img {
   display: block;
   max-width: 100%;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+h2, h3, h4 {
+  margin: 1rem 0;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+
+h2 {
+  font-size: var(--font-size-l);
+}
+
+h3 {
+  font-size: var(--font-size-l);
+}
+
+h4 {
+  font-size: var(--font-size-m);
+}
+
+small {
+  font-size: var(--font-size-s);
+}
+
+@media (min-width: 768px) {
+  p {
+    margin-bottom: 1rem;
+  }
+
+  h2, h3, h4 {
+    margin: 2rem 0 1.38rem;
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -47,7 +47,7 @@ export const SearchPage = () => {
           query={query}
         />
       </header>
-      <section className={styles.results}>
+      <section className={classNames(styles.results, active && styles.active)}>
         <nav className={classNames(styles.nav, active && styles.active)}>
           <ul className={styles.menu}>
             <li data-active={type === 'show'} onClick={() => setType('show')}>
