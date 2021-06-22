@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fill, 13rem);
   grid-template-rows: repeat(auto-fill, 17.75rem);
   justify-content: center;
-  padding: 1rem 0;
+  padding: 2rem 0;
   place-items: start center;
 }
 
@@ -15,10 +15,4 @@
 .spinner {
   font-size: var(--font-size-xxl);
   margin-top: 5rem;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    padding: 2rem 0;
-  }
 }

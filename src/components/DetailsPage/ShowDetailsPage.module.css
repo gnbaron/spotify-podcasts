@@ -9,7 +9,6 @@
   color: var(--color-light-grey);
   display: -webkit-box;
   font-size: var(--font-size-s);
-  margin-top: 0.25rem;
   overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

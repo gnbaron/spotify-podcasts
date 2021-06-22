@@ -16,7 +16,7 @@ export const ShowCard = ({ show }: Props) => (
           image={show.images[1] || show.images[0]}
           size="m"
         />
-        <h3 className={styles.name}>{show.name}</h3>
+        <p className={styles.name}>{show.name}</p>
       </header>
     </Link>
     <small className={styles.publisher}>{show.publisher}</small>

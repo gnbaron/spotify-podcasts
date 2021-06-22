@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo'
 import { Link } from 'react-router-dom'
+import { useIsWideScreen } from 'utils/use-media-query'
 import { BasePage } from 'components/BasePage'
 import { Cover } from 'components/Cover'
 
@@ -8,7 +9,6 @@ import styles from './DetailsPage.module.css'
 type Props = {
   children?: React.ReactNode
   cover: SpotifyApi.ImageObject
-  coverSize?: 's' | 'm' | 'l'
   headingContent?: React.ReactNode
   subtitle: string
   subtitleHref?: string
@@ -16,22 +16,14 @@ type Props = {
 }
 
 export const DetailsPage = (props: Props) => {
-  const {
-    children,
-    cover,
-    coverSize = 'l',
-    headingContent,
-    subtitle,
-    subtitleHref,
-    title,
-  } = props
-
+  const { cover, headingContent, subtitle, subtitleHref, title } = props
+  const isWide = useIsWideScreen()
   return (
     <BasePage>
       <NextSeo title={`Spotify Podcasts · ${title}`} />
       <article className={styles.details}>
-        <header>
-          <Cover image={cover} size={coverSize} />
+        <header className={styles.header}>
+          <Cover image={cover} size={isWide ? 'l' : 'xl'} />
           <div className={styles.heading}>
             <h2 className={styles.title}>{title}</h2>
             {subtitleHref ? (
@@ -44,10 +36,10 @@ export const DetailsPage = (props: Props) => {
             <div className={styles.content}>{headingContent}</div>
           </div>
         </header>
-        {children && (
+        {props.children && (
           <section className={styles.body}>
             <hr />
-            {children}
+            {props.children}
           </section>
         )}
       </article>

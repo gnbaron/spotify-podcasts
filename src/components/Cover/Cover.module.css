@@ -9,6 +9,10 @@
   transform: scale(1);
 }
 
+.cover.xs {
+  --size: 6rem;
+}
+
 .cover.s {
   --size: 9rem;
 }
@@ -19,6 +23,10 @@
 
 .cover.l {
   --size: 13rem;
+}
+
+.cover.xl {
+  --size: 15rem;
 }
 
 .cover {

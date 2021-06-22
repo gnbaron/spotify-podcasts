@@ -1,9 +1,7 @@
-import { ReactNode } from 'react'
-
 import styles from './ScreenReaderOnly.module.css'
 
 type Props = {
-  children?: ReactNode
+  children?: React.ReactNode
 }
 
 export const ScreenReaderOnly = ({ children }: Props) => (

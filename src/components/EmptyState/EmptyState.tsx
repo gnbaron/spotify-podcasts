@@ -5,9 +5,9 @@ import styles from './EmptyState.module.css'
 type Props = {
   size?: 's' | 'm' | 'l'
   subtitle?: string
-  subtitleAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+  subtitleAs?: 'h1' | 'h2' | 'h3' | 'h4'
   title?: string
-  titleAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+  titleAs?: 'h1' | 'h2' | 'h3' | 'h4'
 }
 
 export const EmptyState = ({

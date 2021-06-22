@@ -11,7 +11,7 @@
   font-weight: 700;
   margin: 0;
   opacity: 1;
-  transform: translateY(1.5rem);
+  transform: translateY(2rem);
   transition: opacity 175ms;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .searchBar {
-  transform: translateY(3.5rem);
+  transform: translateY(4.5rem);
   transition: transform 275ms;
   width: 100%;
 }

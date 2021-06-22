@@ -56,7 +56,7 @@ const EpisodeDescription = ({ episode }: { episode: Episode }) => {
   return (
     <>
       <EpisodeDuration className={styles.duration} episode={episode} />
-      <h3 className={styles.heading}>Episode Description</h3>
+      <h4 className={styles.heading}>Episode Description</h4>
       <div
         className={styles.description}
         dangerouslySetInnerHTML={{ __html: episode.html_description }}

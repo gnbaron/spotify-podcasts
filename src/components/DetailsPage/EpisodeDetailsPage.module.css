@@ -3,7 +3,6 @@
 }
 
 .heading {
-  font-size: var(--font-size-m);
   font-weight: bold;
 }
 
@@ -11,6 +10,7 @@
   color: var(--color-light-grey);
   font-size: var(--font-size-s);
   margin: 1.5rem 0;
+  word-break: break-word;
 }
 
 .description a {

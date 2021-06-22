@@ -1,5 +1,5 @@
 .page {
-  --header-height: 3rem;
+  --header-height: 4rem;
   height: 100%;
 }
 
@@ -25,13 +25,12 @@
   flex-direction: column;
   height: var(--header-height);
   justify-content: flex-end;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
 .heading {
   align-items: center;
   display: flex;
-  justify-content: center;
 }
 
 .heading > h2 {
@@ -53,7 +52,7 @@
 
 .content {
   height: 100%;
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 @media (min-width: 768px) {
@@ -63,10 +62,6 @@
 
   .header {
     padding: 0 2rem;
-  }
-
-  .heading {
-    justify-content: flex-start;
   }
 
   .content {

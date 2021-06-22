@@ -2,7 +2,7 @@
   align-items: center;
   border-radius: 10px;
   display: flex;
-  padding: 1.25rem;
+  padding: 1rem 0;
   transition: background-color 300ms ease-in-out;
 }
 
@@ -28,7 +28,8 @@
 .content {
   display: flex;
   flex-direction: column;
-  padding: 0.25rem 2rem;
+  margin-left: 1rem;
+  padding: 0.25rem;
 }
 
 .content > a {
@@ -48,18 +49,32 @@
 }
 
 .heading {
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
   font-weight: 500;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .description {
   color: var(--color-light-grey);
   display: -webkit-box;
   font-size: var(--font-size-s);
-  margin: 1rem 0;
   overflow: hidden;
   word-break: break-all;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+@media (min-width: 768px) {
+  .episode {
+    padding: 1.25rem;
+  }
+
+  .content {
+    margin-left: 2rem;
+  }
+
+  .heading {
+    font-size: var(--font-size-m);
+    margin-bottom: 1rem;
+  }
 }
