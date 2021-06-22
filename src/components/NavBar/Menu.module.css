@@ -2,7 +2,7 @@
   background-color: var(--color-background-start);
   border-left: 6px solid var(--color-light-green);
   position: absolute;
-  transition: transform 200ms;
+  transition: transform 250ms;
 }
 
 .menu {
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   font-weight: 500;
-  padding: 0.75rem 0;
+  padding: 1rem 0;
   text-decoration: none;
   width: 100%;
 }
@@ -32,8 +32,9 @@
 
 @media (min-width: 768px) {
   .item {
+    height: 2.75rem;
     justify-content: flex-start;
-    padding: 0.5rem 3.5rem;
+    padding: 1rem 3.5rem;
   }
 
   .icon {
