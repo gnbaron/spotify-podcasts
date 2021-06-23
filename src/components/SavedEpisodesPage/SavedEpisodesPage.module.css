@@ -3,6 +3,10 @@
 }
 
 @media (min-width: 768px) {
+  .savedEpisodes {
+    margin-top: 1rem;
+  }
+
   .episodeList > article + article {
     border-top: 1px solid transparent;
     border-image-slice: 1;

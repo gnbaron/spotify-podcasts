@@ -10,3 +10,9 @@
 .grid > article {
   height: 100%;
 }
+
+@media (min-width: 768px) {
+  .savedShows {
+    margin-top: 2rem;
+  }
+}

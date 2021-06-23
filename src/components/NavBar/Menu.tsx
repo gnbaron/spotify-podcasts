@@ -7,7 +7,7 @@ import { OnlyWideScreen } from 'components/ResponsiveContainer'
 import styles from './Menu.module.css'
 
 export const Menu = () => {
-  // set hovered element reference
+  // set hover element reference
 
   const [hover, setHover] = useState<Element | null>(null)
 
@@ -65,21 +65,13 @@ export const Menu = () => {
     )
   }
 
-  function renderLink(
-    path: string,
-    displayName: string,
-    Icon: IconType,
-    ...matches: string[]
-  ) {
+  function renderLink(path: string, displayName: string, Icon: IconType) {
     return (
       <li
         onMouseEnter={handleMouseEnterItem}
         onMouseLeave={handleMouseLeaveItem}
         ref={(el) => {
           links.current[path] = el
-          matches.forEach((match) => {
-            links.current[match] = el
-          })
         }}
       >
         <Link className={styles.item} to={path}>
@@ -94,8 +86,8 @@ export const Menu = () => {
     <div ref={wrapper}>
       {renderHighlight()}
       <ul className={styles.menu}>
-        {renderLink('/shows', 'Shows', FaMicrophoneAlt, '/episodes')}
-        {renderLink('/library', 'Your Library', FaCompactDisc)}
+        {renderLink('/shows', 'Shows', FaMicrophoneAlt)}
+        {renderLink('/episodes', 'Episodes', FaCompactDisc)}
         {renderLink('/search', 'Search', FaSearch)}
       </ul>
     </div>

@@ -29,11 +29,11 @@ export const App = () => (
               <Route exact path="/shows/:showId">
                 <ShowDetailsPage />
               </Route>
+              <Route exact path="/episodes">
+                <SavedEpisodesPage />
+              </Route>
               <Route exact path="/episodes/:episodeId">
                 <EpisodeDetailsPage />
-              </Route>
-              <Route exact path="/library">
-                <SavedEpisodesPage />
               </Route>
               <Route exact path="/search">
                 <SearchPage />

@@ -1,32 +1,28 @@
 import classNames from 'classnames'
-import { LoadingSpinner } from 'components/Loading'
+import { OnlySmallScreen } from 'components/ResponsiveContainer'
 
 import styles from './BasePage.module.css'
 
 type Props = {
   children?: React.ReactNode
+  className?: string
   heading?: string
-  isLoading?: boolean
 }
 
-export const BasePage = ({ children, heading, isLoading }: Props) => (
+export const BasePage = ({ children, className, heading }: Props) => (
   <div className={styles.page}>
-    {heading && (
-      <header className={styles.header}>
-        <div className={styles.heading}>
+    <OnlySmallScreen>
+      {heading && (
+        <header className={styles.header}>
           <h2>{heading}</h2>
-          {isLoading && <LoadingSpinner className={styles.spinner} />}
-        </div>
-        <hr />
-      </header>
-    )}
-    <div
-      className={classNames(
-        styles.scrollContainer,
-        !heading && styles.fullHeight
+          <hr />
+        </header>
       )}
-    >
-      <section className={styles.content}>{children}</section>
+    </OnlySmallScreen>
+    <div className={classNames(styles.scroller, !heading && styles.fullpage)}>
+      <section className={classNames(styles.content, className)}>
+        {children}
+      </section>
     </div>
   </div>
 )

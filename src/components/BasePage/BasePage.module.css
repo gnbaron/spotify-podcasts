@@ -3,13 +3,13 @@
   height: 100%;
 }
 
-.scrollContainer {
+.scroller {
   height: calc(100% - var(--header-height));
   max-height: calc(100% - var(--header-height));
   overflow: auto scroll;
 }
 
-.fullHeight {
+.fullpage {
   height: 100%;
   max-height: 100%;
 }
@@ -28,19 +28,10 @@
   padding: 0 1rem;
 }
 
-.heading {
-  align-items: center;
-  display: flex;
-}
-
-.heading > h2 {
+.header > h2 {
   font-size: var(--font-size-l);
   font-weight: bold;
   margin: 0;
-}
-
-.spinner {
-  margin-left: 0.75rem;
 }
 
 .header > hr {
@@ -56,12 +47,9 @@
 }
 
 @media (min-width: 768px) {
-  .page {
-    --header-height: 4.5rem;
-  }
-
-  .header {
-    padding: 0 2rem;
+  .scroller {
+    height: 100%;
+    max-height: 100%;
   }
 
   .content {
