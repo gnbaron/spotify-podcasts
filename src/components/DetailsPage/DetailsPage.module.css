@@ -17,6 +17,7 @@
 }
 
 .title {
+  font-size: var(--font-size-l);
   font-weight: 900;
   margin: 0;
 }
@@ -62,5 +63,9 @@
   .heading {
     margin-top: 0;
     padding: 0 2rem;
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
   }
 }

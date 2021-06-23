@@ -25,10 +25,6 @@
   --size: 13rem;
 }
 
-.cover.xl {
-  --size: 15rem;
-}
-
 .cover {
   border-radius: 10px;
   height: var(--size);

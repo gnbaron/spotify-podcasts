@@ -7,7 +7,7 @@ import styles from './Cover.module.css'
 type Props = {
   className?: string
   image: SpotifyApi.ImageObject
-  size: 'xs' | 's' | 'm' | 'l' | 'xl'
+  size: 'xs' | 's' | 'm' | 'l'
 }
 
 export const Cover = ({ className, image, size }: Props) => {

@@ -20,17 +20,22 @@ export const EpisodeDetailsPage = () => {
   return (
     <DetailsPage
       cover={episode.data.images[1]}
-      headingContent={<HeadingContent episode={episode.data} />}
+      headingContent={<EpisodeControls episode={episode.data} />}
       subtitle={episode.data.show.name}
       subtitleHref={`/shows/${episode.data.show.id}`}
       title={episode.data.name}
     >
-      <EpisodeDescription episode={episode.data} />
+      <EpisodeDuration className={styles.duration} episode={episode.data} />
+      <h4 className={styles.heading}>Episode Description</h4>
+      <div
+        className={styles.description}
+        dangerouslySetInnerHTML={{ __html: episode.data.html_description }}
+      />
     </DetailsPage>
   )
 }
 
-const HeadingContent = ({ episode }: { episode: Episode }) => {
+const EpisodeControls = ({ episode }: { episode: Episode }) => {
   const isSaved = useEpisodeIsSaved(episode.id)
   const saveMutation = useMutateSavedEpisodes()
   const removeMutation = useMutateSavedEpisodes({ removing: true })
@@ -49,18 +54,5 @@ const HeadingContent = ({ episode }: { episode: Episode }) => {
     >
       {isSaved.data[0] ? <FaCheck /> : <FaPlus />}
     </IconButton>
-  )
-}
-
-const EpisodeDescription = ({ episode }: { episode: Episode }) => {
-  return (
-    <>
-      <EpisodeDuration className={styles.duration} episode={episode} />
-      <h4 className={styles.heading}>Episode Description</h4>
-      <div
-        className={styles.description}
-        dangerouslySetInnerHTML={{ __html: episode.html_description }}
-      />
-    </>
   )
 }
