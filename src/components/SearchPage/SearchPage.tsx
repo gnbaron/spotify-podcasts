@@ -49,15 +49,16 @@ export const SearchPage = () => {
       </header>
       <section className={classNames(styles.results, active && styles.active)}>
         <nav className={classNames(styles.nav, active && styles.active)}>
-          <ul className={styles.menu}>
-            <li data-active={type === 'show'} onClick={() => setType('show')}>
-              Shows
+          <ul className={styles.menu} role="tablist">
+            <li data-active={type === 'show'} role="presentation">
+              <a onClick={() => setType('show')} role="tab">
+                Shows
+              </a>
             </li>
-            <li
-              data-active={type === 'episode'}
-              onClick={() => setType('episode')}
-            >
-              Episodes
+            <li data-active={type === 'episode'} role="presentation">
+              <a onClick={() => setType('episode')} role="tab">
+                Episodes
+              </a>
             </li>
           </ul>
         </nav>

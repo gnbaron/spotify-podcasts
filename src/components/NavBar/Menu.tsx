@@ -70,11 +70,12 @@ export const Menu = () => {
       <li
         onMouseEnter={handleMouseEnterItem}
         onMouseLeave={handleMouseLeaveItem}
+        role="presentation"
         ref={(el) => {
           links.current[path] = el
         }}
       >
-        <Link className={styles.item} to={path}>
+        <Link className={styles.item} to={path} role="tab">
           <Icon className={styles.icon} />
           <OnlyWideScreen>{displayName}</OnlyWideScreen>
         </Link>
@@ -85,7 +86,7 @@ export const Menu = () => {
   return (
     <div ref={wrapper}>
       {renderHighlight()}
-      <ul className={styles.menu}>
+      <ul className={styles.menu} role="tablist">
         {renderLink('/shows', 'Shows', FaMicrophoneAlt)}
         {renderLink('/episodes', 'Episodes', FaCompactDisc)}
         {renderLink('/search', 'Search', FaSearch)}
