@@ -1,6 +1,12 @@
-.episodeList > article + article {
-  border-top: 1px solid transparent;
-  border-image-slice: 1;
-  border-image-source:
-    linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
+.episodeList > article {
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .episodeList > article + article {
+    border-top: 1px solid transparent;
+    border-image-slice: 1;
+    border-image-source:
+      linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
+  }
 }

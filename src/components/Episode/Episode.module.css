@@ -2,7 +2,7 @@
   align-items: center;
   border-radius: 10px;
   display: flex;
-  padding: 1rem 0;
+  padding: 1rem 0 1rem 0.5rem;
   transition: background-color 300ms ease-in-out;
 }
 
@@ -28,7 +28,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
+  margin-left: 0.75rem;
   padding: 0.25rem;
 }
 

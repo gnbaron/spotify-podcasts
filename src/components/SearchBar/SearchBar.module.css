@@ -17,8 +17,9 @@
   border: 0;
   color: var(--color-white);
   flex: 1;
+  line-height: normal;
   outline: none;
-  padding: 0 1rem 0 2rem;
+  padding: 0 0 0 1rem;
 }
 
 .button {
@@ -34,4 +35,10 @@
 .button:focus {
   border-color: transparent;
   color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .input {
+    padding: 0 1rem 0 2rem;
+  }
 }
