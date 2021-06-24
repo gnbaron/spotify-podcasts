@@ -1,17 +1,21 @@
 .grid {
   display: grid;
-  gap: 3rem;
-  grid-template-columns: repeat(auto-fill, 13rem);
-  grid-template-rows: repeat(auto-fill, 17.75rem);
+  gap: 1.25rem;
   justify-content: center;
   place-items: start center;
 }
 
 .grid > article {
   height: 100%;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
+  .grid {
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fill, 13rem);
+  }
+
   .savedShows {
     margin-top: 2rem;
   }

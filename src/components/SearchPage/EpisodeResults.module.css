@@ -6,6 +6,10 @@
   border: 0;
 }
 
+.episodeList > article + article {
+  margin-top: 1rem;
+}
+
 .spinner {
   font-size: var(--font-size-xxl);
   margin-top: 5rem;

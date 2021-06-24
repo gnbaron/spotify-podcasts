@@ -2,8 +2,9 @@
   border-radius: 10px;
   background-color: var(--color-darker-grey);
   height: 100%;
-  padding: 1rem;
+  padding: 0.75rem;
   transition: background-color 300ms ease-in-out;
+  width: 100%;
 }
 
 .card:hover,
@@ -21,8 +22,13 @@
   text-decoration: none;
 }
 
+.body {
+  display: flex;
+}
+
 .cover {
   transition: box-shadow 300ms, transform 300ms;
+  margin-right: 0.75rem;
 }
 
 .card:hover .cover,
@@ -37,14 +43,29 @@
   color: var(--color-white);
   font-size: var(--font-size-s);
   font-weight: 500;
-  line-height: 1rem;
-  margin: 1.25rem 0 0;
+  margin: 0.75rem 0 0;
 }
 
 .publisher {
   color: var(--color-light-grey);
-  display: block;
   font-size: var(--font-size-xs);
-  line-height: 1rem;
-  margin: 0.5rem 0 0;
+  margin: 0.25rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .body {
+    flex-direction: column;
+  }
+
+  .cover {
+    margin: 0;
+  }
+
+  .name {
+    margin: 1.25rem 0 0;
+  }
 }
