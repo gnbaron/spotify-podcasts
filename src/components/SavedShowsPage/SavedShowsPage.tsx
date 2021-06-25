@@ -2,8 +2,7 @@ import { NextSeo } from 'next-seo'
 import { useSavedShows } from 'lib/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
-import { InfiniteScroll } from 'components/InfiniteScroll'
-import { ShowCard } from 'components/ShowCard'
+import { ShowGrid } from 'components/ShowGrid'
 
 import styles from './SavedShowsPage.module.css'
 
@@ -26,22 +25,13 @@ export const SavedShowsPage = () => {
           subtitle="It looks like you don't follow any show yet."
         />
       ) : (
-        <InfiniteScroll
-          className={styles.grid}
+        <ShowGrid
+          shows={shows.data.map(({ show }) => show)}
           hasMore={shows.hasNextPage}
           isLoading={shows.isFetchingNextPage}
           onLoadMore={shows.fetchNextPage}
-        >
-          {shows.data.map(({ show }, index) => (
-            <article
-              key={show.id}
-              aria-posinset={++index}
-              aria-setsize={shows.totalElements}
-            >
-              <ShowCard show={show} />
-            </article>
-          ))}
-        </InfiniteScroll>
+          totalShows={shows.totalElements}
+        />
       )}
     </BasePage>
   )
