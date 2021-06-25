@@ -1,29 +1,8 @@
 .episodeList {
-  padding: 1rem 0;
-}
-
-.episodeList > article {
-  border: 0;
-}
-
-.episodeList > article + article {
   margin-top: 1rem;
 }
 
 .spinner {
   font-size: var(--font-size-xxl);
   margin-top: 5rem;
-}
-
-@media (min-width: 768px) {
-  .episodeList {
-    padding: 1rem;
-  }
-
-  .episodeList > article + article {
-    border-top: 1px solid transparent;
-    border-image-slice: 1;
-    border-image-source:
-      linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
-  }
 }

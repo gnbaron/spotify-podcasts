@@ -1,9 +1,10 @@
-.duration {
+.timestamp {
   margin-top: 1rem;
 }
 
 .heading {
   font-weight: bold;
+  margin: 0;
 }
 
 .description {

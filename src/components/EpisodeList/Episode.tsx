@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useIsWideScreen } from 'utils/use-media-query'
 import { Cover } from 'components/Cover'
 import { OnlyWideScreen } from 'components/ResponsiveContainer'
-import { EpisodeDuration } from './EpisodeDuration'
+import { EpisodeTimestamp } from './EpisodeTimestamp'
 
 import styles from './Episode.module.css'
 
@@ -28,7 +28,7 @@ export const Episode = ({ episode }: Props) => {
         <OnlyWideScreen>
           <p className={styles.description}>{episode.description}</p>
         </OnlyWideScreen>
-        <EpisodeDuration episode={episode} />
+        <EpisodeTimestamp episode={episode} />
       </div>
     </article>
   )

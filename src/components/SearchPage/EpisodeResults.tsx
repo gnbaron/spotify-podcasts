@@ -1,7 +1,6 @@
 import { useSearch } from 'lib/spotify-queries'
 import { EmptyState } from 'components/EmptyState'
-import { Episode } from 'components/Episode'
-import { InfiniteScroll } from 'components/InfiniteScroll'
+import { EpisodeList } from 'components/EpisodeList'
 import { LoadingSpinner } from 'components/Loading'
 
 import styles from './EpisodeResults.module.css'
@@ -14,6 +13,7 @@ export const EpisodeResults = ({ query }: Props) => {
   const results = useSearch(query, 'episode')
 
   if (results.data) {
+    // TODO: refactor
     const episodes = results.data.pages
       .reduce<SpotifyApi.EpisodeObjectSimplified[]>(
         (episodes, resultPage) => [...episodes, ...resultPage.episodes.items],
@@ -26,22 +26,15 @@ export const EpisodeResults = ({ query }: Props) => {
     }
 
     return (
-      <InfiniteScroll
-        className={styles.episodeList}
-        hasMore={results.hasNextPage}
-        isLoading={results.isFetchingNextPage}
-        onLoadMore={results.fetchNextPage}
-      >
-        {episodes.map((episode, index) => (
-          <article
-            key={episode.id}
-            aria-posinset={++index}
-            aria-setsize={results.data.pages[0].episodes.total}
-          >
-            <Episode episode={episode} />
-          </article>
-        ))}
-      </InfiniteScroll>
+      <div className={styles.episodeList}>
+        <EpisodeList
+          episodes={episodes}
+          hasMore={results.hasNextPage}
+          isLoading={results.isFetchingNextPage}
+          onLoadMore={results.fetchNextPage}
+          totalEpisodes={results.data.pages[0].episodes.total}
+        />
+      </div>
     )
   }
 

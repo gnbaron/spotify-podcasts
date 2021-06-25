@@ -1,15 +1,15 @@
 import classNames from 'classnames'
 import { format } from 'date-fns'
 
-import styles from './EpisodeDuration.module.css'
+import styles from './EpisodeTimestamp.module.css'
 
 type Props = {
   className?: string
   episode: SpotifyApi.EpisodeObjectSimplified
 }
 
-export const EpisodeDuration = ({ className, episode }: Props) => (
-  <div className={classNames(styles.time, className)}>
+export const EpisodeTimestamp = ({ className, episode }: Props) => (
+  <div className={classNames(styles.timestamp, className)}>
     <span className={styles.date}>
       {format(new Date(episode.release_date), 'MMM dd')}
     </span>

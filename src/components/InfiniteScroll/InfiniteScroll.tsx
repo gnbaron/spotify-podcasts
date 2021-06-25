@@ -9,7 +9,7 @@ type Props = {
   className?: string
   hasMore?: boolean
   isLoading?: boolean
-  onLoadMore: () => void
+  onLoadMore?: () => void
 }
 
 export const InfiniteScroll = (props: Props) => {

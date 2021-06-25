@@ -2,8 +2,7 @@ import { NextSeo } from 'next-seo'
 import { useSavedEpisodes } from 'lib/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
-import { Episode } from 'components/Episode'
-import { InfiniteScroll } from 'components/InfiniteScroll'
+import { EpisodeList } from 'components/EpisodeList'
 
 import styles from './SavedEpisodesPage.module.css'
 
@@ -26,22 +25,13 @@ export const SavedEpisodesPage = () => {
           subtitle="It looks like you didn't save any episode yet."
         />
       ) : (
-        <InfiniteScroll
-          className={styles.episodeList}
+        <EpisodeList
+          episodes={episodes.data.map(({ episode }) => episode)}
           hasMore={episodes.hasNextPage}
           isLoading={episodes.isFetchingNextPage}
           onLoadMore={episodes.fetchNextPage}
-        >
-          {episodes.data.map(({ episode }, index) => (
-            <article
-              key={episode.id}
-              aria-posinset={++index}
-              aria-setsize={episodes.totalElements}
-            >
-              <Episode episode={episode} />
-            </article>
-          ))}
-        </InfiniteScroll>
+          totalEpisodes={episodes.totalElements}
+        />
       )}
     </BasePage>
   )

@@ -3,7 +3,7 @@ import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'lib/spotify-queries'
 import { useMutateSavedEpisodes } from 'lib/spotify-mutations'
 import { IconButton } from 'components/Button'
-import { EpisodeDuration } from 'components/Episode'
+import { EpisodeTimestamp } from 'components/EpisodeList'
 import { DetailsPage } from './DetailsPage'
 
 import styles from './EpisodeDetailsPage.module.css'
@@ -25,8 +25,8 @@ export const EpisodeDetailsPage = () => {
       subtitleHref={`/shows/${episode.data.show.id}`}
       title={episode.data.name}
     >
-      <EpisodeDuration className={styles.duration} episode={episode.data} />
       <h4 className={styles.heading}>Episode Description</h4>
+      <EpisodeTimestamp className={styles.timestamp} episode={episode.data} />
       <div
         className={styles.description}
         dangerouslySetInnerHTML={{ __html: episode.data.html_description }}

@@ -1,21 +1,5 @@
-.episodeList > article {
-  border: 0;
-}
-
-.episodeList > article + article {
-  margin-top: 1rem;
-}
-
 @media (min-width: 768px) {
   .savedEpisodes {
     margin-top: 1rem;
-  }
-
-  .episodeList > article + article {
-    border-top: 1px solid transparent;
-    border-image-slice: 1;
-    border-image-source:
-      linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-dark-grey), rgba(0, 0, 0, 0));
-    margin: 0;
   }
 }

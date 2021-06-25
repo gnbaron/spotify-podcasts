@@ -3,8 +3,7 @@ import classNames from 'classnames'
 import { useShow, useShowEpisodes, useShowIsSaved } from 'lib/spotify-queries'
 import { useMutateSavedShows } from 'lib/spotify-mutations'
 import { Button } from 'components/Button'
-import { Episode } from 'components/Episode'
-import { InfiniteScroll } from 'components/InfiniteScroll'
+import { EpisodeList } from 'components/EpisodeList'
 import { DetailsPage } from './DetailsPage'
 
 import styles from './ShowDetailsPage.module.css'
@@ -26,22 +25,13 @@ export const ShowDetailsPage = () => {
       subtitle={show.data.publisher}
       title={show.data.name}
     >
-      <InfiniteScroll
-        className={styles.episodeList}
+      <EpisodeList
+        episodes={episodes.data}
         hasMore={episodes.hasNextPage}
         isLoading={episodes.isFetchingNextPage}
         onLoadMore={episodes.fetchNextPage}
-      >
-        {episodes.data.map((episode, index) => (
-          <article
-            key={episode.id}
-            aria-posinset={++index}
-            aria-setsize={episodes.totalElements}
-          >
-            <Episode episode={episode} />
-          </article>
-        ))}
-      </InfiniteScroll>
+        totalEpisodes={episodes.totalElements}
+      />
     </DetailsPage>
   )
 }
