@@ -10,9 +10,9 @@ import { Search } from 'app/search'
 import styles from './App.module.css'
 
 export const App = () => (
-  <ErrorBoundary>
-    <Suspense fallback={<Loading />}>
-      <BrowserRouter>
+  <BrowserRouter>
+    <ErrorBoundary>
+      <Suspense fallback={<Loading />}>
         <div className={styles.container}>
           <header className={styles.header}>
             <NavBar />
@@ -23,13 +23,13 @@ export const App = () => (
                 <Redirect to="/shows" />
               </Route>
               <Route exact path="/shows">
-                <SavedEpisodes />
+                <SavedShows />
               </Route>
               <Route exact path="/shows/:showId">
                 <ShowDetails />
               </Route>
               <Route exact path="/episodes">
-                <SavedShows />
+                <SavedEpisodes />
               </Route>
               <Route exact path="/episodes/:episodeId">
                 <EpisodeDetails />
@@ -43,7 +43,7 @@ export const App = () => (
             </Switch>
           </main>
         </div>
-      </BrowserRouter>
-    </Suspense>
-  </ErrorBoundary>
+      </Suspense>
+    </ErrorBoundary>
+  </BrowserRouter>
 )

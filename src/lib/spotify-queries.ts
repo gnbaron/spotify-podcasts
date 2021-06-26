@@ -5,19 +5,10 @@ import { BASE_URL, fetchSpotifyAPI } from './spotify-api'
 export const queryKeys = {
   episode: (episodeId: string) => ['episode', episodeId],
   episodes: (showId: string) => ['episodes', showId],
-  profile: () => ['profile'],
   savedEpisodes: (...ids: string[]) => ['savedEpisodes', ...ids],
   savedShows: (...ids: string[]) => ['savedShows', ...ids],
   search: (query: string, type: 'show' | 'episode') => ['search', query, type],
   show: (showId: string) => ['show', showId],
-}
-
-export function useProfile() {
-  return useQuery<SpotifyApi.UserObjectPrivate>(
-    queryKeys.profile(),
-    () => fetchSpotifyAPI(`${BASE_URL}/me`),
-    { suspense: false }
-  )
 }
 
 export function useShow(showId: string) {

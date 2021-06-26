@@ -1,29 +1,19 @@
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { FaSignOutAlt } from 'react-icons/fa'
-import { useProfile } from 'lib/spotify-queries'
-import TokenStorage from 'lib/token-storage'
+import { useAuth } from 'context/auth'
 import { Button, IconButton } from 'components/Button'
 import { OnlySmallScreen, OnlyWideScreen } from 'components/ResponsiveContainer'
 
 import styles from './Profile.module.css'
 
 export const Profile = () => {
-  const router = useRouter()
-  const profile = useProfile()
   const [loaded, setLoaded] = useState(false)
+  const { user, logout } = useAuth()
 
-  if (!profile.data) return <div className={classNames(styles.profile)} />
+  if (!user) return <div className={classNames(styles.profile)} />
 
-  const avatarUrl = profile.data.images
-    ? profile.data.images[0].url
-    : '/img/avatar.svg'
-
-  const handleLogout = () => {
-    TokenStorage.remove()
-    router.push('/login')
-  }
+  const avatarUrl = user.images ? user.images[0].url : '/img/avatar.svg'
 
   return (
     <div className={classNames(styles.profile, loaded && styles.loaded)}>
@@ -33,18 +23,13 @@ export const Profile = () => {
         onLoad={() => setLoaded(true)}
       />
       <OnlySmallScreen>
-        <IconButton
-          className={styles.logout}
-          onClick={handleLogout}
-          quiet
-          size="l"
-        >
+        <IconButton className={styles.logout} onClick={logout} quiet size="l">
           <FaSignOutAlt />
         </IconButton>
       </OnlySmallScreen>
       <OnlyWideScreen>
-        <span className={styles.name}>{profile.data.display_name}</span>
-        <Button className={styles.logout} onClick={handleLogout} quiet size="s">
+        <span className={styles.name}>{user.display_name}</span>
+        <Button className={styles.logout} onClick={logout} quiet size="s">
           Logout
         </Button>
       </OnlyWideScreen>

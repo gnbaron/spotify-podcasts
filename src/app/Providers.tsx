@@ -1,8 +1,8 @@
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { queryClient } from 'lib/query-client'
+import { AuthProvider } from 'context/auth'
 import { Tokens } from 'types/common'
-import { Authenticated } from './Authenticated'
 
 type Props = {
   children: React.ReactNode
@@ -12,7 +12,7 @@ type Props = {
 export const Providers = ({ children, tokens }: Props) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Authenticated tokens={tokens}>{children}</Authenticated>
+      <AuthProvider tokens={tokens}>{children}</AuthProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   )

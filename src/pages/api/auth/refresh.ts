@@ -20,6 +20,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { access_token } = await response.json()
     res.status(200).json({ accessToken: access_token, refreshToken })
   } catch (error) {
-    res.status(500).json({ error: 'invalid_token' })
+    res.status(401).json({ error: 'invalid_token' })
   }
 }
