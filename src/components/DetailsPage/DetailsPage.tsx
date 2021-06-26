@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo'
 import { Link } from 'react-router-dom'
 import { BasePage } from 'components/BasePage'
-import { Cover } from 'components/Cover'
+import { LazyCover } from 'components/LazyCover'
 
 import styles from './DetailsPage.module.css'
 
@@ -19,7 +19,7 @@ export const DetailsPage = (props: Props) => (
     <NextSeo title={`Spotify Podcasts · ${props.title}`} />
     <article className={styles.details}>
       <header className={styles.header}>
-        <Cover image={props.cover} size="l" />
+        <LazyCover image={props.cover} size="l" />
         <div className={styles.heading}>
           <h2 className={styles.title}>{props.title}</h2>
           {props.subtitleHref ? (

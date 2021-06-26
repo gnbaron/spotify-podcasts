@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useIsWideScreen } from 'utils/use-media-query'
-import { Cover } from 'components/Cover'
+import { useIsWideScreen } from 'hooks/useMediaQuery'
+import { LazyCover } from 'components/LazyCover'
 
 import styles from './ShowCard.module.css'
 
@@ -14,7 +14,7 @@ export const ShowCard = ({ show }: Props) => {
     <div className={styles.card}>
       <Link to={`/shows/${show.id}`}>
         <div className={styles.body}>
-          <Cover
+          <LazyCover
             className={styles.cover}
             image={show.images[1] || show.images[0]}
             size={isWide ? 'm' : 'xs'}

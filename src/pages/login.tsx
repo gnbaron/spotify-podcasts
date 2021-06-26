@@ -1,18 +1,17 @@
 import { NextPageContext } from 'next'
-import { Login } from 'components/Login'
+import { Login } from 'app/login'
+import { ParsedUrlQuery } from 'querystring'
 
 type Props = {
-  failed?: boolean
+  error?: ParsedUrlQuery['error']
 }
 
-export default function LoginPage({ failed }: Props) {
-  return <Login failed={failed} />
+export default function LoginPage({ error }: Props) {
+  return <Login failed={Boolean(error)} />
 }
 
 export function getServerSideProps({ query }: NextPageContext) {
   return {
-    props: {
-      failed: Boolean(query.error),
-    },
+    props: { error: query.error },
   }
 }

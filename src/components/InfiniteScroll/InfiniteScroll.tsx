@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useIntersectionObserver } from 'utils/use-intersection-observer'
-import { LoadingSpinner } from 'components/Loading'
+import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
+import { Spinner } from 'components/Loading'
 
 import styles from './InfiniteScroll.module.css'
 
@@ -25,7 +25,7 @@ export const InfiniteScroll = (props: Props) => {
       </div>
       <footer className={styles.footer}>
         {hasMore && !isLoading && <span ref={setLoadMoreRef} />}
-        {isLoading && <LoadingSpinner className={styles.spinner} />}
+        {isLoading && <Spinner className={styles.spinner} />}
       </footer>
     </section>
   )

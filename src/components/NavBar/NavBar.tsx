@@ -1,4 +1,4 @@
-import { useIsWideScreen } from 'utils/use-media-query'
+import { useIsWideScreen } from 'hooks/useMediaQuery'
 import { Logo } from 'components/Logo'
 import { Menu } from './Menu'
 import { Profile } from './Profile'

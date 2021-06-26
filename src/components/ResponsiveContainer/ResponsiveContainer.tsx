@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useIsWideScreen } from 'utils/use-media-query'
+import { useIsWideScreen } from 'hooks/useMediaQuery'
 
 export const OnlySmallScreen = ({ children }: { children: ReactNode }) =>
   useIsWideScreen() ? null : <>{children}</>

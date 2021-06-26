@@ -1,1 +1,0 @@
-export { Authenticated } from './Authenticated'

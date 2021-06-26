@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
-import TokenStorage from 'lib/token-storage'
 import { Tokens } from 'types/common'
+import TokenStorage from 'lib/token-storage'
 
 const MINUTE = 60 * 1000
 
@@ -12,13 +12,13 @@ export function useFreshTokens(tokens: Tokens | null) {
   if (tokens) TokenStorage.save(tokens)
 
   return useQuery(queryKeys.tokens(), fetchFreshTokens, {
-    initialData: tokens || TokenStorage.read(),
     cacheTime: Infinity,
+    initialData: tokens || TokenStorage.read(),
+    onSuccess: TokenStorage.save,
     staleTime: 10 * MINUTE,
+    suspense: false,
     refetchInterval: 9 * MINUTE,
     refetchIntervalInBackground: true,
-    onSuccess: TokenStorage.save,
-    suspense: false,
   })
 }
 

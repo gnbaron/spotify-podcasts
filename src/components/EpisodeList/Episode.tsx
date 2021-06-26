@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useIsWideScreen } from 'utils/use-media-query'
-import { Cover } from 'components/Cover'
+import { useIsWideScreen } from 'hooks/useMediaQuery'
+import { LazyCover } from 'components/LazyCover'
 import { OnlyWideScreen } from 'components/ResponsiveContainer'
 import { EpisodeTimestamp } from './EpisodeTimestamp'
 
@@ -15,7 +15,7 @@ export const Episode = ({ episode }: Props) => {
   return (
     <article className={styles.episode}>
       <Link to={`/episodes/${episode.id}`} aria-hidden tabIndex={-1}>
-        <Cover
+        <LazyCover
           className={styles.cover}
           image={episode.images[1] || episode.images[0]}
           size={isWide ? 's' : 'xs'}

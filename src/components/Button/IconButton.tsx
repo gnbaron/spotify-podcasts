@@ -10,8 +10,6 @@ export const IconButton = (props: Props) => {
     <Button
       {...props}
       className={classNames(props.className, styles.iconButton)}
-    >
-      {props.children}
-    </Button>
+    />
   )
 }

@@ -1,10 +1,6 @@
 import { NextPageContext } from 'next'
-import { QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
-import { queryClient } from 'lib/query-client'
-import { App } from 'components/App'
-import { Authenticated } from 'components/Authenticated'
 import { Tokens } from 'types/common'
+import { App, Providers } from 'app'
 
 type Props = {
   tokens: Tokens | null
@@ -12,19 +8,18 @@ type Props = {
 
 export default function IndexPage({ tokens }: Props) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Authenticated tokens={tokens}>
-        <App />
-      </Authenticated>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    <Providers tokens={tokens}>
+      <App />
+    </Providers>
   )
 }
 
 export function getServerSideProps({ query }: NextPageContext) {
   const { accessToken, refreshToken } = query
-  const tokens =
-    accessToken && refreshToken ? { accessToken, refreshToken } : null
+  let tokens = null
+  if (accessToken && refreshToken) {
+    tokens = { accessToken, refreshToken }
+  }
   return {
     props: { tokens },
   }

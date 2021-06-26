@@ -6,7 +6,7 @@ import SEO from '../../next.seo.config'
 
 import 'styles/fonts.css'
 import 'styles/global.css'
-import 'styles/github.css'
+import 'styles/octocat.css'
 import 'styles/scrollbar.css'
 
 function SafeHydrate({ children }: { children: React.ReactNode }) {
@@ -17,7 +17,7 @@ function SafeHydrate({ children }: { children: React.ReactNode }) {
   )
 }
 
-function App({ Component, pageProps, router }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <NextHead>
@@ -43,5 +43,3 @@ function App({ Component, pageProps, router }: AppProps) {
     </>
   )
 }
-
-export default App
