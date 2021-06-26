@@ -12,12 +12,12 @@ import styles from './App.module.css'
 export const App = () => (
   <BrowserRouter>
     <ErrorBoundary>
-      <Suspense fallback={<Loading />}>
-        <div className={styles.container}>
-          <header className={styles.header}>
-            <NavBar />
-          </header>
-          <main className={styles.main}>
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <NavBar />
+        </header>
+        <main className={styles.main}>
+          <Suspense fallback={<Loading />}>
             <Switch>
               <Route exact path="/">
                 <Redirect to="/shows" />
@@ -41,9 +41,9 @@ export const App = () => (
                 <div>not found</div>
               </Route>
             </Switch>
-          </main>
-        </div>
-      </Suspense>
+          </Suspense>
+        </main>
+      </div>
     </ErrorBoundary>
   </BrowserRouter>
 )
