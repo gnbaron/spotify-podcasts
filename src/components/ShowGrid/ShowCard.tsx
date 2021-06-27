@@ -19,7 +19,7 @@ export const ShowCard = ({ show }: Props) => {
             image={show.images[1] || show.images[0]}
             size={isWide ? 'm' : 'xs'}
           />
-          <div>
+          <div className={styles.content}>
             <p className={styles.name}>{show.name}</p>
             <p className={styles.publisher}>{show.publisher}</p>
           </div>

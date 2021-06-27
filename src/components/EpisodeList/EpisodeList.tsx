@@ -1,4 +1,4 @@
-import { Episode } from './Episode'
+import { EpisodeCard } from './EpisodeCard'
 import { InfiniteScroll } from 'components/InfiniteScroll'
 
 import styles from './EpisodeList.module.css'
@@ -26,7 +26,7 @@ export const EpisodeList = (props: Props) => {
           aria-posinset={++index}
           aria-setsize={totalEpisodes}
         >
-          <Episode episode={episode} />
+          <EpisodeCard episode={episode} />
         </article>
       ))}
     </InfiniteScroll>

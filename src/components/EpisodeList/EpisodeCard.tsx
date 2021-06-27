@@ -4,13 +4,13 @@ import { LazyCover } from 'components/LazyCover'
 import { OnlyWideScreen } from 'components/ResponsiveContainer'
 import { EpisodeTimestamp } from './EpisodeTimestamp'
 
-import styles from './Episode.module.css'
+import styles from './EpisodeCard.module.css'
 
 type Props = {
   episode: SpotifyApi.EpisodeObjectSimplified
 }
 
-export const Episode = ({ episode }: Props) => {
+export const EpisodeCard = ({ episode }: Props) => {
   const isWide = useIsWideScreen()
   return (
     <article className={styles.episode}>

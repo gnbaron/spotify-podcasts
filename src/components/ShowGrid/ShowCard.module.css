@@ -28,7 +28,7 @@
 
 .cover {
   transition: box-shadow 300ms, transform 300ms;
-  margin-right: 0.75rem;
+  margin-right: 1rem;
 }
 
 .card:hover .cover,
@@ -39,17 +39,23 @@
   transform: scale(1.03);
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .name {
   color: var(--color-white);
   font-size: var(--font-size-s);
   font-weight: 500;
-  margin: 0.75rem 0 0;
+  margin: 0;
 }
 
 .publisher {
   color: var(--color-light-grey);
   font-size: var(--font-size-xs);
-  margin: 0.25rem 0 0;
+  margin: 0.5rem 0 0;
 }
 
 @media (min-width: 768px) {
@@ -66,6 +72,10 @@
   }
 
   .name {
-    margin: 1.25rem 0 0;
+    margin-top: 1.25rem;
+  }
+
+  .publisher {
+    margin-top: 0.25rem;
   }
 }
