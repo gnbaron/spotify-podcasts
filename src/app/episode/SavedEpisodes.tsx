@@ -1,4 +1,3 @@
-import { NextSeo } from 'next-seo'
 import { useSavedEpisodes } from 'queries/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
@@ -13,10 +12,6 @@ export const SavedEpisodes = () => {
 
   return (
     <BasePage className={styles.page} heading="Episodes">
-      <NextSeo
-        title="Spotify Podcasts - Episodes"
-        description="List of saved episodes."
-      />
       {episodes.data.length === 0 && !episodes.isFetching ? (
         <EmptyState
           title="Oh snap! Nothing to see here."
