@@ -1,4 +1,4 @@
-import TokenStorage from 'lib/token-storage'
+import TokenStorage from 'utils/token-storage'
 import { Tokens } from 'types/common'
 
 export class MissingTokenError extends Error {

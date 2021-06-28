@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { OnlySmallScreen } from 'components/ResponsiveContainer'
+import { OnlySmallScreen } from 'components/Responsive'
 
 import styles from './BasePage.module.css'
 

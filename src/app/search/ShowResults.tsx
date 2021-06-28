@@ -1,4 +1,4 @@
-import { useSearch } from 'lib/spotify-queries'
+import { useSearchShows } from 'queries/spotify-queries'
 import { EmptyState } from 'components/EmptyState'
 import { Spinner } from 'components/Loading'
 import { ShowGrid } from 'components/ShowGrid'
@@ -10,39 +10,29 @@ type Props = {
 }
 
 export const ShowResults = ({ query }: Props) => {
-  const results = useSearch(query, 'show')
+  const shows = useSearchShows(query)
 
-  if (results.data) {
-    // TODO: refactor
-    const shows = results.data.pages
-      .reduce<SpotifyApi.ShowObjectSimplified[]>(
-        (shows, resultPage) => [...shows, ...resultPage.shows.items],
-        []
-      )
-      .filter(Boolean)
-
-    if (shows.length === 0) {
+  if (shows.data) {
+    if (shows.data.length === 0) {
       return <EmptyState size="s" title="Oh snap! No results found." />
     }
 
     return (
       <div className={styles.shows}>
         <ShowGrid
-          shows={shows}
-          hasMore={results.hasNextPage}
-          isLoading={results.isFetchingNextPage}
-          onLoadMore={results.fetchNextPage}
-          totalShows={results.data.pages[0].shows.total}
+          shows={shows.data}
+          hasMore={shows.hasNextPage}
+          isLoading={shows.isFetchingNextPage}
+          onLoadMore={shows.fetchNextPage}
+          totalShows={shows.totalElements}
         />
       </div>
     )
   }
 
-  if (results.isLoading) return <Spinner className={styles.spinner} />
+  if (shows.isLoading) return <Spinner className={styles.spinner} />
 
-  if (results.isError) throw results.error
+  if (shows.isError) throw shows.error
 
-  if (results.isIdle) return null
-
-  throw new Error('Unexpected error')
+  return null
 }

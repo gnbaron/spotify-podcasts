@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useIsWideScreen } from 'hooks/useMediaQuery'
 import { LazyCover } from 'components/LazyCover'
-import { OnlyWideScreen } from 'components/ResponsiveContainer'
+import { OnlyWideScreen } from 'components/Responsive'
 import { EpisodeTimestamp } from './EpisodeTimestamp'
 
 import styles from './EpisodeCard.module.css'

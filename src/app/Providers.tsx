@@ -1,6 +1,6 @@
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { queryClient } from 'lib/query-client'
+import { queryClient } from 'queries/query-client'
 import { AuthProvider } from 'context/auth'
 import { Tokens } from 'types/common'
 

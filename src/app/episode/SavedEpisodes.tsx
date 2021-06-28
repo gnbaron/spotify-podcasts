@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo'
-import { useSavedEpisodes } from 'lib/spotify-queries'
+import { useSavedEpisodes } from 'queries/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
 import { EpisodeList } from 'components/EpisodeList'

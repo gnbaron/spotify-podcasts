@@ -1,4 +1,4 @@
-import { useSearch } from 'lib/spotify-queries'
+import { useSearchEpisodes } from 'queries/spotify-queries'
 import { EmptyState } from 'components/EmptyState'
 import { EpisodeList } from 'components/EpisodeList'
 import { Spinner } from 'components/Loading'
@@ -10,39 +10,29 @@ type Props = {
 }
 
 export const EpisodeResults = ({ query }: Props) => {
-  const results = useSearch(query, 'episode')
+  const episodes = useSearchEpisodes(query)
 
-  if (results.data) {
-    // TODO: refactor
-    const episodes = results.data.pages
-      .reduce<SpotifyApi.EpisodeObjectSimplified[]>(
-        (episodes, resultPage) => [...episodes, ...resultPage.episodes.items],
-        []
-      )
-      .filter(Boolean)
-
-    if (episodes.length === 0) {
+  if (episodes.data) {
+    if (episodes.data.length === 0) {
       return <EmptyState size="s" title="Oh snap! No results found." />
     }
 
     return (
       <div className={styles.episodes}>
         <EpisodeList
-          episodes={episodes}
-          hasMore={results.hasNextPage}
-          isLoading={results.isFetchingNextPage}
-          onLoadMore={results.fetchNextPage}
-          totalEpisodes={results.data.pages[0].episodes.total}
+          episodes={episodes.data}
+          hasMore={episodes.hasNextPage}
+          isLoading={episodes.isFetchingNextPage}
+          onLoadMore={episodes.fetchNextPage}
+          totalEpisodes={episodes.totalElements}
         />
       </div>
     )
   }
 
-  if (results.isLoading) return <Spinner className={styles.spinner} />
+  if (episodes.isLoading) return <Spinner className={styles.spinner} />
 
-  if (results.isError) throw results.error
+  if (episodes.isError) throw episodes.error
 
-  if (results.isIdle) return null
-
-  throw new Error('Unexpected error')
+  return null
 }

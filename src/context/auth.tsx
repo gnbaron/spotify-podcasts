@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext } from 'react'
 import { useRouter } from 'next/router'
-import { useSession, useUser } from 'lib/auth-queries'
-import TokenStorage from 'lib/token-storage'
+import { useSession, useUser } from 'queries/auth-queries'
+import TokenStorage from 'utils/token-storage'
 import { Loading } from 'components/Loading'
 import { Tokens, User } from 'types/common'
 

@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from 'react-query'
-import TokenStorage from 'lib/token-storage'
+import TokenStorage from 'utils/token-storage'
 import { fetchTokens, MissingTokenError } from './auth-api'
 import { BASE_URL, fetchSpotifyAPI } from './spotify-api'
 import { Tokens, User } from 'types/common'

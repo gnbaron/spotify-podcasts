@@ -11,12 +11,12 @@ import styles from './App.module.css'
 
 export const App = () => (
   <BrowserRouter>
-    <ErrorBoundary>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <NavBar />
-        </header>
-        <main className={styles.main}>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <NavBar />
+      </header>
+      <main className={styles.main}>
+        <ErrorBoundary>
           <Suspense fallback={<Loading />}>
             <Switch>
               <Route exact path="/">
@@ -42,8 +42,8 @@ export const App = () => (
               </Route>
             </Switch>
           </Suspense>
-        </main>
-      </div>
-    </ErrorBoundary>
+        </ErrorBoundary>
+      </main>
+    </div>
   </BrowserRouter>
 )

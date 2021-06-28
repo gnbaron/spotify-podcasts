@@ -1,8 +1,12 @@
 import { ReactNode } from 'react'
 import { useIsWideScreen } from 'hooks/useMediaQuery'
 
-export const OnlySmallScreen = ({ children }: { children: ReactNode }) =>
+type Props = {
+  children: ReactNode
+}
+
+export const OnlySmallScreen = ({ children }: Props) =>
   useIsWideScreen() ? null : <>{children}</>
 
-export const OnlyWideScreen = ({ children }: { children: ReactNode }) =>
+export const OnlyWideScreen = ({ children }: Props) =>
   useIsWideScreen() ? <>{children}</> : null

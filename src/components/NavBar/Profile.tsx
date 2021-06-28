@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { useAuth } from 'context/auth'
 import { Button, IconButton } from 'components/Button'
-import { OnlySmallScreen, OnlyWideScreen } from 'components/ResponsiveContainer'
+import { OnlySmallScreen, OnlyWideScreen } from 'components/Responsive'
 
 import styles from './Profile.module.css'
 

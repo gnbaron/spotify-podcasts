@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-
 import NProgress from 'nprogress'
 
 export const Loading = () => {

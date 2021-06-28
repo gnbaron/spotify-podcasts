@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo'
-import { useSavedShows } from 'lib/spotify-queries'
+import { useSavedShows } from 'queries/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
 import { ShowGrid } from 'components/ShowGrid'

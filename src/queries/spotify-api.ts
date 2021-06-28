@@ -1,6 +1,6 @@
+import TokenStorage from 'utils/token-storage'
 import { queryClient } from './query-client'
 import { queryKeys as authQueryKeys } from './auth-queries'
-import TokenStorage from './token-storage'
 
 export const BASE_URL = 'https://api.spotify.com/v1'
 
