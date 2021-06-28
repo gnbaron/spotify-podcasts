@@ -11,15 +11,13 @@ export const SavedEpisodes = () => {
 
   if (!episodes.data) return null
 
-  const isEmpty = episodes.data.length === 0
-
   return (
     <BasePage className={styles.page} heading="Episodes">
       <NextSeo
-        title="Spotify Podcasts · Episodes"
+        title="Spotify Podcasts - Episodes"
         description="List of saved episodes."
       />
-      {isEmpty && !episodes.isFetching ? (
+      {episodes.data.length === 0 && !episodes.isFetching ? (
         <EmptyState
           title="Oh snap! Nothing to see here."
           subtitle="It looks like you didn't save any episode yet."

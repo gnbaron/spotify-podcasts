@@ -16,14 +16,12 @@ export const EmptyState = ({
   subtitleAs: SubHeading = 'h4',
   title,
   titleAs: Heading = 'h3',
-}: Props) => {
-  return (
-    <div className={classNames(styles.emptyState, styles[size])}>
-      {title && <Heading className={styles.title}>{title}</Heading>}
-      <img className={styles.illustration} src="/img/empty-box.svg" />
-      {subtitle && (
-        <SubHeading className={styles.subtitle}>{subtitle}</SubHeading>
-      )}
-    </div>
-  )
-}
+}: Props) => (
+  <div className={classNames(styles.emptyState, styles[size])}>
+    {title && <Heading className={styles.title}>{title}</Heading>}
+    <img className={styles.illustration} src="/img/empty.svg" />
+    {subtitle && (
+      <SubHeading className={styles.subtitle}>{subtitle}</SubHeading>
+    )}
+  </div>
+)

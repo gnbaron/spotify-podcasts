@@ -16,7 +16,7 @@ type Props = {
 
 export const DetailsPage = (props: Props) => (
   <BasePage>
-    <NextSeo title={`Spotify Podcasts · ${props.title}`} />
+    <NextSeo title={`Spotify Podcasts - ${props.title}`} />
     <article className={styles.details}>
       <header className={styles.header}>
         <LazyCover image={props.cover} size="l" />

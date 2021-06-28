@@ -7,6 +7,6 @@ type Props = {
   className?: string
 }
 
-export const Spinner = ({ className }: Props) => {
-  return <CgSpinner className={classNames(styles.spinner, className)} />
-}
+export const Spinner = ({ className }: Props) => (
+  <CgSpinner className={classNames(styles.spinner, className)} />
+)
