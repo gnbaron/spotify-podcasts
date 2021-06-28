@@ -1,16 +1,13 @@
-import { NextPageContext } from 'next'
+import { useEffect, useState } from 'react'
 import { Login } from 'app/login'
 
-type Props = {
-  failed?: boolean
-}
+export default function LoginPage() {
+  const [failed, setFailed] = useState(false)
 
-export default function LoginPage({ failed }: Props) {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('error')) setFailed(true)
+  }, [])
+
   return <Login failed={failed} />
-}
-
-export function getServerSideProps({ query }: NextPageContext) {
-  return {
-    props: { failed: Boolean(query.error) },
-  }
 }
