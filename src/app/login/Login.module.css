@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 100%;
   padding: 6rem 1.5rem 0;
+  overflow-y: scroll;
 }
 
 .login > header,
@@ -33,7 +34,7 @@
 }
 
 .button {
-  padding: 0.7em 2.125em;
+  padding: 0.65em 2.125em;
 }
 
 .login > footer {

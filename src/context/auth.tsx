@@ -28,9 +28,12 @@ export const AuthProvider = ({ children, tokens }: Props) => {
     router.push('/login')
   }, [router])
 
-  if (session.isError) router.push('/login')
+  if (session.isLoading || session.isIdle) return <Loading />
 
-  if (session.isLoading) return <Loading />
+  if (session.isError) {
+    router.push('/login')
+    return null
+  }
 
   return (
     <AuthContext.Provider value={{ logout, user: user.data || null }}>
