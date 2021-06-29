@@ -13,9 +13,9 @@ export default {
     site_name: 'Spotify Podcasts',
     images: [
       {
-        url: 'https://podcasts.gnbaron.com/img/cover.png',
-        width: 1267,
-        height: 876,
+        url: 'https://podcasts.gnbaron.com/img/web.png',
+        width: 1178,
+        height: 1032,
         alt: 'Spotify Podcasts',
       },
     ],
