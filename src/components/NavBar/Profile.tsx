@@ -13,7 +13,8 @@ export const Profile = () => {
 
   if (!user) return <div className={classNames(styles.profile)} />
 
-  const avatarUrl = user.images ? user.images[0].url : '/img/avatar.svg'
+  const avatarUrl =
+    user.images && user.images[0] ? user.images[0].url : '/img/avatar.svg'
 
   return (
     <div className={classNames(styles.profile, loaded && styles.loaded)}>

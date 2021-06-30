@@ -9,7 +9,7 @@ const AUTH_REDIRECT_URI = process.env.AUTH_REDIRECT_URI
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const state = generateRandomString(16)
-  setCookie(res, STATE_KEY, state)
+  setCookie(res, STATE_KEY, state, { sameSite: 'none', secure: true })
 
   const scope =
     'user-read-private user-read-email user-library-read user-library-modify'
