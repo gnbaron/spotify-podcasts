@@ -3,15 +3,13 @@ import { BasePage } from 'components/BasePage'
 import { EmptyState } from 'components/EmptyState'
 import { ShowGrid } from 'components/ShowGrid'
 
-import styles from './SavedShows.module.css'
-
 export const SavedShows = () => {
   const shows = useSavedShows()
 
   if (!shows.data) return null
 
   return (
-    <BasePage className={styles.page} heading="Shows">
+    <BasePage heading="Shows">
       {shows.data.length === 0 && !shows.isFetching ? (
         <EmptyState
           title="Oh snap! Nothing to see here."
