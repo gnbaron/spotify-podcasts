@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import fetch from 'node-fetch'
 import querystring from 'query-string'
-import { clearCookie } from 'utils/cookies'
+import { removeCookie } from 'utils/cookies'
 import { STATE_KEY } from './login'
 
 const CLIENT_ID = process.env.CLIENT_ID
@@ -16,7 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (state === null || state !== storedState) {
     res.redirect(`/login?${querystring.stringify({ error: 'state_mismatch' })}`)
   } else {
-    clearCookie(res, STATE_KEY)
+    removeCookie(res, STATE_KEY)
 
     const auth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 

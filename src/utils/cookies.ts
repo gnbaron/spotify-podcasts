@@ -18,6 +18,6 @@ export const setCookie = (
   res.setHeader('Set-Cookie', serialize(name, String(stringValue), options))
 }
 
-export const clearCookie = (res: NextApiResponse, name: string) => {
+export const removeCookie = (res: NextApiResponse, name: string) => {
   setCookie(res, name, '')
 }
