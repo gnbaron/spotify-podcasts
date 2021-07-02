@@ -20,11 +20,18 @@ export const Profile = () => {
     <div className={classNames(styles.profile, loaded && styles.loaded)}>
       <img
         className={styles.avatar}
-        src={avatarUrl}
         onLoad={() => setLoaded(true)}
+        src={avatarUrl}
+        role="presentation"
       />
       <OnlySmallScreen>
-        <IconButton className={styles.logout} onClick={logout} quiet size="l">
+        <IconButton
+          className={styles.logout}
+          label="Logout"
+          onClick={logout}
+          quiet
+          size="l"
+        >
           <FaSignOutAlt />
         </IconButton>
       </OnlySmallScreen>

@@ -7,6 +7,7 @@ type CommonProps = {
   children: React.ReactNode
   className?: string
   disabled?: boolean
+  label?: string
   quiet?: boolean
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
 }
@@ -19,7 +20,15 @@ type Props = CommonProps & ButtonProps
 
 const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
   (props, ref) => {
-    const { children, disabled, href, onClick, quiet, size = 'm' } = props
+    const {
+      children,
+      disabled,
+      href,
+      label,
+      onClick,
+      quiet,
+      size = 'm',
+    } = props
 
     const className = classNames(
       styles.button,
@@ -28,11 +37,18 @@ const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
     )
 
     const element = href ? (
-      <a aria-disabled={disabled} className={className} href={href} ref={ref}>
+      <a
+        aria-label={label}
+        aria-disabled={disabled}
+        className={className}
+        href={href}
+        ref={ref}
+      >
         {children}
       </a>
     ) : (
       <button
+        aria-label={label}
         aria-disabled={disabled}
         disabled={disabled}
         className={className}

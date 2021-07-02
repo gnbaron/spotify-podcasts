@@ -3,11 +3,12 @@ import { Button } from './Button'
 
 import styles from './IconButton.module.css'
 
-type Props = React.ComponentProps<typeof Button>
+type Props = React.ComponentProps<typeof Button> & { label: string }
 
-export const IconButton = (props: Props) => (
+export const IconButton = ({ label, ...props }: Props) => (
   <Button
     {...props}
     className={classNames(props.className, styles.iconButton)}
+    label={label}
   />
 )

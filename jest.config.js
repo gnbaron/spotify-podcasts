@@ -7,6 +7,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
     'test/(.*)': '<rootDir>/test/$1',
+    '\\icon.png$': '<rootDir>/test/icon-mock.ts',
   },
   setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],
 }

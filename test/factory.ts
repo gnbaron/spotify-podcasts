@@ -1,10 +1,26 @@
 import { Factory } from 'fishery'
 import faker from 'faker'
+import { User } from 'types/common'
 
 export const image = Factory.define<SpotifyApi.ImageObject>(() => ({
   height: faker.datatype.number(),
-  url: faker.internet.url(),
+  url: faker.image.imageUrl(),
   width: faker.datatype.number(),
+}))
+
+export const user = Factory.define<User>(() => ({
+  birthdate: faker.date.past().toISOString(),
+  country: faker.address.country(),
+  display_name: faker.name.firstName(),
+  email: faker.internet.email(),
+  external_urls: { spotify: faker.internet.url() },
+  followers: { href: null, total: faker.datatype.number() },
+  href: faker.internet.url(),
+  id: faker.datatype.uuid(),
+  images: [image.build()],
+  product: faker.random.arrayElement(['premium', 'free']),
+  type: 'user',
+  uri: faker.internet.url(),
 }))
 
 export const show = Factory.define<SpotifyApi.ShowObjectSimplified>(
