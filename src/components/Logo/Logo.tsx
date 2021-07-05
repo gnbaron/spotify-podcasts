@@ -20,12 +20,12 @@ type Props = {
 export const Logo = ({ className, renderHeading, size }: Props) => (
   <div className={classNames(styles.wrapper, styles[size], className)}>
     <Image
+      alt=""
       className={styles.img}
       src={spotifyIcon}
       height={SIZE[size]}
       priority
       quality={100}
-      role="presentation"
       width={SIZE[size]}
     />
     {renderHeading ? (

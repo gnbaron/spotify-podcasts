@@ -20,10 +20,10 @@ export const LazyCover = ({ className, image, size }: Props) => {
   return (
     <div className={classNames(styles.wrapper, loaded && styles.loaded)}>
       <img
+        alt=""
         className={classNames(className, styles.cover, styles[size])}
         onLoad={() => setLoaded(true)}
         src={src}
-        role="presentation"
         ref={setImageRef}
       />
     </div>

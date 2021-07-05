@@ -31,7 +31,7 @@ export const Search = () => {
   }, [isFetching])
 
   useEffect(() => {
-    history.push(`/search?query=${encodeURIComponent(query)}&type=${type}`)
+    history.replace(`/search?query=${encodeURIComponent(query)}&type=${type}`)
     if (query.length === 0) {
       setActive(false)
     }

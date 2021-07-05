@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { MouseEvent, useLayoutEffect, useRef, useState } from 'react'
 import { matchPath, Link, useLocation } from 'react-router-dom'
 import { FaCompactDisc, FaMicrophoneAlt, FaSearch } from 'react-icons/fa'
 import { IconType } from 'react-icons/lib'
@@ -18,20 +18,15 @@ export const Menu = () => {
     setHover(null)
   }
 
-  // set active element reference based on current path
+  // set current page reference
 
-  const [active, setActive] = useState<Element | null>(null)
-  const links = useRef<Record<string, Element | null>>({})
   const location = useLocation()
 
-  useEffect(() => {
-    const route = Object.entries(links.current).find(
-      ([path]) => !!matchPath(location.pathname, path)
-    )
-    if (route) {
-      const [, element] = route
-      setActive(element)
-    }
+  const [current, setCurrent] = useState<Element | null>(null)
+
+  useLayoutEffect(() => {
+    const element = wrapper.current?.querySelector('[aria-current="page"]')
+    setCurrent(element || null)
   }, [location.pathname])
 
   // highlight element positioning
@@ -39,7 +34,7 @@ export const Menu = () => {
   const wrapper = useRef<HTMLDivElement>(null)
 
   function renderHighlight() {
-    const element = hover || active
+    const element = hover || current
 
     if (!element || !wrapper.current) {
       return <span className={styles.highlight} />
@@ -68,12 +63,10 @@ export const Menu = () => {
   function renderLink(path: string, displayName: string, Icon: IconType) {
     return (
       <li
+        aria-current={matchPath(location.pathname, path) ? 'page' : 'false'}
         onMouseEnter={handleMouseEnterItem}
         onMouseLeave={handleMouseLeaveItem}
         role="presentation"
-        ref={(el) => {
-          links.current[path] = el
-        }}
       >
         <Link className={styles.item} to={path} role="tab">
           <Icon className={styles.icon} />

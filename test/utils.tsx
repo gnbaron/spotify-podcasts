@@ -4,11 +4,10 @@ import nock from 'nock'
 import { Providers } from 'app'
 import { queryClientDefaults } from 'queries/query-client'
 import { BASE_URL } from 'queries/spotify-api'
+import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 import { useIsWideScreen } from 'hooks/useMediaQuery'
 import * as factory from 'test/factory'
 import { User } from 'types/common'
-
-jest.mock('hooks/useMediaQuery')
 
 /**
  * Cast a function mocked by `jest.mock` to `jest.Mock` type.
@@ -17,11 +16,24 @@ export function asMock<T>(unmocked: T) {
   return unmocked as T & jest.Mock
 }
 
+jest.mock('hooks/useMediaQuery')
+
 /**
  * Mock `useIsWideScreen` hook to simulate 'small' or 'wide' screen size.
  */
 export function mockScreenSize(size: 'small' | 'wide') {
   asMock(useIsWideScreen).mockReturnValue(size === 'wide')
+}
+
+jest.mock('hooks/useIntersectionObserver')
+
+/**
+ * Mock `useIntersectionObserver` hook.
+ */
+export function mockIntersectionObserver(
+  entry: Partial<IntersectionObserverEntry>
+) {
+  asMock(useIntersectionObserver).mockReturnValue(entry)
 }
 
 /**

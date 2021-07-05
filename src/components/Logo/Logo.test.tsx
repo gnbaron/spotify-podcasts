@@ -21,8 +21,7 @@ describe('<Logo />', () => {
     'renders the logo when size is %s',
     (size) => {
       const { container } = render(<Logo size={size} />)
-      const wrapper = container.childNodes[0]
-      expect(wrapper).toHaveClass(size)
+      expect(container.firstChild).toHaveClass(size)
     }
   )
 })

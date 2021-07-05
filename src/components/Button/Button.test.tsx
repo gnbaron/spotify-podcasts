@@ -59,7 +59,6 @@ describe('<Button />', () => {
         Click
       </Button>
     )
-    const wrapper = container.childNodes[0]
-    expect(wrapper).toHaveClass(size)
+    expect(container.firstChild).toHaveClass(size)
   })
 })

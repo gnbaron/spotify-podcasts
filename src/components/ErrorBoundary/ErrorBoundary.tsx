@@ -17,7 +17,11 @@ export const ErrorBoundary = ({ children }: Props) => (
           <BasePage>
             <div className={styles.error}>
               <h2 className={styles.heading}>Oh snap! Something went wrong.</h2>
-              <img className={styles.illustration} src="/img/error.svg" />
+              <img
+                alt="Person with a broken leg."
+                className={styles.illustration}
+                src="/img/error.svg"
+              />
               <Button
                 className={styles.button}
                 onClick={() => resetErrorBoundary()}

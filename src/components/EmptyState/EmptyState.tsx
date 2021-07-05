@@ -19,7 +19,11 @@ export const EmptyState = ({
 }: Props) => (
   <div className={classNames(styles.emptyState, styles[size])}>
     {title && <Heading className={styles.title}>{title}</Heading>}
-    <img className={styles.illustration} src="/img/empty.svg" />
+    <img
+      alt="Person looking into empty box."
+      className={styles.illustration}
+      src="/img/empty.svg"
+    />
     {subtitle && (
       <SubHeading className={styles.subtitle}>{subtitle}</SubHeading>
     )}

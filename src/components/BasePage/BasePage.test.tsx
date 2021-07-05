@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { mockScreenSize } from 'test/responsive-mocks'
+import { mockScreenSize } from 'test/utils'
 import { BasePage } from './BasePage'
 
 describe('<BasePage />', () => {

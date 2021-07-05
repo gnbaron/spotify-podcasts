@@ -24,7 +24,9 @@ export const InfiniteScroll = (props: Props) => {
         {children}
       </div>
       <footer className={styles.footer}>
-        {hasMore && !isLoading && <span ref={setLoadMoreRef} />}
+        {hasMore && !isLoading && (
+          <span data-testid="loadMore" ref={setLoadMoreRef} />
+        )}
         {isLoading && <Spinner className={styles.spinner} />}
       </footer>
     </section>

@@ -8,5 +8,8 @@ type Props = {
 }
 
 export const Spinner = ({ className }: Props) => (
-  <CgSpinner className={classNames(styles.spinner, className)} />
+  <CgSpinner
+    className={classNames(styles.spinner, className)}
+    data-testid="spinner"
+  />
 )
