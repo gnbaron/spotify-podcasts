@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import classNames from 'classnames'
 import { FaSignOutAlt } from 'react-icons/fa'
-import { useAuth } from 'context/auth'
+import { useAuth } from 'context/AuthContext'
 import { Button, IconButton } from 'components/Button'
 import { OnlySmallScreen, OnlyWideScreen } from 'components/Responsive'
 

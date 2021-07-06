@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserRouter } from 'react-router-dom'
 import { queryClient } from 'queries/query-client'
-import { AuthProvider } from 'context/auth'
+import { AuthProvider } from 'context/AuthContext'
 import { Tokens } from 'types/common'
 
 type Props = {

@@ -10,7 +10,7 @@ type Context = {
   user: User | null
 }
 
-const AuthContext = createContext<Context | null>(null)
+export const AuthContext = createContext<Context | null>(null)
 
 type Props = {
   children: React.ReactNode

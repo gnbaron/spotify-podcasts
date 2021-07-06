@@ -13,7 +13,7 @@ type Props = {
 export const EpisodeCard = ({ episode }: Props) => {
   const isWide = useIsWideScreen()
   return (
-    <article className={styles.episode}>
+    <div className={styles.episode}>
       <Link to={`/episodes/${episode.id}`} aria-hidden tabIndex={-1}>
         <LazyCover
           className={styles.cover}
@@ -30,6 +30,6 @@ export const EpisodeCard = ({ episode }: Props) => {
         </OnlyWideScreen>
         <EpisodeTimestamp episode={episode} />
       </div>
-    </article>
+    </div>
   )
 }
