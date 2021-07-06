@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { render as rtlRender } from '@testing-library/react'
 import { QueryClient } from 'react-query'
 import nock from 'nock'
@@ -56,7 +57,7 @@ export function render(ui: React.ReactElement, options: { user?: User } = {}) {
     user,
     ...rtlRender(
       <Providers queryClient={testQueryClient} tokens={tokens}>
-        {ui}
+        <Suspense fallback={null}>{ui}</Suspense>
       </Providers>
     ),
   }

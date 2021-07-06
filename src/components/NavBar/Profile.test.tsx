@@ -1,5 +1,5 @@
-import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { mockScreenSize, render } from 'test/utils'
 import * as factory from 'test/factory'
 import router from 'next/router'

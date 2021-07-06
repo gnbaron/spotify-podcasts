@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { render } from 'test/utils'
 import * as factory from 'test/factory'
 import { LazyCover } from './LazyCover'
 
