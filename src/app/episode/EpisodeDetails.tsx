@@ -44,6 +44,7 @@ const Heading = ({ episode }: { episode: Episode }) => {
 
   return (
     <IconButton
+      label={isSaved.data[0] ? 'Remove from library' : 'Save to library'}
       onClick={() =>
         isSaved.data[0]
           ? removeMutation.mutate(episode.id)

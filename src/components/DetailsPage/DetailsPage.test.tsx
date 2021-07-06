@@ -29,7 +29,7 @@ describe('<DetailsPage />', () => {
 
   it('renders the cover image', () => {
     render(<DetailsPage {...defaults} />)
-    const cover = screen.getByRole('presentation')
+    const cover = screen.getByRole('img')
     expect(cover).toHaveAttribute('src', defaults.cover.url)
   })
 
