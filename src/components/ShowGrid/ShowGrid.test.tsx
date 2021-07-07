@@ -1,6 +1,5 @@
 import { screen } from '@testing-library/react'
-import { render } from 'test/utils'
-import * as factory from 'test/factory'
+import { factory, render } from 'test/utils'
 import { ShowGrid } from './ShowGrid'
 
 describe('<ShowGrid />', () => {

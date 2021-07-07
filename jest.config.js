@@ -8,5 +8,5 @@ module.exports = {
     '\\.css$': 'identity-obj-proxy',
     'test/(.*)': '<rootDir>/test/$1',
   },
-  setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
 }

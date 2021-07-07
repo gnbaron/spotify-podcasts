@@ -12,7 +12,7 @@ describe('<NavBar />', () => {
   })
 
   describe('when screen size is wide', () => {
-    beforeAll(() => mockScreenSize('wide'))
+    beforeEach(() => mockScreenSize('wide'))
 
     it('renders the logo heading', () => {
       render(<NavBar />)

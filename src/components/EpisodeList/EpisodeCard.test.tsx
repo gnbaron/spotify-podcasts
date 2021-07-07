@@ -1,6 +1,5 @@
 import { screen } from '@testing-library/react'
-import { mockScreenSize, render } from 'test/utils'
-import * as factory from 'test/factory'
+import { factory, mockScreenSize, render } from 'test/utils'
 import { EpisodeCard } from './EpisodeCard'
 
 describe('<EpisodeCard />', () => {
@@ -21,7 +20,7 @@ describe('<EpisodeCard />', () => {
   })
 
   describe('when screen size is wide', () => {
-    beforeAll(() => mockScreenSize('wide'))
+    beforeEach(() => mockScreenSize('wide'))
 
     it('renders episode description', () => {
       const episode = factory.episode.build({

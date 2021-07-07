@@ -16,7 +16,7 @@ describe('<BasePage />', () => {
   })
 
   describe('when screen is wide', () => {
-    beforeAll(() => mockScreenSize('wide'))
+    beforeEach(() => mockScreenSize('wide'))
 
     it('does not render the heading', () => {
       render(<BasePage heading="Shows">content</BasePage>)

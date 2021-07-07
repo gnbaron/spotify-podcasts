@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { mockScreenSize, render } from 'test/utils'
-import * as factory from 'test/factory'
+import { factory, mockScreenSize, render } from 'test/utils'
 import router from 'next/router'
 import { Profile } from './Profile'
 
@@ -9,14 +8,14 @@ describe('<Profile />', () => {
   it('renders the avatar', async () => {
     const { user } = render(<Profile />)
     const url = user.images && user.images[0].url
-    const avatar = await screen.findByRole('presentation')
+    const avatar = await screen.findByRole('img')
     expect(avatar).toHaveAttribute('src', url)
   })
 
-  it('renders the placeholder when user has no profile image', async () => {
+  it('renders avatar placeholder when user has no profile image', async () => {
     const user = factory.user.build({ images: [] })
     render(<Profile />, { user })
-    const avatar = await screen.findByRole('presentation')
+    const avatar = await screen.findByRole('img')
     expect(avatar).toHaveAttribute('src', '/img/avatar.svg')
   })
 
@@ -29,7 +28,7 @@ describe('<Profile />', () => {
   })
 
   describe('when screen size is wide', () => {
-    beforeAll(() => mockScreenSize('wide'))
+    beforeEach(() => mockScreenSize('wide'))
 
     it('renders the user name', async () => {
       const { user } = render(<Profile />)

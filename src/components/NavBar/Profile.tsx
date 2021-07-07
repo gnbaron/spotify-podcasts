@@ -19,10 +19,10 @@ export const Profile = () => {
   return (
     <div className={classNames(styles.profile, loaded && styles.loaded)}>
       <img
+        alt="img"
         className={styles.avatar}
         onLoad={() => setLoaded(true)}
         src={avatarUrl}
-        role="presentation"
       />
       <OnlySmallScreen>
         <IconButton
