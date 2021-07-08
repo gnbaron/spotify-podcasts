@@ -48,12 +48,12 @@
 }
 
 .button:active {
-  transform: translateY(2px);
+  transform: translateY(1px);
 }
 
-.button[aria-disabled] {
-  cursor: not-allowed;
+.button[aria-disabled="true"] {
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .quiet {

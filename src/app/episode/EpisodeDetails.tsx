@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { useParams } from 'react-router-dom'
 import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'queries/spotify-queries'
@@ -8,19 +9,16 @@ import { EpisodeTimestamp } from 'components/EpisodeList'
 
 import styles from './EpisodeDetails.module.css'
 
-type Episode = SpotifyApi.EpisodeObject
-
 export const EpisodeDetails = () => {
   const params = useParams<{ episodeId: string }>()
   const episode = useEpisode(params.episodeId)
-  const isSaved = useEpisodeIsSaved(params.episodeId)
 
-  if (!episode.data || !isSaved.data) return null
+  if (!episode.data) return null
 
   return (
     <DetailsPage
       cover={episode.data.images[1] || episode.data.images[0]}
-      headingContent={<Heading episode={episode.data} />}
+      headingContent={<SaveButton episode={episode.data} />}
       subtitle={episode.data.show.name}
       subtitleHref={`/shows/${episode.data.show.id}`}
       title={episode.data.name}
@@ -35,25 +33,20 @@ export const EpisodeDetails = () => {
   )
 }
 
-const Heading = ({ episode }: { episode: Episode }) => {
-  const isSaved = useEpisodeIsSaved(episode.id)
-  const saveMutation = useMutateSavedEpisodes()
-  const removeMutation = useMutateSavedEpisodes({ removing: true })
-
-  if (!isSaved.data) return null
-
+const SaveButton = ({ episode }: { episode: SpotifyApi.EpisodeObject }) => {
+  const query = useEpisodeIsSaved(episode.id)
+  const mutation = useMutateSavedEpisodes()
+  const isSaved = query.data && query.data[0]
   return (
     <IconButton
-      label={isSaved.data[0] ? 'Remove from library' : 'Save to library'}
-      onClick={() =>
-        isSaved.data[0]
-          ? removeMutation.mutate(episode.id)
-          : saveMutation.mutate(episode.id)
-      }
+      className={classNames(styles.button, query.data && styles.active)}
+      disabled={mutation.isLoading}
+      label={isSaved ? 'Remove from library' : 'Save to library'}
+      onClick={() => mutation.mutate({ ids: [episode.id], remove: isSaved })}
       quiet
       size="l"
     >
-      {isSaved.data[0] ? <FaCheck /> : <FaPlus />}
+      {isSaved ? <FaCheck /> : <FaPlus />}
     </IconButton>
   )
 }

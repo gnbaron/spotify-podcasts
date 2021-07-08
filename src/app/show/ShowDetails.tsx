@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom'
 import classNames from 'classnames'
+import { useParams } from 'react-router-dom'
 import {
   useShow,
   useShowEpisodes,
@@ -12,11 +12,8 @@ import { EpisodeList } from 'components/EpisodeList'
 
 import styles from './ShowDetails.module.css'
 
-type Show = SpotifyApi.ShowObject
-
 export const ShowDetails = () => {
   const params = useParams<{ showId: string }>()
-
   const show = useShow(params.showId)
   const episodes = useShowEpisodes(params.showId)
 
@@ -25,7 +22,12 @@ export const ShowDetails = () => {
   return (
     <DetailsPage
       cover={show.data.images[1] || show.data.images[0]}
-      headingContent={<Heading show={show.data} />}
+      headingContent={
+        <>
+          <p className={styles.description}>{show.data.description}</p>
+          <FollowButton show={show.data} />
+        </>
+      }
       subtitle={show.data.publisher}
       title={show.data.name}
     >
@@ -40,29 +42,19 @@ export const ShowDetails = () => {
   )
 }
 
-const Heading = ({ show }: { show: Show }) => {
-  const isSaved = useShowIsSaved(show.id)
-  const save = useMutateSavedShows()
-  const remove = useMutateSavedShows({ removing: true })
-
+const FollowButton = ({ show }: { show: SpotifyApi.ShowObject }) => {
+  const query = useShowIsSaved(show.id)
+  const mutation = useMutateSavedShows()
+  const isSaved = query.data && query.data[0]
   return (
-    <>
-      <p className={styles.description}>{show.description}</p>
-      <Button
-        className={classNames(
-          styles.followButton,
-          isSaved.data && styles.active
-        )}
-        onClick={() =>
-          isSaved.data && isSaved.data[0]
-            ? remove.mutate(show.id)
-            : save.mutate(show.id)
-        }
-        quiet
-        size="s"
-      >
-        {isSaved.data && isSaved.data[0] ? 'Unfollow' : 'Follow'}
-      </Button>
-    </>
+    <Button
+      className={classNames(styles.button, query.data && styles.active)}
+      disabled={mutation.isLoading}
+      onClick={() => mutation.mutate({ ids: [show.id], remove: isSaved })}
+      quiet
+      size="s"
+    >
+      {isSaved ? 'Unfollow' : 'Follow'}
+    </Button>
   )
 }

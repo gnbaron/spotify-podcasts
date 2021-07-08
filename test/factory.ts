@@ -23,11 +23,24 @@ export const user = Factory.define<User>(() => ({
   uri: faker.internet.url(),
 }))
 
-export const show = Factory.define<SpotifyApi.ShowObjectSimplified>(
+type Page<T> = SpotifyApi.PagingObject<T>
+
+export const page = <T>(params: Partial<Page<T>>): Page<T> => ({
+  href: `${faker.internet.url()}?offset=0&limit=20`,
+  items: [],
+  limit: 20,
+  next: null,
+  offset: 0,
+  previous: null,
+  total: params.items?.length || 0,
+  ...params,
+})
+
+const showLight = Factory.define<SpotifyApi.ShowObjectSimplified>(
   ({ sequence }) => ({
     available_markets: [],
     copyrights: [],
-    description: faker.lorem.lines(4),
+    description: faker.lorem.sentence(),
     explicit: faker.datatype.boolean(),
     external_urls: { spotify: faker.internet.url() },
     href: faker.internet.url(),
@@ -44,14 +57,14 @@ export const show = Factory.define<SpotifyApi.ShowObjectSimplified>(
   })
 )
 
-export const episode = Factory.define<SpotifyApi.EpisodeObjectSimplified>(
+const episodeLight = Factory.define<SpotifyApi.EpisodeObjectSimplified>(
   ({ sequence }) => ({
     audio_preview_url: faker.internet.url(),
-    description: faker.lorem.lines(4),
+    description: faker.lorem.sentence(),
     duration_ms: faker.datatype.number(),
     explicit: faker.datatype.boolean(),
     external_urls: { spotify: faker.internet.url() },
-    html_description: faker.lorem.lines(4),
+    html_description: faker.lorem.sentence(),
     href: faker.internet.url(),
     id: sequence.toString(),
     images: image.buildList(3),
@@ -66,3 +79,36 @@ export const episode = Factory.define<SpotifyApi.EpisodeObjectSimplified>(
     uri: `"spotify:episode:${sequence}`,
   })
 )
+
+const showFull = Factory.define<SpotifyApi.ShowObjectFull>(() => ({
+  ...showLight.build(),
+  episodes: page({ items: episodeLight.buildList(10) }),
+  external_urls: { spotify: faker.internet.url() },
+}))
+
+const episodeFull = Factory.define<SpotifyApi.EpisodeObjectFull>(() => ({
+  ...episodeLight.build(),
+  show: showLight.build(),
+}))
+
+const showSaved = Factory.define<SpotifyApi.SavedShowObject>(() => ({
+  added_at: faker.date.past().toISOString(),
+  show: showLight.build(),
+}))
+
+const episodeSaved = Factory.define<SpotifyApi.SavedEpisodeObject>(() => ({
+  added_at: faker.date.past().toISOString(),
+  episode: episodeFull.build(),
+}))
+
+export const show = {
+  light: showLight,
+  full: showFull,
+  saved: showSaved,
+}
+
+export const episode = {
+  light: episodeLight,
+  full: episodeFull,
+  saved: episodeSaved,
+}

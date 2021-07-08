@@ -1,4 +1,8 @@
-import { mockIntersectionObserver, mockScreenSize } from './utils'
+import {
+  clearSpotifyAPIMocks,
+  mockIntersectionObserver,
+  mockScreenSize,
+} from './utils'
 
 /**
  * Add custom jest matchers for DOM nodes.
@@ -32,3 +36,5 @@ beforeEach(() => {
   mockIntersectionObserver({ isIntersecting: true })
   mockScreenSize('small')
 })
+
+afterEach(() => clearSpotifyAPIMocks())

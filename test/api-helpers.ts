@@ -7,6 +7,10 @@ export function mockSpotifyAPI() {
   return nock(BASE_URL)
 }
 
+export function clearSpotifyAPIMocks() {
+  return nock.cleanAll()
+}
+
 export function mockAuthenticatedUser(user: User = factory.user.build()) {
   const tokens = {
     accessToken: 'accesstoken',
