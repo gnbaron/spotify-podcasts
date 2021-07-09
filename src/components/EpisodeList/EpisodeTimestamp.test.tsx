@@ -6,7 +6,7 @@ const MINUTE = 60 * 1000
 
 describe('<EpisodeTimestamp />', () => {
   it('renders the episode release date and duration', () => {
-    const episode = factory.episode.build({
+    const episode = factory.episode.light.build({
       duration_ms: 35 * MINUTE,
       release_date: '2021-07-04T22:31:14.189Z',
     })

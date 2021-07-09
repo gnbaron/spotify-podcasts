@@ -4,7 +4,7 @@ import { EpisodeCard } from './EpisodeCard'
 
 describe('<EpisodeCard />', () => {
   it('renders the episode cover image', () => {
-    const episode = factory.episode.build()
+    const episode = factory.episode.light.build()
     render(<EpisodeCard episode={episode} />)
     const cover = screen.getByRole('img', { hidden: true })
     expect(cover.closest('a')).toHaveAttribute(
@@ -14,7 +14,7 @@ describe('<EpisodeCard />', () => {
   })
 
   it('renders episode title', () => {
-    const episode = factory.episode.build()
+    const episode = factory.episode.light.build()
     render(<EpisodeCard episode={episode} />)
     screen.getByText(episode.name)
   })
@@ -23,7 +23,7 @@ describe('<EpisodeCard />', () => {
     beforeEach(() => mockScreenSize('wide'))
 
     it('renders episode description', () => {
-      const episode = factory.episode.build({
+      const episode = factory.episode.light.build({
         description: 'This was a fun episode!',
       })
       render(<EpisodeCard episode={episode} />)
