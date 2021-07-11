@@ -1,0 +1,44 @@
+.tabs {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  margin: 0.25rem 0;
+}
+
+.tabs > a {
+  border-bottom: 2px solid transparent;
+  color: var(--color-light-grey);
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: color 200ms, border-color 200ms;
+}
+
+.tabs > a:last-child {
+  margin-left: 2rem;
+}
+
+.tabs > a[aria-selected="true"] {
+  color: var(--color-white);
+}
+
+.tabs > a:hover {
+  border-color: currentColor;
+}
+
+.tabs > a[aria-selected="true"] {
+  border-color: var(--color-light-green);
+}
+
+.panel {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .tabs {
+    margin: 1rem 0;
+  }
+}

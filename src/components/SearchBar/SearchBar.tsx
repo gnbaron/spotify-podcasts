@@ -35,6 +35,7 @@ export const SearchBar = ({ className, onSearch, query }: Props) => {
       <input
         autoCapitalize="off"
         autoCorrect="off"
+        aria-label="Search bar"
         className={styles.input}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Shows and episodes"

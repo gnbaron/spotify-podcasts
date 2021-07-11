@@ -4,3 +4,5 @@ export type Tokens = {
 }
 
 export type User = SpotifyApi.UserObjectPrivate
+
+export type SearchResultType = 'show' | 'episode'

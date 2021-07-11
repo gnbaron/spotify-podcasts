@@ -44,39 +44,6 @@
   opacity: 1;
 }
 
-.menu {
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0.25rem 0;
-}
-
-.menu > li {
-  border-bottom: 2px solid transparent;
-  color: var(--color-light-grey);
-  cursor: pointer;
-  font-weight: 500;
-  line-height: 1.2;
-  transition: color 200ms, border-color 200ms;
-}
-
-.menu > li:last-child {
-  margin-left: 2rem;
-}
-
-.menu > li[data-active="true"] {
-  color: var(--color-white);
-}
-
-.menu > li:hover {
-  border-color: currentColor;
-}
-
-.menu > li[data-active="true"] {
-  border-color: var(--color-light-green);
-}
-
 @media (min-width: 768px) {
   .header {
     padding: 2rem 0 0.5rem;
@@ -93,9 +60,5 @@
 
   .header.active .searchBar {
     transform: translateY(-1rem);
-  }
-
-  .menu {
-    margin: 1rem 0;
   }
 }

@@ -5,19 +5,19 @@ import { useIsFetching } from 'react-query'
 import { queryKeys } from 'queries/spotify-queries'
 import { BasePage } from 'components/BasePage'
 import { SearchBar } from 'components/SearchBar'
+import { SearchResultType } from 'types/common'
+import { ResultsPanel, SearchTabs } from './SearchTabs'
 import { EpisodeResults } from './EpisodeResults'
 import { ShowResults } from './ShowResults'
 
 import styles from './Search.module.css'
-
-type ResultType = 'show' | 'episode'
 
 export const Search = () => {
   const history = useHistory()
   const params = new URLSearchParams(useLocation().search)
   const initialState = {
     query: params.get('query'),
-    type: params.get('type') as ResultType | null,
+    type: params.get('type') as SearchResultType | null,
   }
 
   const [query, setQuery] = useState(initialState.query || '')
@@ -48,22 +48,22 @@ export const Search = () => {
         />
       </header>
       <section className={classNames(styles.results, active && styles.active)}>
-        <nav className={classNames(styles.nav, active && styles.active)}>
-          <ul className={styles.menu} role="tablist">
-            <li data-active={type === 'show'} role="presentation">
-              <a onClick={() => setType('show')} role="tab">
-                Shows
-              </a>
-            </li>
-            <li data-active={type === 'episode'} role="presentation">
-              <a onClick={() => setType('episode')} role="tab">
-                Episodes
-              </a>
-            </li>
-          </ul>
+        <nav
+          aria-hidden={!active}
+          className={classNames(styles.nav, active && styles.active)}
+        >
+          <SearchTabs onSelected={setType} selected={type} />
         </nav>
-        {type === 'show' && <ShowResults query={query} />}
-        {type === 'episode' && <EpisodeResults query={query} />}
+        {type === 'show' && (
+          <ResultsPanel hidden={!active} type="show">
+            <ShowResults query={query} />
+          </ResultsPanel>
+        )}
+        {type === 'episode' && (
+          <ResultsPanel hidden={!active} type="episode">
+            <EpisodeResults query={query} />
+          </ResultsPanel>
+        )}
       </section>
     </BasePage>
   )

@@ -1,5 +1,5 @@
 import { render as rtlRender } from '@testing-library/react'
-import { MemoryRouter, Route } from 'react-router-dom'
+import { MemoryRouter, Route, useLocation } from 'react-router-dom'
 import { Providers } from 'app'
 import { User } from 'types/common'
 import { createTestQueryClient, flushQueries } from './query-helpers'
@@ -28,4 +28,14 @@ export function render(
       </Providers>
     ),
   }
+}
+
+/**
+ * Render location to DOM so tests can make assertions against it.
+ */
+export const Location = () => {
+  const location = useLocation()
+  return (
+    <div data-testid="location">{`${location.pathname}${location.search}`}</div>
+  )
 }
