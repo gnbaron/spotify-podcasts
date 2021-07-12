@@ -3,6 +3,7 @@ import { useIsWideScreen } from 'hooks/useMediaQuery'
 
 export * as factory from './factory'
 export * from './api-helpers'
+export * from './query-helpers'
 export * from './react-helpers'
 
 /**

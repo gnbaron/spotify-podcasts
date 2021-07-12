@@ -16,7 +16,7 @@ export function useSession(tokens: Tokens | null) {
 
   return useQuery(queryKeys.tokens(), fetchTokens, {
     cacheTime: Infinity,
-    initialData: tokens || TokenStorage.read() || undefined,
+    initialData: tokens || undefined,
     onSuccess: TokenStorage.save,
     staleTime: 10 * MINUTE,
     suspense: false,

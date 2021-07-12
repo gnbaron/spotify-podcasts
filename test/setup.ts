@@ -2,6 +2,7 @@ import {
   clearSpotifyAPIMocks,
   mockIntersectionObserver,
   mockScreenSize,
+  supressQueryErrors,
 } from './utils'
 
 /**
@@ -28,6 +29,8 @@ jest.mock('../public/img/icon.png', () => ({
   src: '/public/img/icon.png',
   width: 709,
 }))
+
+supressQueryErrors()
 
 jest.mock('hooks/useMediaQuery')
 jest.mock('hooks/useIntersectionObserver')

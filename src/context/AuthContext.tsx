@@ -10,7 +10,7 @@ type Context = {
   user: User | null
 }
 
-export const AuthContext = createContext<Context | null>(null)
+const AuthContext = createContext<Context | null>(null)
 
 type Props = {
   children: React.ReactNode
@@ -24,13 +24,13 @@ export const AuthProvider = ({ children, tokens }: Props) => {
   const router = useRouter()
 
   const logout = useCallback(() => {
-    TokenStorage.remove()
+    TokenStorage.clear()
     router.push('/login')
   }, [router])
 
   if (session.isLoading || session.isIdle) return <Loading />
 
-  if (session.isError) {
+  if (session.isError && router.asPath !== '/login') {
     router.push('/login')
     return null
   }

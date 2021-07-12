@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/react'
-import { QueryClient } from 'react-query'
+import { QueryClient, setLogger } from 'react-query'
 import { queryClientDefaults } from 'queries/query-client'
 
 export function createTestQueryClient() {
@@ -14,6 +14,7 @@ export function createTestQueryClient() {
       mutations: {
         ...queryClientDefaults.mutations,
         retry: false,
+        useErrorBoundary: false,
       },
     },
   })
@@ -29,4 +30,18 @@ export async function flushQueries(queryClient: QueryClient) {
       ? Promise.reject()
       : Promise.resolve()
   )
+}
+
+/**
+ * Override React Query logger to supress query errors.
+ */
+export function supressQueryErrors() {
+  const noop = () => {
+    // does nothing
+  }
+  setLogger({
+    log: console.log,
+    warn: console.warn,
+    error: noop,
+  })
 }

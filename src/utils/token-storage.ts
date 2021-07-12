@@ -12,7 +12,7 @@ function read(): Tokens | null {
   return { accessToken, refreshToken }
 }
 
-function remove() {
+function clear() {
   localStorage.removeItem('accessToken')
   localStorage.removeItem('refreshToken')
 }
@@ -22,6 +22,6 @@ const EMPTY: Tokens = {
   refreshToken: '',
 }
 
-const TokenStorage = { EMPTY, save, read, remove }
+const TokenStorage = { EMPTY, save, read, clear }
 
 export default TokenStorage
