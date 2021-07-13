@@ -21,15 +21,6 @@ Object.defineProperty(window, 'fetch', { value: require('node-fetch') })
  */
 jest.mock('next/router', () => require('next-router-mock'))
 
-/**
- * Mock assets being imported as es modules.
- */
-jest.mock('../public/img/icon.png', () => ({
-  height: 709,
-  src: '/public/img/icon.png',
-  width: 709,
-}))
-
 supressQueryErrors()
 
 jest.mock('hooks/useMediaQuery')

@@ -5,19 +5,24 @@
   justify-content: center;
 }
 
-.wrapper > h1 {
-  margin: 0 0 0 0.8rem;
-  font-weight: bold;
-}
-
-.s > h1 {
+.s {
   font-size: var(--font-size-l);
 }
 
-.m > h1 {
+.m {
   font-size: var(--font-size-xl);
 }
 
-.l > h1 {
+.l {
   font-size: var(--font-size-xxl);
+}
+
+.heading {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 0 0 0.8rem;
+}
+
+.icon {
+  height: 2em;
 }
