@@ -4,7 +4,7 @@
 }
 
 .header {
-  flex: 0 0 4rem; /* TODO: check if we can set only the flex-basis */
+  flex: 0 0 4rem;
 }
 
 .main {
