@@ -22,7 +22,7 @@ export function useSession(tokens: Tokens | null) {
     suspense: false,
     refetchInterval: 9 * MINUTE,
     refetchIntervalInBackground: true,
-    retry: (count, error) => !(error instanceof MissingTokenError) && count < 3,
+    retry: (count, error) => !(error instanceof MissingTokenError) && count < 2,
   })
 }
 
