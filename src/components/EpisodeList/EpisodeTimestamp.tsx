@@ -11,7 +11,7 @@ type Props = {
 export const EpisodeTimestamp = ({ className, episode }: Props) => (
   <div className={classNames(styles.timestamp, className)}>
     <span className={styles.date}>
-      {format(new Date(episode.release_date), 'MMM dd')}
+      {format(new Date(episode.release_date), 'MMM dd, yyyy')}
     </span>
     ·
     <span className={styles.duration}>{`${Math.round(

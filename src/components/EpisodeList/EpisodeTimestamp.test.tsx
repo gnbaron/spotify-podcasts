@@ -11,7 +11,7 @@ describe('<EpisodeTimestamp />', () => {
       release_date: '2021-07-04T22:31:14.189Z',
     })
     render(<EpisodeTimestamp episode={episode} />)
-    screen.getByText(/Jul 04/i)
+    screen.getByText(/Jul 04, 2021/i)
     screen.getByText(/35 min/i)
   })
 })
