@@ -54,7 +54,7 @@
 
 @media (min-width: 768px) {
   .details {
-    padding: 1.25rem;
+    padding: 0 2rem;
   }
 
   .header {
