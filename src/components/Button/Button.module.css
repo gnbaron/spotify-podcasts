@@ -25,26 +25,20 @@
 .button {
   align-items: center;
   appearance: none;
-  background-color: var(--color-dark-green);
-  border: 1px solid transparent;
-  border-radius: 30px;
+  border-radius: 9px;
   color: var(--color-white);
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   font-size: 1em;
-  font-weight: 700;
+  font-weight: bold;
   justify-content: center;
   line-height: normal;
-  padding: 0.6em 1.5em;
+  overflow: hidden;
+  padding: 0.7em 0.95em;
+  position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  transition: border-color 250ms, box-shadow 250ms, transform 250ms;
-}
-
-.button:hover,
-.button:focus {
-  border-color: var(--color-light-green);
-  box-shadow: inset 0 0 15px 5px var(--color-light-green);
+  transition: transform 250ms, opacity 150ms;
 }
 
 .button:active {
@@ -56,14 +50,42 @@
   pointer-events: none;
 }
 
-.quiet {
-  background-color: transparent;
-  border: 1px solid #535353;
+.highlight {
+  background-color: var(--color-white);
+  border-radius: 50%;
+  height: 0;
+  opacity: 0.1;
+  position: absolute;
+  transition: 300ms height cubic-bezier(0, 0, 0.2, 1), 300ms width cubic-bezier(0, 0, 0.2, 1);
+  width: 0;
+  will-change: height, width;
 }
 
-.quiet:hover,
-.quiet:focus {
+.button:hover .highlight,
+.button:focus .highlight {
+  height: 20rem;
+  width: 20rem;
+}
+
+.primary {
+  background-image: linear-gradient(to top right, var(--color-dark-green) 40%, var(--color-light-green));
+  border-color: var(--color-darker-green);
+  border-style: solid;
+  border-width: 0 0 4px 2px;
+}
+
+.secondary {
   background-color: transparent;
-  border-color: #999999;
-  box-shadow: none;
+  border-color: var(--color-light-grey);
+  border-style: solid;
+  border-width: 1px 1px 4px 3px;
+}
+
+.icon {
+  background-color: transparent;
+  border-color: var(--color-light-grey);
+  border-style: solid;
+  border-radius: 2rem;
+  border-width: 1px;
+  padding: 0.5rem;
 }

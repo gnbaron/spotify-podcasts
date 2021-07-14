@@ -47,7 +47,6 @@ export const SearchBar = ({ className, onSearch, query }: Props) => {
         className={styles.button}
         label={isEmpty ? 'Search' : 'Clear'}
         onClick={handleButtonClick}
-        quiet
         size="l"
       >
         {isEmpty ? <FaSearch /> : <FaTimes />}

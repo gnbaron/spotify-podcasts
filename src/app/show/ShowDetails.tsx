@@ -6,7 +6,7 @@ import {
   useShowIsSaved,
 } from 'queries/spotify-queries'
 import { useMutateSavedShows } from 'queries/spotify-mutations'
-import { Button } from 'components/Button'
+import { SecondaryButton } from 'components/Button'
 import { DetailsPage } from 'components/DetailsPage'
 import { EpisodeList } from 'components/EpisodeList'
 
@@ -47,14 +47,13 @@ const FollowButton = ({ show }: { show: SpotifyApi.ShowObject }) => {
   const mutation = useMutateSavedShows()
   const isSaved = query.data && query.data[0]
   return (
-    <Button
+    <SecondaryButton
       className={classNames(styles.button, query.data && styles.active)}
       disabled={mutation.isLoading}
       onClick={() => mutation.mutate({ ids: [show.id], remove: isSaved })}
-      quiet
       size="s"
     >
       {isSaved ? 'Unfollow' : 'Follow'}
-    </Button>
+    </SecondaryButton>
   )
 }

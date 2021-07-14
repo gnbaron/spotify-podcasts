@@ -1,7 +1,7 @@
 import { QueryErrorResetBoundary } from 'react-query'
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
 import { BasePage } from 'components/BasePage'
-import { Button } from 'components/Button'
+import { SecondaryButton } from 'components/Button'
 
 import styles from './ErrorBoundary.module.css'
 
@@ -22,13 +22,12 @@ export const ErrorBoundary = ({ children }: Props) => (
                 className={styles.illustration}
                 src="/img/error.svg"
               />
-              <Button
+              <SecondaryButton
                 className={styles.button}
                 onClick={() => resetErrorBoundary()}
-                quiet
               >
                 Try again
-              </Button>
+              </SecondaryButton>
             </div>
           </BasePage>
         )}

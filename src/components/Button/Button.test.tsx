@@ -3,16 +3,38 @@ import userEvent from '@testing-library/user-event'
 import { render } from 'test/utils'
 import { Button } from './Button'
 
-describe('<Button />', () => {
+describe.each([
+  { variant: 'primary' as const },
+  { variant: 'secondary' as const },
+  { variant: 'icon' as const },
+])('<Button ...%o />', ({ variant }) => {
+  it('renders the button variant', () => {
+    render(
+      <Button variant={variant} onClick={jest.fn()}>
+        Click
+      </Button>
+    )
+    const button = screen.getByRole('button', { name: /click/i })
+    expect(button).toHaveClass(variant)
+  })
+
   it('renders the button as <a />', () => {
-    render(<Button href="https://podcasts.gnbaron.com">content</Button>)
-    const link = screen.getByRole('link', { name: /content/i })
+    render(
+      <Button variant={variant} href="https://podcasts.gnbaron.com">
+        Click
+      </Button>
+    )
+    const link = screen.getByRole('link', { name: /click/i })
     expect(link).toHaveAttribute('href', 'https://podcasts.gnbaron.com')
   })
 
   it('renders the button as a <button />', () => {
     const onClick = jest.fn()
-    render(<Button onClick={onClick}>Click</Button>)
+    render(
+      <Button variant={variant} onClick={onClick}>
+        Click
+      </Button>
+    )
     const button = screen.getByRole('button', { name: /click/i })
     userEvent.click(button)
     expect(onClick).toHaveBeenCalled()
@@ -20,7 +42,7 @@ describe('<Button />', () => {
 
   it('renders the button disabled', () => {
     render(
-      <Button disabled onClick={jest.fn()}>
+      <Button variant={variant} disabled onClick={jest.fn()}>
         Click
       </Button>
     )
@@ -30,22 +52,12 @@ describe('<Button />', () => {
 
   it('renders with a custom className', () => {
     render(
-      <Button className="custom" onClick={jest.fn()}>
+      <Button variant={variant} className="custom" onClick={jest.fn()}>
         Click
       </Button>
     )
     const button = screen.getByRole('button', { name: /click/i })
     expect(button).toHaveClass('custom')
-  })
-
-  it('renders the quiet variant', () => {
-    render(
-      <Button onClick={jest.fn()} quiet>
-        Click
-      </Button>
-    )
-    const button = screen.getByRole('button', { name: /click/i })
-    expect(button).toHaveClass('quiet')
   })
 
   it.each([
@@ -56,7 +68,7 @@ describe('<Button />', () => {
     'xl' as const,
   ])('renders the button when size is %s', (size) => {
     const { container } = render(
-      <Button onClick={jest.fn()} size={size}>
+      <Button variant={variant} onClick={jest.fn()} size={size}>
         Click
       </Button>
     )

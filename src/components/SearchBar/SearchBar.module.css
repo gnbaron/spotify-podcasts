@@ -35,7 +35,6 @@
 .button:hover,
 .button:focus {
   border-color: transparent;
-  color: var(--color-white);
 }
 
 @media (min-width: 768px) {

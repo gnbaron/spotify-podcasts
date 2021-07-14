@@ -1,4 +1,3 @@
-import { forwardRef } from 'react'
 import classNames from 'classnames'
 
 import styles from './Button.module.css'
@@ -8,7 +7,6 @@ type CommonProps = {
   className?: string
   disabled?: boolean
   label?: string
-  quiet?: boolean
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
@@ -16,55 +14,59 @@ type ButtonProps =
   | { href: string; onClick?: never }
   | { href?: never; onClick: React.MouseEventHandler<HTMLButtonElement> }
 
-type Props = CommonProps & ButtonProps
+type Variant = 'primary' | 'secondary' | 'icon'
 
-const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, Props>(
-  (props, ref) => {
-    const {
-      children,
-      disabled,
-      href,
-      label,
-      onClick,
-      quiet,
-      size = 'm',
-    } = props
+export const Button = (
+  props: CommonProps & ButtonProps & { variant: Variant }
+) => {
+  const {
+    children,
+    disabled,
+    href,
+    label,
+    onClick,
+    variant,
+    size = 'm',
+  } = props
 
-    const className = classNames(
-      styles.button,
-      quiet && styles.quiet,
-      props.className
-    )
+  const className = classNames(styles.button, styles[variant], props.className)
 
-    const element = href ? (
-      <a
-        aria-label={label}
-        aria-disabled={disabled}
-        className={className}
-        href={href}
-        ref={ref}
-      >
-        {children}
-      </a>
-    ) : (
-      <button
-        aria-label={label}
-        aria-disabled={disabled}
-        disabled={disabled}
-        className={className}
-        onClick={onClick}
-        ref={ref}
-      >
-        {children}
-      </button>
-    )
+  const element = href ? (
+    <a
+      aria-label={label}
+      aria-disabled={disabled}
+      className={className}
+      href={href}
+    >
+      <span className={styles.highlight} />
+      {children}
+    </a>
+  ) : (
+    <button
+      aria-label={label}
+      aria-disabled={disabled}
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      <span className={styles.highlight} />
+      {children}
+    </button>
+  )
 
-    return (
-      <div className={classNames(styles.wrapper, styles[size])}>{element}</div>
-    )
-  }
+  return (
+    <div className={classNames(styles.wrapper, styles[size])}>{element}</div>
+  )
+}
+
+export const PrimaryButton = (props: CommonProps & ButtonProps) => (
+  <Button {...props} variant="primary" />
 )
 
-Button.displayName = 'Button'
+export const SecondaryButton = (props: CommonProps & ButtonProps) => (
+  <Button {...props} variant="secondary" />
+)
 
-export { Button }
+export const IconButton = (props: CommonProps & ButtonProps) => (
+  <Button {...props} variant="icon" />
+)

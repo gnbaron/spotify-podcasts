@@ -2,7 +2,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { useAuth } from 'context/AuthContext'
-import { Button, IconButton } from 'components/Button'
+import { SecondaryButton, IconButton } from 'components/Button'
 import { OnlySmallScreen, OnlyWideScreen } from 'components/Responsive'
 
 import styles from './Profile.module.css'
@@ -29,7 +29,6 @@ export const Profile = () => {
           className={styles.logout}
           label="Logout"
           onClick={logout}
-          quiet
           size="l"
         >
           <FaSignOutAlt />
@@ -37,9 +36,9 @@ export const Profile = () => {
       </OnlySmallScreen>
       <OnlyWideScreen>
         <span className={styles.name}>{user.display_name}</span>
-        <Button className={styles.logout} onClick={logout} quiet size="s">
+        <SecondaryButton className={styles.logout} onClick={logout} size="s">
           Logout
-        </Button>
+        </SecondaryButton>
       </OnlyWideScreen>
     </div>
   )

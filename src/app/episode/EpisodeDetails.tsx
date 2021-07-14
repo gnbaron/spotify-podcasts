@@ -1,9 +1,8 @@
 import classNames from 'classnames'
 import { useParams } from 'react-router-dom'
-import { FaCheck, FaPlus } from 'react-icons/fa'
 import { useEpisode, useEpisodeIsSaved } from 'queries/spotify-queries'
 import { useMutateSavedEpisodes } from 'queries/spotify-mutations'
-import { IconButton } from 'components/Button'
+import { SecondaryButton } from 'components/Button'
 import { DetailsPage } from 'components/DetailsPage'
 import { EpisodeTimestamp } from 'components/EpisodeList'
 
@@ -38,15 +37,13 @@ const SaveButton = ({ episode }: { episode: SpotifyApi.EpisodeObject }) => {
   const mutation = useMutateSavedEpisodes()
   const isSaved = query.data && query.data[0]
   return (
-    <IconButton
+    <SecondaryButton
       className={classNames(styles.button, query.data && styles.active)}
       disabled={mutation.isLoading}
-      label={isSaved ? 'Remove from library' : 'Save to library'}
       onClick={() => mutation.mutate({ ids: [episode.id], remove: isSaved })}
-      quiet
-      size="l"
+      size="s"
     >
-      {isSaved ? <FaCheck /> : <FaPlus />}
-    </IconButton>
+      {isSaved ? 'Remove from library' : 'Save to library'}
+    </SecondaryButton>
   )
 }
