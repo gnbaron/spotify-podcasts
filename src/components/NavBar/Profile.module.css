@@ -27,7 +27,7 @@
 }
 
 .logout {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -38,9 +38,5 @@
   .avatar {
     height: 4.5rem;
     width: 4.5rem;
-  }
-
-  .logout {
-    margin-top: 0.75rem;
   }
 }

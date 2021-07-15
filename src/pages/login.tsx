@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { Login } from 'app/login'
 
 export default function LoginPage() {
-  const [failed, setFailed] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    if (params.get('error')) setFailed(true)
+    if (params.get('error')) setError(true)
   }, [])
 
-  return <Login failed={failed} />
+  return <Login error={error} />
 }
