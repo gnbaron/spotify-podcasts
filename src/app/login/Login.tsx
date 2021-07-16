@@ -25,7 +25,12 @@ export const Login = ({ error }: Props) => (
     </main>
     <footer>
       <span>This is a non official app built just for fun.</span>
-      <a href="https://github.com/gnbaron/spotify-podcasts">source code</a>
+      <a
+        className={styles.code}
+        href="https://github.com/gnbaron/spotify-podcasts"
+      >
+        source code
+      </a>
     </footer>
   </div>
 )
