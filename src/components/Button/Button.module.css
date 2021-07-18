@@ -42,7 +42,7 @@
 }
 
 .button:active {
-  transform: translateY(1px);
+  transform: translateY(0.5px);
 }
 
 .button[aria-disabled="true"] {
@@ -56,15 +56,15 @@
   height: 0;
   opacity: 0.1;
   position: absolute;
-  transition: 350ms height cubic-bezier(0, 0, 0.2, 1), 350ms width cubic-bezier(0, 0, 0.2, 1);
+  transition: 300ms height cubic-bezier(0, 0, 0.2, 1), 300ms width cubic-bezier(0, 0, 0.2, 1);
   width: 0;
   will-change: height, width;
 }
 
 .button:hover .highlight,
 .button:focus .highlight {
-  height: 20rem;
-  width: 20rem;
+  height: 15rem;
+  width: 15rem;
 }
 
 .primary {
@@ -79,6 +79,11 @@
   border-color: var(--color-grey);
   border-style: solid;
   border-width: 1px 1px 2px 2px;
+}
+
+.secondary .highlight,
+.secondary .highlight {
+  opacity: 0.05;
 }
 
 .icon {

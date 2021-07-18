@@ -19,6 +19,12 @@
   margin-top: auto;
 }
 
+.login > main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .error {
   align-items: center;
   display: flex;
