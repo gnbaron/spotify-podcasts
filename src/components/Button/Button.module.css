@@ -56,7 +56,7 @@
   height: 0;
   opacity: 0.1;
   position: absolute;
-  transition: 300ms height cubic-bezier(0, 0, 0.2, 1), 300ms width cubic-bezier(0, 0, 0.2, 1);
+  transition: 400ms height cubic-bezier(0, 0, 0.2, 1), 400ms width cubic-bezier(0, 0, 0.2, 1);
   width: 0;
   will-change: height, width;
 }
@@ -76,7 +76,7 @@
 
 .secondary {
   background-color: transparent;
-  border-color: var(--color-light-grey);
+  border-color: var(--color-grey);
   border-style: solid;
   border-width: 1px 1px 2px 2px;
 }
