@@ -56,7 +56,7 @@
   height: 0;
   opacity: 0.1;
   position: absolute;
-  transition: 400ms height cubic-bezier(0, 0, 0.2, 1), 400ms width cubic-bezier(0, 0, 0.2, 1);
+  transition: 350ms height cubic-bezier(0, 0, 0.2, 1), 350ms width cubic-bezier(0, 0, 0.2, 1);
   width: 0;
   will-change: height, width;
 }
