@@ -4,23 +4,23 @@ import { Logo } from 'components/Logo'
 import styles from './Login.module.css'
 
 type Props = {
-  error?: boolean
+  failed?: boolean
 }
 
-export const Login = ({ error }: Props) => (
+export const Login = ({ failed }: Props) => (
   <div className={styles.login}>
     <header>
       <Logo renderHeading size="l" />
     </header>
     <main>
-      {error && (
+      {failed && (
         <div className={styles.error}>
           <span>🧙‍♂️</span>
           <span>you shall not pass</span>
         </div>
       )}
       <PrimaryButton className={styles.button} href="/api/auth/login" size="s">
-        {error ? 'Try again' : 'Log in using Spotify'}
+        {failed ? 'Try again' : 'Log in using Spotify'}
       </PrimaryButton>
     </main>
     <footer>
